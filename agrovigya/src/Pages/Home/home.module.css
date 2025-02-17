@@ -1,0 +1,129 @@
+/* Hero Section */
+.heroSection {
+    position: relative;
+    background: url("https://images.unsplash.com/photo-1598279284742-14aacc701163?auto=format&fit=crop&w=2000&q=80")
+      no-repeat center center/cover;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .heroOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .heroContent {
+    position: relative;
+    max-width: 700px;
+    z-index: 1;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.2rem;
+    margin: 15px 0;
+  }
+  
+  .ctaButton {
+    display: inline-block;
+    background: #fbbf24; /* Yellow */
+    color: black;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .ctaButton:hover {
+    background: #e9a600; /* Darker Yellow */
+  }
+  
+  /* Services Section */
+  .servicesSection {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .servicesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .serviceCard {
+    background: white;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon {
+    color: #147b2c; /* Green */
+  }
+  
+  /* Why Choose Us Section */
+  .whyChooseUs {
+    padding: 50px;
+    background: #f1f5f9; /* Light gray */
+    text-align: center;
+  }
+  
+  .whyGrid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .whyCard {
+    background: white;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* CTA Section */
+  .ctaSection {
+    text-align: center;
+    padding: 50px;
+    background: #147b2c; /* Green */
+    color: white;
+  }
+  
+  .ctaTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .ctaButton {
+    background: white;
+    color: #147b2c;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .ctaButton:hover {
+    background: #fbbf24; /* Yellow */
+  }
+  

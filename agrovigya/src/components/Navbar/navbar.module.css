@@ -1,0 +1,274 @@
+/* Navbar Base */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #147b2c; /* Green */
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  background-color:#147b2c;
+}
+
+.navContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+.logoImage {
+  height: 75px;
+  width: auto;
+}
+
+/* Desktop Menu */
+.desktopMenu {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .desktopMenu {
+    display: flex;
+  }
+}
+
+.navLink {
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.navLink:hover {
+  color: #fbbf24; /* Yellow */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown Menu */
+.dropdownContainer {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.dropdownTrigger:hover {
+  color: #fbbf24; /* Yellow */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdownIcon {
+  width: 16px;
+  height: 16px;
+  margin-left: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.dropdownContainer:hover .dropdownIcon {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 240px;
+  background-color: #147b2c; /* Darker Green */
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+}
+
+.dropdownContainer:hover .dropdownMenu {
+  display: block;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+  color: black;
+  background-color: #fbbf24;
+}
+
+/* Contact Button */
+.contactButton {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.contactButton:hover {
+  color: black;
+  background-color: #fbbf24; /* Yellow */
+  border-color: #fbbf24; /* Yellow */
+}
+
+/* Mobile Menu */
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .mobileMenuButton {
+    display: none;
+  }
+}
+
+.hamburger {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.hamburger:hover {
+  color: #fbbf24; /* Yellow */
+}
+
+.mobileMenu {
+  display: block;
+  padding: 1rem;
+  background-color: #147b2c; /* Darker Green */
+  border-top: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+@media (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.mobileNavLink:hover {
+  color: #fbbf24; /* Yellow */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Dropdown */
+.mobileDropdown {
+  margin: 0.5rem 0;
+}
+
+.mobileDropdownTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: white;
+  background: none;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobileDropdownTrigger:hover {
+  color: #fbbf24; /* Yellow */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobileDropdownIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.mobileDropdownContent {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.375rem;
+}
+
+.mobileDropdownItem {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.mobileDropdownItem:hover {
+  color: #fbbf24; /* Yellow */
+}
+
+/* Mobile Contact Button */
+.mobileContactButton {
+  display: block;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.mobileContactButton:hover {
+  color: black;
+  background-color: #fbbf24; /* Yellow */
+  border-color: #fbbf24; /* Yellow */
+}
