@@ -1,435 +1,116 @@
-/* .container {
-    font-family: "Poppins", sans-serif;
-    color: white;
-    background-color: #000;
-    padding: 20px;
-    text-align: center;
-    margin-top: 5rem;
+/* Hero Section */
+.heroSection {
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1598279284742-14aacc701163?auto=format&fit=crop&w=2000&q=80") no-repeat center center/cover;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
 }
-  
-  .hero {
-    background: linear-gradient(135deg, #ff9900, #333);
-    padding: 60px 20px;
-    border-radius: 10px;
-    animation: fadeIn 1.5s ease-in-out;
-  }
-  
-  .title {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .subtitle {
-    font-size: 1.5rem;
-    opacity: 0.8;
-  }
-  
-  .companyInfo {
-    margin-top: 40px;
-    padding: 20px;
-    border-left: 5px solid #ff9900;
-    animation: slideIn 1.2s ease-in-out;
-  }
-  
-  .visionMission {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 40px 0;
-    gap: 20px;
-  }
-  
-  .vision, .mission {
-    background: rgba(255, 153, 0, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-    flex: 1;
-    max-width: 400px;
-    animation: fadeInUp 1.5s ease-in-out;
-  }
-  
-.team {
-    margin-top: 50px;
-  }
-  
-  .teamGrid {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-    scrollbar-width: thin;
-    scrollbar-color: #ff9900 #222;
-  }
-  
-  .teamGrid::-webkit-scrollbar {
-    height: 8px;
-  }
-  
-  .teamGrid::-webkit-scrollbar-track {
-    background: #222;
-    border-radius: 5px;
-  }
-  
-  .teamGrid::-webkit-scrollbar-thumb {
-    background: #ff9900;
-    border-radius: 5px;
-  }
-  
-  .card {
-    flex: 0 0 250px;
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 18rem;
-    margin-top: 3rem;
-  }
-  
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3);
-  }
-  
-  .avatar {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 3px solid #ff9900;
-    margin-bottom: 10px;
-  }
-    
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .title {
-      font-size: 2.5rem;
-    }
-    .subtitle {
-      font-size: 1.2rem;
-    }
-    .visionMission {
-      flex-direction: column;
-    }
-  }
-   */
 
+.heroOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
 
+.heroContent {
+  position: relative;
+  max-width: 700px;
+  z-index: 1;
+}
 
-   .container {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
-    color: white;
-  }
-  
-  /* Hero Section */
-  .hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
-  .heroOverlay {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at center, rgba(255,153,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
-  }
-  
-  .heroContent {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    padding: 0 1rem;
-  }
-  
-  .title {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-  }
-  
-  .titlePart1 {
-    display: block;
-    animation: fadeInUp 1s ease-out forwards;
-  }
-  
-  .titlePart2 {
-    display: block;
-    color: #ff9900;
-    animation: fadeInUp 1s ease-out 0.3s forwards;
-    opacity: 0;
-  }
-  
-  .subtitle {
-    font-size: clamp(1.25rem, 4vw, 2rem);
-    color: #d1d5db;
-    animation: fadeInUp 1s ease-out 0.6s forwards;
-    opacity: 0;
-  }
-  
-  .scrollIndicator {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-  }
-  
-  .chevron {
-    width: 2rem;
-    height: 2rem;
-    color: white;
-  }
-  
-  /* Section Styles */
-  .section {
-    padding: 5rem 1rem;
-  }
-  
-  .sectionContent {
-    max-width: 72rem;
-    margin: 0 auto;
-  }
-  
-  .sectionTitle {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 4rem;
-    position: relative;
-  }
-  
-  .sectionTitle::after {
-    content: '';
-    position: absolute;
-    bottom: -1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4rem;
-    height: 0.25rem;
-    background: #ff9900;
-    border-radius: 0.125rem;
-  }
-  
-  /* Info Cards */
-  .infoGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  
-  .infoCard {
-    padding: 1.5rem;
-    background: rgba(31, 41, 55, 0.5);
-    backdrop-filter: blur(8px);
-    border-radius: 1rem;
-    border: 1px solid rgba(75, 85, 99, 0.5);
-    transition: all 0.3s ease;
-  }
-  
-  .infoCard:hover {
-    background: rgba(55, 65, 81, 0.5);
-    border-color: #ff9900;
-    transform: translateY(-0.5rem);
-  }
-  
-  .icon {
-    width: 3rem;
-    height: 3rem;
-    color: #ff9900;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .infoCard:hover .icon {
-    transform: scale(1.1);
-  }
-  
-  /* Vision & Mission */
-  .visionMission {
-    padding: 5rem 1rem;
-    background: rgba(0, 0, 0, 0.5);
-  }
-  
-  .visionMissionGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-  
-  .visionCard {
-    padding: 2rem;
-    background: rgba(31, 41, 55, 0.5);
-    backdrop-filter: blur(8px);
-    border-radius: 1rem;
-    border: 1px solid rgba(75, 85, 99, 0.5);
-    transition: all 0.3s ease;
-  }
-  
-  .visionCard:hover {
-    background: rgba(55, 65, 81, 0.5);
-    border-color: #ff9900;
-    transform: translateY(-0.5rem);
-  }
-  
-  /* Team Section */
-  .teamGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-  
-  .teamCard {
-    position: relative;
-    padding: 1.5rem;
-    background: rgba(31, 41, 55, 0.5);
-    backdrop-filter: blur(8px);
-    border-radius: 1rem;
-    border: 1px solid rgba(75, 85, 99, 0.5);
-    transition: all 0.3s ease;
-    text-align: center;
-  }
-  
-  .teamCard:hover {
-    border-color: #ff9900;
-    transform: translateY(-0.5rem);
-  }
-  
-  .imageWrapper {
-    position: relative;
-    width: 12rem;
-    height: 12rem;
-    margin: 0 auto 1.5rem;
-  }
-  
-  .imageGradient {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ff9900 0%, #ff5e00 100%);
-    opacity: 0.75;
-    transition: opacity 0.3s ease;
-  }
-  
-  .memberImage {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #1f2937;
-    transition: transform 0.3s ease;
-  }
-  
-  .teamCard:hover .memberImage {
-    transform: scale(1.05);
-  }
-  
-  .teamCard:hover .imageGradient {
-    opacity: 1;
-  }
-  
-  .memberName {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 0.5rem;
-  }
-  
-  .memberRole {
-    color: #d1d5db;
-    font-size: 1rem;
-  }
-  
-  .cardTitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #ff9900;
-    margin-bottom: 1rem;
-  }
-  
-  .cardText {
-    color: #d1d5db;
-    line-height: 1.6;
-  }
-  
-  /* Animations */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    40% {
-      transform: translateX(-50%) translateY(-30px);
-    }
-    60% {
-      transform: translateX(-50%) translateY(-15px);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .section {
-      padding: 3rem 1rem;
-    }
-  
-    .sectionTitle {
-      font-size: 2rem;
-      margin-bottom: 3rem;
-    }
-  
-    .infoGrid {
-      grid-template-columns: 1fr;
-    }
-  
-    .visionMissionGrid {
-      grid-template-columns: 1fr;
-    }
-  
-    .teamGrid {
-      grid-template-columns: 1fr;
-    }
-  }
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  margin: 15px 0;
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Section Titles */
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Info, Vision & Team Grids */
+.infoGrid,
+.visionMissionGrid,
+.teamGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Info, Vision & Team Cards */
+.infoCard,
+.visionCard,
+.teamCard {
+  background: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  color: #147b2c;
+  font-size: 2rem;
+}
+
+/* Team Section */
+.teamImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.teamName {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.teamRole {
+  font-size: 1rem;
+  color: gray;
+}
+
+/* Hover Animations */
+.teamCard {
+  background: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.teamCard:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.teamImage:hover {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}

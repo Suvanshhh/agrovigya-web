@@ -1,7 +1,7 @@
 import React from "react";
 import { Globe2, Mail } from "lucide-react"; // Removed unused Phone import
-import Footer from "../../Components/Footer/footer";
-import Navbar from "../../Components/Navbar/navbar";
+import Footer from "../../components/Footer/footer";
+import Navbar from "../../components/Navbar/navbar";
 import styles from "./contact.module.css";
 import SocialIcons from "../../Components/Socials/socials";
 

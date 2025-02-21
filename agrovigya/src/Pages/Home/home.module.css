@@ -81,49 +81,56 @@
   }
   
   /* Why Choose Us Section */
-  .whyChooseUs {
-    padding: 50px;
-    background: #f1f5f9; /* Light gray */
-    text-align: center;
-  }
-  
-  .whyGrid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .whyCard {
-    background: white;
-    padding: 20px;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* CTA Section */
-  .ctaSection {
-    text-align: center;
-    padding: 50px;
-    background: #147b2c; /* Green */
-    color: white;
-  }
-  
-  .ctaTitle {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .ctaButton {
-    background: white;
-    color: #147b2c;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
-  .ctaButton:hover {
-    background: #fbbf24; /* Yellow */
-  }
-  
+.whyChooseUs {
+  padding: 50px;
+  background: #f1f5f9; /* Light gray */
+  text-align: center;
+}
+
+.whyGrid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.whyCard {
+  background: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.whyCard:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* CTA Section */
+.ctaSection {
+  text-align: center;
+  padding: 50px;
+  background: #147b2c; /* Green */
+  color: white;
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.ctaButton {
+  background: white;
+  color: #147b2c;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.ctaButton:hover {
+  background: #fbbf24; /* Yellow */
+  transform: scale(1.05);
+}
