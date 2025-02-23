@@ -1,3 +1,6 @@
+/* Rest of the existing styles remain the same */
+
+// Navbar.jsx
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -65,6 +68,11 @@ const Navbar = () => {
             <a href="/dashboard" className={styles.navLink}>{t("navbar.dashboard")}</a>
             <a href="/profile" className={styles.navLink}>{t("navbar.profile")}</a>
             <a href="/contact" className={styles.contactButton}>{t("navbar.contact")}</a>
+            
+            {/* Language Switcher for Desktop */}
+            <div className={styles.languageSwitcherContainer}>
+              <LanguageSwitcher />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -105,9 +113,13 @@ const Navbar = () => {
           <a href="/dashboard" className={styles.mobileNavLink}>{t("navbar.dashboard")}</a>
           <a href="/profile" className={styles.mobileNavLink}>{t("navbar.profile")}</a>
           <a href="/contact" className={styles.mobileContactButton}>{t("navbar.contact")}</a>
+          
+          {/* Language Switcher for Mobile */}
+          <div className={styles.languageSwitcherContainer}>
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
-      <LanguageSwitcher />
     </nav>
   );
 };

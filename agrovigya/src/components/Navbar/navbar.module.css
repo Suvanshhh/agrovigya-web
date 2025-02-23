@@ -52,6 +52,21 @@
 @media (min-width: 768px) {
   .desktopMenu {
     display: flex;
+    align-items: center;
+  }
+}
+
+/* Language Switcher Container */
+.languageSwitcherContainer {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .languageSwitcherContainer {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 

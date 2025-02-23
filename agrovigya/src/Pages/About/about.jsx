@@ -6,8 +6,8 @@ import { Leaf, Users, Target, Rocket, Globe, ChevronDown } from "lucide-react";
 
 const teamMembers = [
   { name: "Shubhra Tripathi", role: "Product Director", img: "https://i.postimg.cc/65pKbJGz/shubhra-pic.jpg" },
-  { name: "Siya", role: "Researcher", img: "https://i.postimg.cc/PJ2jfK0m/siya-pic.jpg" },
-  { name: "Shrut", role: "Researcher", img: "https://i.postimg.cc/NjycY6DH/shrut-pic.jpg" },
+  { name: "Siya Nimkar", role: "Researcher", img: "https://i.postimg.cc/PJ2jfK0m/siya-pic.jpg" },
+  { name: "Shrut Kohle", role: "Researcher", img: "https://i.postimg.cc/KjPjcWMq/shrut-pic2-removebg-preview.png" },
   { name: "Suvansh Choudhary", role: "Developer", img: "https://i.ibb.co/PzCw2K7S/1000158921-01.jpg" },
   { name: "Agniva Maiti", role: "Developer", img: "" },
   { name: "Shivam", role: "Developer", img: "" },

@@ -48,32 +48,35 @@
   .ctaButton:hover {
     background: #45a049;
   }
-  
-  /* Navigation Buttons */
-  .prevButton,
-  .nextButton {
+/* Navigation Buttons */
+.prevButton,
+.nextButton {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2); /* Reduced opacity for more transparency */
     border: none;
     color: white;
-    font-size: 2rem;
+    font-size: 1rem;
     cursor: pointer;
     padding: 10px;
     border-radius: 50%;
-  }
-  
-  .prevButton {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prevButton {
     left: 20px;
-  }
-  
-  .nextButton {
+}
+
+.nextButton {
     right: 20px;
-  }
-  
-  .prevButton:hover,
-  .nextButton:hover {
-    background: rgba(255, 255, 255, 0.5);
-  }
-  
+}
+
+.prevButton:hover,
+.nextButton:hover {
+    background: rgba(255, 255, 255, 0.4); /* Reduced opacity for more transparency */
+}

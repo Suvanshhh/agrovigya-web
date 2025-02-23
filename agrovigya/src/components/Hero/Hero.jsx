@@ -4,17 +4,17 @@ import styles from "./Hero.module.css";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1598279284742-14aacc701163?auto=format&fit=crop&w=2000&q=80",
+    image: "https://plus.unsplash.com/premium_photo-1682092816831-69c7c3ff59a7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "home.title",
     subtitle: "home.subtitle",
   },
   {
-    image: "https://images.unsplash.com/photo-1602001151707-8c121bbf397f?auto=format&fit=crop&w=2000&q=80",
+    image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "home.whyChooseUs",
     subtitle: "whyChooseUs.smartFarmingDesc",
   },
   {
-    image: "https://images.unsplash.com/photo-1601233740083-236ff7301c3d?auto=format&fit=crop&w=2000&q=80",
+    image: "https://images.unsplash.com/photo-1602867741746-6df80f40b3f6?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "services.marketplace",
     subtitle: "services.marketplaceDesc",
   },
