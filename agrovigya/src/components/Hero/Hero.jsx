@@ -7,16 +7,22 @@ const slides = [
     image: "https://plus.unsplash.com/premium_photo-1682092816831-69c7c3ff59a7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "home.title",
     subtitle: "home.subtitle",
+    buttonText: "home.getStarted",
+    buttonLink: "/get-started",
   },
   {
     image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "home.whyChooseUs",
     subtitle: "whyChooseUs.smartFarmingDesc",
+    buttonText: "whyChooseUs.learnMore",
+    buttonLink: "/why-choose-us",
   },
   {
     image: "https://images.unsplash.com/photo-1602867741746-6df80f40b3f6?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "services.marketplace",
     subtitle: "services.marketplaceDesc",
+    buttonText: "services.exploreMarketplace",
+    buttonLink: "/marketplace",
   },
 ];
 
@@ -46,11 +52,11 @@ const HeroSlider = () => {
       <div className={styles.heroContent}>
         <h1 className={styles.heroTitle}>{t(slides[currentSlide].title)}</h1>
         <p className={styles.heroSubtitle}>{t(slides[currentSlide].subtitle)}</p>
-        <a href="/crop-suggestion" className={styles.ctaButton}>
-          {t("home.getCropSuggestions")}
+        <a href={slides[currentSlide].buttonLink} className={styles.ctaButton}>
+          {t(slides[currentSlide].buttonText)}
         </a>
       </div>
-      
+
       {/* Navigation Buttons */}
       <button className={styles.prevButton} onClick={prevSlide}>❮</button>
       <button className={styles.nextButton} onClick={nextSlide}>❯</button>

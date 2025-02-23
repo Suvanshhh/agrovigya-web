@@ -24,6 +24,7 @@ i18n
             ourServices: "Our Services",
             whyChooseUs: "Why Choose AgroVigya?",
             contact: "Contact Us NOW!",
+            getStarted: "Get Started",
           },
           services: {
             governmentSchemes: "Government Schemes",
@@ -36,6 +37,7 @@ i18n
             findJobsDesc: "Explore agricultural employment opportunities tailored for farmers.",
             skillDevelopment: "Skill Development",
             skillDevelopmentDesc: "Upskill with training programs on modern farming techniques.",
+            exploreMarketplace: "Explore Marketplace",
           },
           whyChooseUs: {
             smartFarming: "Smart Farming",
@@ -44,6 +46,7 @@ i18n
             financialAssistanceDesc: "Get real-time updates on the latest government subsidies and schemes.",
             sustainableAgriculture: "Sustainable Agriculture",
             sustainableAgricultureDesc: "Learn best practices for eco-friendly farming and organic methods.",
+            learnMore: "Learn More",
           },
           footer: {
             companyDesc: "Empowering farmers with technology-driven solutions for a sustainable future.",
