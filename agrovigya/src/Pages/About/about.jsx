@@ -13,6 +13,11 @@ const teamMembers = [
   { name: "Shivam", role: "Developer", img: "" },
 ];
 
+const mentors = [
+  { name: "Dr. Anuja Sharma", role: "AI & AgriTech Expert", img: "https://i.postimg.cc/MHWw8g36/anuja-pic.jpg" },
+  { name: "Dr. Aishwarya Rahul Yadav", role: "Sustainable Farming Specialist", img: "https://i.postimg.cc/Jn38vRqY/aishwarya-pic.jpg0" },
+];
+
 const About = () => {
   return (
     <div>
@@ -72,6 +77,20 @@ const About = () => {
         </div>
       </section>
 
+            {/* Our Mentors Section */}
+            <section className={styles.mentorsSection}>
+        <h2 className={styles.sectionTitle}>Our Mentors</h2>
+        <div className={styles.teamGrid}>
+          {mentors.map((mentor, index) => (
+            <div key={index} className={styles.teamCard}>
+              <img src={mentor.img} alt={mentor.name} className={styles.teamImage} />
+              <h3 className={styles.teamName}>{mentor.name}</h3>
+              <p className={styles.teamRole}>{mentor.role}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Meet the Team Section */}
       <section className={styles.teamSection}>
         <h2 className={styles.sectionTitle}>Meet Our Team</h2>
@@ -85,6 +104,8 @@ const About = () => {
           ))}
         </div>
       </section>
+
+
 
       <Footer />
     </div>

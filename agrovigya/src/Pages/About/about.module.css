@@ -16,6 +16,11 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
+/* Our Team Section */
+.teamSection {
+  margin-bottom: 50px; /* Adds spacing below the section */
+}
+
 
 .heroContent {
   position: relative;
@@ -113,4 +118,9 @@
 .teamImage:hover {
   transform: rotate(-5deg) scale(1.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Our Mentors Section */
+.mentorsSection {
+  margin-bottom: 50px; /* Adds spacing below the section */
 }

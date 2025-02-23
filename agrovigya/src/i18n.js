@@ -15,7 +15,7 @@ i18n
             services: "Services",
             dashboard: "Dashboard",
             profile: "Profile",
-            joinNow: "Join Now",
+            contact: "Contact Us",
           },
           home: {
             title: "Empowering Farmers with Technology",
@@ -23,7 +23,7 @@ i18n
             getCropSuggestions: "Get Crop Suggestions",
             ourServices: "Our Services",
             whyChooseUs: "Why Choose AgroVigya?",
-            joinNow: "Join Now",
+            contact: "Contact Us NOW!",
           },
           services: {
             governmentSchemes: "Government Schemes",
@@ -66,8 +66,8 @@ i18n
             aboutUs: "हमारे बारे में",
             services: "सेवाएँ",
             dashboard: "डैशबोर्ड",
-            profile: "प्रोफ़ाइल",
-            joinNow: "अभी शामिल हों",
+            profile: "प्रोफ़ाइल", 
+            contact: "संपर्क करें",
           },
           home: {
             title: "तकनीक के साथ किसानों को सशक्त बनाना",
@@ -75,7 +75,7 @@ i18n
             getCropSuggestions: "फसल सुझाव प्राप्त करें",
             ourServices: "हमारी सेवाएं",
             whyChooseUs: "क्यों चुनें AgroVigya?",
-            joinNow: "अभी शामिल हों",
+            contact: "संपर्क करें",
           },
           services: {
             governmentSchemes: "सरकारी योजनाएँ",

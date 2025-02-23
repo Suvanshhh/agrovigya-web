@@ -64,7 +64,7 @@ const Navbar = () => {
             </div>
             <a href="/dashboard" className={styles.navLink}>{t("navbar.dashboard")}</a>
             <a href="/profile" className={styles.navLink}>{t("navbar.profile")}</a>
-            <a href="/contact" className={styles.contactButton}>{t("navbar.joinNow")}</a>
+            <a href="/contact" className={styles.contactButton}>{t("navbar.contact")}</a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -104,7 +104,7 @@ const Navbar = () => {
 
           <a href="/dashboard" className={styles.mobileNavLink}>{t("navbar.dashboard")}</a>
           <a href="/profile" className={styles.mobileNavLink}>{t("navbar.profile")}</a>
-          <a href="/contact" className={styles.mobileContactButton}>{t("navbar.joinNow")}</a>
+          <a href="/contact" className={styles.mobileContactButton}>{t("navbar.contact")}</a>
         </div>
       )}
       <LanguageSwitcher />
