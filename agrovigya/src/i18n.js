@@ -24,7 +24,7 @@ i18n
             ourServices: "Our Services",
             whyChooseUs: "Why Choose AgroVigya?",
             contact: "Contact Us NOW!",
-            getStarted: "Get Started",
+            getStarted: "Get Started"
           },
           services: {
             governmentSchemes: "Government Schemes",
@@ -37,7 +37,7 @@ i18n
             findJobsDesc: "Explore agricultural employment opportunities tailored for farmers.",
             skillDevelopment: "Skill Development",
             skillDevelopmentDesc: "Upskill with training programs on modern farming techniques.",
-            exploreMarketplace: "Explore Marketplace",
+            exploreMarketplace: "Explore Marketplace"
           },
           whyChooseUs: {
             smartFarming: "Smart Farming",
@@ -46,7 +46,7 @@ i18n
             financialAssistanceDesc: "Get real-time updates on the latest government subsidies and schemes.",
             sustainableAgriculture: "Sustainable Agriculture",
             sustainableAgricultureDesc: "Learn best practices for eco-friendly farming and organic methods.",
-            learnMore: "Learn More",
+            learnMore: "Learn More"
           },
           footer: {
             companyDesc: "Empowering farmers with technology-driven solutions for a sustainable future.",
@@ -79,6 +79,7 @@ i18n
             ourServices: "हमारी सेवाएं",
             whyChooseUs: "क्यों चुनें AgroVigya?",
             contact: "संपर्क करें",
+            getStarted: "शुरू करें",
           },
           services: {
             governmentSchemes: "सरकारी योजनाएँ",
@@ -91,6 +92,7 @@ i18n
             findJobsDesc: "किसानों के लिए उपयुक्त कृषि रोजगार के अवसर खोजें।",
             skillDevelopment: "कौशल विकास",
             skillDevelopmentDesc: "आधुनिक कृषि तकनीकों पर प्रशिक्षण कार्यक्रमों के साथ कौशल बढ़ाएँ।",
+            exploreMarketplace: "बाजार का अन्वेषण करें",
           },
           whyChooseUs: {
             smartFarming: "स्मार्ट खेती",
@@ -99,6 +101,7 @@ i18n
             financialAssistanceDesc: "नवीनतम सरकारी सब्सिडी और योजनाओं की वास्तविक समय में अपडेट प्राप्त करें।",
             sustainableAgriculture: "सतत कृषि",
             sustainableAgricultureDesc: "इको-फ्रेंडली खेती और जैविक तरीकों के सर्वोत्तम अभ्यास सीखें।",
+            learnMore: "अधिक जानें"
           },
           footer: {
             companyDesc: "किसानों को तकनीक-आधारित समाधान प्रदान कर एक स्थायी भविष्य की ओर अग्रसर करना।",

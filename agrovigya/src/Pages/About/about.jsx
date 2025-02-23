@@ -7,15 +7,15 @@ import { Leaf, Users, Target, Rocket, Globe, ChevronDown } from "lucide-react";
 const teamMembers = [
   { name: "Shubhra Tripathi", role: "Product Director", img: "https://i.postimg.cc/65pKbJGz/shubhra-pic.jpg" },
   { name: "Siya Nimkar", role: "Researcher", img: "https://i.postimg.cc/PJ2jfK0m/siya-pic.jpg" },
-  { name: "Shrut Kohle", role: "Researcher", img: "https://i.postimg.cc/KjPjcWMq/shrut-pic2-removebg-preview.png" },
+  { name: "Shrut Kolhe", role: "Researcher", img: "https://i.postimg.cc/KjPjcWMq/shrut-pic2-removebg-preview.png" },
   { name: "Suvansh Choudhary", role: "Developer", img: "https://i.ibb.co/PzCw2K7S/1000158921-01.jpg" },
-  { name: "Agniva Maiti", role: "Developer", img: "" },
-  { name: "Shivam", role: "Developer", img: "" },
+  { name: "Agniva Maiti", role: "Developer", img: "https://i.postimg.cc/hgzHNdVc/agniva-pic.jpg" },
+  { name: "Shivam", role: "Developer", img: "https://i.postimg.cc/fLkx8mPW/shivam-pic.jpg" },
 ];
 
 const mentors = [
-  { name: "Dr. Anuja Sharma", role: "AI & AgriTech Expert", img: "https://i.postimg.cc/MHWw8g36/anuja-pic.jpg" },
-  { name: "Dr. Aishwarya Rahul Yadav", role: "Sustainable Farming Specialist", img: "https://i.postimg.cc/Jn38vRqY/aishwarya-pic.jpg0" },
+  { name: "Anuja Sharma", role: "", img: "https://i.postimg.cc/MHWw8g36/anuja-pic.jpg" },
+  { name: "Dr. Aishwarya Rahul Yadav", role: "", img: "https://i.postimg.cc/Jn38vRqY/aishwarya-pic.jpg0" },
 ];
 
 const About = () => {
