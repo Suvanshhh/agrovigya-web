@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   Mail,
   Phone,
@@ -11,6 +12,7 @@ import {
 import styles from "./footer.module.css";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -23,9 +25,7 @@ const Footer = () => {
             alt="Agrovigya Logo"
             className={styles.footerLogo}
           />
-          <p className={styles.companyDesc}>
-            Empowering farmers with technology-driven solutions for a sustainable future.
-          </p>
+          <p className={styles.companyDesc}>{t("footer.companyDesc")}</p>
           <div className={styles.socialLinks}>
             <a href="#" className={styles.socialIcon}><Twitter size={20} /></a>
             <a href="#" className={styles.socialIcon}><Linkedin size={20} /></a>
@@ -36,33 +36,33 @@ const Footer = () => {
 
         {/* Quick Links Section */}
         <div className={styles.linksSection}>
-          <h3 className={styles.footerTitle}>Quick Links</h3>
+          <h3 className={styles.footerTitle}>{t("footer.quickLinks")}</h3>
           <ul className={styles.linksList}>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/schemes">Government Schemes</a></li>
-            <li><a href="/crop-suggestion">Crop Suggestion</a></li>
-            <li><a href="/jobs">Find Jobs</a></li>
-            <li><a href="/skills">Skill Development</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/dashboard">{t("navbar.dashboard")}</a></li>
+            <li><a href="/schemes">{t("services.governmentSchemes")}</a></li>
+            <li><a href="/crop-suggestion">{t("services.cropSuggestion")}</a></li>
+            <li><a href="/jobs">{t("services.findJobs")}</a></li>
+            <li><a href="/skills">{t("services.skillDevelopment")}</a></li>
+            <li><a href="/contact">{t("footer.contactUs")}</a></li>
           </ul>
         </div>
 
         {/* Services Section */}
         <div className={styles.servicesSection}>
-          <h3 className={styles.footerTitle}>Our Services</h3>
+          <h3 className={styles.footerTitle}>{t("footer.ourServices")}</h3>
           <ul className={styles.linksList}>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/schemes">Schemes</a></li>
-            <li><a href="/skills">My Skills</a></li>
-            <li><a href="/jobs">Find Jobs</a></li>
-            <li><a href="/crop-suggestion">Crop Suggestion</a></li>
+            <li><a href="/dashboard">{t("navbar.dashboard")}</a></li>
+            <li><a href="/profile">{t("navbar.profile")}</a></li>
+            <li><a href="/schemes">{t("services.governmentSchemes")}</a></li>
+            <li><a href="/skills">{t("services.skillDevelopment")}</a></li>
+            <li><a href="/jobs">{t("services.findJobs")}</a></li>
+            <li><a href="/crop-suggestion">{t("services.cropSuggestion")}</a></li>
           </ul>
         </div>
 
         {/* Contact Section */}
         <div className={styles.contactSection}>
-          <h3 className={styles.footerTitle}>Contact Us</h3>
+          <h3 className={styles.footerTitle}>{t("footer.contactUs")}</h3>
           <div className={styles.contactInfo}>
             <div className={styles.contactItem}>
               <Mail size={16} />
@@ -74,27 +74,21 @@ const Footer = () => {
             </div>
             <div className={styles.contactItem}>
               <MapPin size={16} />
-              <p>XYZ, Maharashtra, India</p>
-            </div>
-            <div className={styles.contactItem}>
-              <Instagram size={16} />
-              <a href="#">Instagram</a>
+              <p>{t("footer.address")}</p>
             </div>
           </div>
 
           {/* Newsletter Signup */}
           <div className={styles.newsletter}>
-            <h4 className={styles.newsletterTitle}>
-              Subscribe to Our Newsletter
-            </h4>
+            <h4 className={styles.newsletterTitle}>{t("footer.newsletterTitle")}</h4>
             <form className={styles.subscribeForm}>
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("footer.emailPlaceholder")}
                 className={styles.emailInput}
               />
               <button type="submit" className={styles.subscribeBtn}>
-                Subscribe
+                {t("footer.subscribe")}
               </button>
             </form>
           </div>
@@ -105,10 +99,10 @@ const Footer = () => {
       <div className={styles.bottomBar}>
         <div className={styles.bottomContent}>
           <p className={styles.copyright}>
-            © {currentYear} AgroVigya. All rights reserved.
+            © {currentYear} AgroVigya. {t("footer.rightsReserved")}
           </p>
           <div className={styles.legalLinks}>
-            <a href="/privacy">Privacy Policy</a>
+            <a href="/privacy">{t("footer.privacyPolicy")}</a>
           </div>
         </div>
       </div>

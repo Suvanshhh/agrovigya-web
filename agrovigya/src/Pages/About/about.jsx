@@ -5,12 +5,12 @@ import styles from "./about.module.css";
 import { Leaf, Users, Target, Rocket, Globe, ChevronDown } from "lucide-react";
 
 const teamMembers = [
-  { name: "Shubhra Tripathi", role: "Product Director", img: "" },
+  { name: "Shubhra Tripathi", role: "Product Director", img: "https://i.postimg.cc/65pKbJGz/shubhra-pic.jpg" },
+  { name: "Siya", role: "Researcher", img: "https://i.postimg.cc/PJ2jfK0m/siya-pic.jpg" },
+  { name: "Shrut", role: "Researcher", img: "https://i.postimg.cc/NjycY6DH/shrut-pic.jpg" },
   { name: "Suvansh Choudhary", role: "Developer", img: "https://i.ibb.co/PzCw2K7S/1000158921-01.jpg" },
   { name: "Agniva Maiti", role: "Developer", img: "" },
   { name: "Shivam", role: "Developer", img: "" },
-  { name: "Shrut", role: "Researcher", img: "" },
-  { name: "Siya", role: "Researcher", img: "" }
 ];
 
 const About = () => {
