@@ -9,6 +9,7 @@ const LanguageSwitcher = () => {
         <div className={styles.container}>
             <button className={styles.button} onClick={() => i18n.changeLanguage("en")}>🇬🇧 English</button>
             <button className={styles.button} onClick={() => i18n.changeLanguage("hi")}>🇮🇳 हिन्दी</button>
+            <button className={styles.button} onClick={() => i18n.changeLanguage("mr")}>🇮🇳 मराठी</button>
         </div>
     );
 };

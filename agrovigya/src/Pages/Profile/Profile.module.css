@@ -1,0 +1,95 @@
+/* Profile.module.css */
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #6b8e23, #3cb371);
+    min-height: 100vh;
+    color: #333;
+}
+
+.profileTitle {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-in-out;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profileCard {
+    background: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.profileField {
+    margin-bottom: 15px;
+}
+
+.profileField label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.profileField span,
+.inputField {
+    font-size: 1rem;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.inputField {
+    background: #f9f9f9;
+}
+
+.editButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #147b2c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.editButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .profileContainer {
+        padding: 20px;
+    }
+
+    .profileCard {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .editButton {
+        width: 100%;
+        justify-content: center;
+    }
+}
