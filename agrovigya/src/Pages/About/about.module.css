@@ -10,6 +10,7 @@ body {
   background: #f8f9fa;
   color: #333;
 }
+
 /* Hero Section */
 .heroSection {
   position: relative;
@@ -41,8 +42,6 @@ body {
 .heroTitle {
   color: white !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 2;
   font-size: clamp(2rem, 6vw, 3.5rem);
   font-weight: bold;
   animation: fadeInUp 1s ease-in-out;
@@ -51,12 +50,9 @@ body {
 .heroSubtitle {
   color: rgba(255, 255, 255, 0.703);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 2;
   font-size: clamp(1.2rem, 4vw, 1.8rem);
   animation: fadeInUp 1.2s ease-in-out;
 }
-
 
 /* Scroll Indicator */
 .scrollIndicator {
@@ -75,47 +71,28 @@ body {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-
 /* Info, Vision & Team Grids */
-.infoGrid,
-.visionMissionGrid,
-.teamGrid {
+.infoGrid, .visionMissionGrid, .teamGrid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   padding: 20px;
-  margin-bottom: 40px; /* Added spacing below */
-}
-
-/* Info, Vision & Team Grids */
-.infoGrid,
-.visionMissionGrid,
-.teamGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  margin-bottom: 40px; /* Added spacing below */
+  margin-bottom: 40px;
 }
 
 /* Info, Vision & Team Cards */
-.infoCard,
-.visionCard,
-.teamCard {
+.infoCard, .visionCard, .teamCard {
   background: white;
   padding: 20px;
-  width: 250px;
+  width: 270px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.infoCard:hover,
-.visionCard:hover,
-.teamCard:hover {
+.infoCard:hover, .visionCard:hover, .teamCard:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -154,19 +131,60 @@ body {
   margin-bottom: 50px;
 }
 
+/* Project Director Section */
+.projectDirectorSection {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.projectDirectorCard {
+  background: white;
+  padding: 30px;
+  width: 250px;
+  border-radius: 15px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.projectDirectorCard:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.projectDirectorCard img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.projectDirectorCard img:hover {
+  transform: scale(1.1);
+}
+
+.projectDirectorCard h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.projectDirectorCard p {
+  font-size: 1.1rem;
+  color: gray;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .heroTitle {
     font-size: 2rem;
   }
-
   .heroSubtitle {
     font-size: 1rem;
   }
-
-  .infoCard,
-  .visionCard,
-  .teamCard {
+  .infoCard, .visionCard, .teamCard {
     width: 100%;
     max-width: 300px;
   }
