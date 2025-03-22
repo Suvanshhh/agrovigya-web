@@ -1,7 +1,5 @@
-/* Rest of the existing styles remain the same */
-
-// Navbar.jsx
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // ✅ Import Link for navigation
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
@@ -22,10 +20,10 @@ const Navbar = () => {
   }, []);
 
   const services = [
-    t("services.governmentSchemes"),
-    t("services.skillDevelopment"),
-    t("services.findJobs"),
-    t("services.cropSuggestion"),
+    { name: t("services.governmentSchemes"), path: "/government-schemes" },
+    { name: t("services.skillDevelopment"), path: "/skill-development" },
+    { name: t("services.findJobs"), path: "/find-jobs" },
+    { name: t("services.cropSuggestion"), path: "/crop-recommendation" } // ✅ Route for Crop Recommendation
   ];
 
   return (
@@ -33,18 +31,18 @@ const Navbar = () => {
       <div className={styles.navContainer}>
         <div className={styles.navContent}>
           {/* Logo */}
-          <a href="/" className={styles.logo}>
+          <Link to="/" className={styles.logo}>
             <img
               src="https://i.postimg.cc/j2tXv7Cn/agro-Vigya-Logo.png"
               alt="AgroVigya Logo"
               className={styles.logoImage}
             />
-          </a>
+          </Link>
 
           {/* Desktop Menu */}
           <div className={styles.desktopMenu}>
-            <a href="/" className={styles.navLink}>{t("navbar.home")}</a>
-            <a href="/about" className={styles.navLink}>{t("navbar.aboutUs")}</a>
+            <Link to="/" className={styles.navLink}>{t("navbar.home")}</Link>
+            <Link to="/about" className={styles.navLink}>{t("navbar.aboutUs")}</Link>
 
             {/* Services Dropdown for Desktop */}
             <div
@@ -58,17 +56,18 @@ const Navbar = () => {
               {isServicesOpen && (
                 <div className={styles.dropdownMenu}>
                   {services.map((service, index) => (
-                    <a key={index} href={`#${service.toLowerCase().replace(" ", "-")}`} className={styles.dropdownItem}>
-                      {service}
-                    </a>
+                    <Link key={index} to={service.path} className={styles.dropdownItem}>
+                      {service.name}
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
-            <a href="/dashboard" className={styles.navLink}>{t("navbar.dashboard")}</a>
-            <a href="/profile" className={styles.navLink}>{t("navbar.profile")}</a>
-            <a href="/contact" className={styles.contactButton}>{t("navbar.contact")}</a>
-            
+
+            <Link to="/dashboard" className={styles.navLink}>{t("navbar.dashboard")}</Link>
+            <Link to="/profile" className={styles.navLink}>{t("navbar.profile")}</Link>
+            <Link to="/contact" className={styles.contactButton}>{t("navbar.contact")}</Link>
+
             {/* Language Switcher for Desktop */}
             <div className={styles.languageSwitcherContainer}>
               <LanguageSwitcher />
@@ -87,8 +86,8 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className={styles.mobileMenu}>
-          <a href="/" className={styles.mobileNavLink}>{t("navbar.home")}</a>
-          <a href="/about" className={styles.mobileNavLink}>{t("navbar.aboutUs")}</a>
+          <Link to="/" className={styles.mobileNavLink}>{t("navbar.home")}</Link>
+          <Link to="/about" className={styles.mobileNavLink}>{t("navbar.aboutUs")}</Link>
 
           {/* Services Dropdown for Mobile */}
           <div className={styles.mobileDropdown}>
@@ -102,18 +101,18 @@ const Navbar = () => {
             {isServicesOpen && (
               <div className={styles.mobileDropdownContent}>
                 {services.map((service, index) => (
-                  <a key={index} href={`#${service.toLowerCase().replace(" ", "-")}`} className={styles.mobileDropdownItem}>
-                    {service}
-                  </a>
+                  <Link key={index} to={service.path} className={styles.mobileDropdownItem}>
+                    {service.name}
+                  </Link>
                 ))}
               </div>
             )}
           </div>
 
-          <a href="/dashboard" className={styles.mobileNavLink}>{t("navbar.dashboard")}</a>
-          <a href="/profile" className={styles.mobileNavLink}>{t("navbar.profile")}</a>
-          <a href="/contact" className={styles.mobileContactButton}>{t("navbar.contact")}</a>
-          
+          <Link to="/dashboard" className={styles.mobileNavLink}>{t("navbar.dashboard")}</Link>
+          <Link to="/profile" className={styles.mobileNavLink}>{t("navbar.profile")}</Link>
+          <Link to="/contact" className={styles.mobileContactButton}>{t("navbar.contact")}</Link>
+
           {/* Language Switcher for Mobile */}
           <div className={styles.languageSwitcherContainer}>
             <LanguageSwitcher />
