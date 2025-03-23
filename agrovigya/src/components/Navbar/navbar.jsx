@@ -64,7 +64,7 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link to="/dashboard" className={styles.navLink}>{t("navbar.dashboard")}</Link>
+            {/* <Link to="/dashboard" className={styles.navLink}>{t("navbar.dashboard")}</Link> */}
             <Link to="/profile" className={styles.navLink}>{t("navbar.profile")}</Link>
 
             {/* Login & Signup Buttons */}
@@ -114,7 +114,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/dashboard" className={styles.mobileNavLink}>{t("navbar.dashboard")}</Link>
+          {/* <Link to="/dashboard" className={styles.mobileNavLink}>{t("navbar.dashboard")}</Link> */}
           <Link to="/profile" className={styles.mobileNavLink}>{t("navbar.profile")}</Link>
 
           {/* Login & Signup Buttons for Mobile */}
