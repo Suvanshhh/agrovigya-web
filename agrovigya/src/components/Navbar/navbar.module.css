@@ -287,3 +287,38 @@
   background-color: #fbbf24; /* Yellow */
   border-color: #fbbf24; /* Yellow */
 }
+
+/* Desktop Login & Signup Buttons */
+.navButton {
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50; /* Green */
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin: 0 10px;
+}
+
+.navButton:hover {
+  background-color: #388E3C; /* Darker green */
+}
+
+/* Mobile Login & Signup Buttons */
+.mobileNavButton {
+  text-decoration: none;
+  color: white;
+  background-color: #4CAF50;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px 0;
+  display: block;
+}
+
+.mobileNavButton:hover {
+  background-color: #388E3C;
+}

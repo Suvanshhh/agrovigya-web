@@ -23,7 +23,7 @@ const Navbar = () => {
     { name: t("services.governmentSchemes"), path: "/government-schemes" },
     { name: t("services.skillDevelopment"), path: "/skill-development" },
     { name: t("services.findJobs"), path: "/find-jobs" },
-    { name: t("services.cropSuggestion"), path: "/crop-recommendation" } // ✅ Route for Crop Recommendation
+    { name: t("services.cropSuggestion"), path: "/crop-recommendation" }
   ];
 
   return (
@@ -66,6 +66,11 @@ const Navbar = () => {
 
             <Link to="/dashboard" className={styles.navLink}>{t("navbar.dashboard")}</Link>
             <Link to="/profile" className={styles.navLink}>{t("navbar.profile")}</Link>
+
+            {/* Login & Signup Buttons */}
+            <Link to="/login" className={styles.navButton}>Login</Link>
+            <Link to="/signup" className={styles.navButton}>Signup</Link>
+
             <Link to="/contact" className={styles.contactButton}>{t("navbar.contact")}</Link>
 
             {/* Language Switcher for Desktop */}
@@ -111,6 +116,11 @@ const Navbar = () => {
 
           <Link to="/dashboard" className={styles.mobileNavLink}>{t("navbar.dashboard")}</Link>
           <Link to="/profile" className={styles.mobileNavLink}>{t("navbar.profile")}</Link>
+
+          {/* Login & Signup Buttons for Mobile */}
+          <Link to="/login" className={styles.mobileNavButton}>Login</Link>
+          <Link to="/signup" className={styles.mobileNavButton}>Signup</Link>
+
           <Link to="/contact" className={styles.mobileContactButton}>{t("navbar.contact")}</Link>
 
           {/* Language Switcher for Mobile */}
