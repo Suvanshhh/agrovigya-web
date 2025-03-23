@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // ✅ Import Link for navigation
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, X, ChevronDown, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import styles from "./navbar.module.css";
+import { useAuth } from "../../context/AuthContext";
+import { logout } from "../../firebase/auth";
 
 const Navbar = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const auth = useAuth();
+  const user = auth?.user;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +23,15 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/");
+    } catch (error) {
+      console.error("Logout Error:", error);
+    }
+  };
 
   const services = [
     { name: t("services.governmentSchemes"), path: "/government-schemes" },
@@ -64,12 +78,19 @@ const Navbar = () => {
               )}
             </div>
 
-            {/* <Link to="/dashboard" className={styles.navLink}>{t("navbar.dashboard")}</Link> */}
             <Link to="/profile" className={styles.navLink}>{t("navbar.profile")}</Link>
 
-            {/* Login & Signup Buttons */}
-            <Link to="/login" className={styles.navButton}>Login</Link>
-            <Link to="/signup" className={styles.navButton}>Signup</Link>
+            {/* Conditional Login/Logout Buttons */}
+            {user ? (
+              <button onClick={handleLogout} className={styles.navButton}>
+                Logout <LogOut size={16} />
+              </button>
+            ) : (
+              <>
+                <Link to="/login" className={styles.navButton}>Login</Link>
+                <Link to="/signup" className={styles.navButton}>Signup</Link>
+              </>
+            )}
 
             <Link to="/contact" className={styles.contactButton}>{t("navbar.contact")}</Link>
 
@@ -114,12 +135,19 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* <Link to="/dashboard" className={styles.mobileNavLink}>{t("navbar.dashboard")}</Link> */}
           <Link to="/profile" className={styles.mobileNavLink}>{t("navbar.profile")}</Link>
 
-          {/* Login & Signup Buttons for Mobile */}
-          <Link to="/login" className={styles.mobileNavButton}>Login</Link>
-          <Link to="/signup" className={styles.mobileNavButton}>Signup</Link>
+          {/* Conditional Login/Logout Buttons for Mobile */}
+          {user ? (
+            <button onClick={handleLogout} className={styles.mobileNavButton}>
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link to="/login" className={styles.mobileNavButton}>Login</Link>
+              <Link to="/signup" className={styles.mobileNavButton}>Signup</Link>
+            </>
+          )}
 
           <Link to="/contact" className={styles.mobileContactButton}>{t("navbar.contact")}</Link>
 

@@ -22,7 +22,7 @@ const Login = () => {
         setError("");
         try {
             const user = await signInWithGoogle();
-            if (user) navigate("/dashboard");
+            if (user) navigate("/");
         } catch (error) {
             // Handle specific Firebase error codes
             switch (error.code) {
@@ -60,7 +60,7 @@ const Login = () => {
         setError("");
         try {
             const user = await loginWithEmail(email, password);
-            if (user) navigate("/dashboard");
+            if (user) navigate("/");
         } catch (error) {
             switch (error.code) {
                 case "auth/invalid-email":
@@ -131,7 +131,7 @@ const Login = () => {
         setError("");
         try {
             await confirmation.confirm(otp);
-            navigate("/dashboard");
+            navigate("/");
         } catch (error) {
             switch (error.code) {
                 case "auth/invalid-verification-code":
