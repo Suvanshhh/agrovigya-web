@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { signInWithGoogle, signInWithPhone, loginWithEmail } from "../../firebase/auth";
+
+import {
+    signInWithGoogle,
+    signInWithPhone,
+    loginWithEmail,
+} from "../../../firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
@@ -28,7 +33,9 @@ const Login = () => {
                     setError("Another popup is already open.");
                     break;
                 case "auth/popup-blocked":
-                    setError("Login popup was blocked by your browser. Please allow popups for this site.");
+                    setError(
+                        "Login popup was blocked by your browser. Please allow popups for this site."
+                    );
                     break;
                 case "auth/user-disabled":
                     setError("This account has been disabled. Please contact support.");
@@ -48,7 +55,7 @@ const Login = () => {
             setError("Please enter both email and password");
             return;
         }
-        
+
         setLoading(true);
         setError("");
         try {
@@ -82,7 +89,7 @@ const Login = () => {
             setError("Please enter a valid phone number");
             return;
         }
-        
+
         setLoading(true);
         setError("");
         try {
@@ -119,7 +126,7 @@ const Login = () => {
             setError("Please enter the OTP");
             return;
         }
-        
+
         setLoading(true);
         setError("");
         try {
@@ -131,7 +138,9 @@ const Login = () => {
                     setError("The verification code is invalid. Please try again.");
                     break;
                 case "auth/code-expired":
-                    setError("The verification code has expired. Please request a new one.");
+                    setError(
+                        "The verification code has expired. Please request a new one."
+                    );
                     break;
                 default:
                     setError(`OTP verification failed: ${error.message}`);
@@ -146,7 +155,7 @@ const Login = () => {
         <div>
             <h1>Login</h1>
             {error && <p className="error-message">{error}</p>}
-            
+
             {/* Email/Password Login Form */}
             <form onSubmit={handleEmailLogin}>
                 <div>
@@ -174,12 +183,12 @@ const Login = () => {
                     <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
             </form>
-            
+
             {/* Google Login */}
             <button onClick={handleGoogleLogin} disabled={loading}>
                 {loading ? "Processing..." : "Login with Google"}
             </button>
-            
+
             {/* Phone Login */}
             <input
                 type="tel"

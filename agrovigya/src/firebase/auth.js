@@ -16,12 +16,37 @@ export const signInWithGoogle = async () => {
 
 export const signInWithPhone = async (phoneNumber) => {
     try {
-        const recaptcha = new RecaptchaVerifier(auth, "recaptcha-container", { size: "invisible" });
-        await recaptcha.render();
-        const confirmation = await signInWithPhoneNumber(auth, phoneNumber, recaptcha);
-        return confirmation;
+        // Clear any existing recaptcha verifiers
+        if (window.recaptchaVerifier) {
+            window.recaptchaVerifier.clear();
+        }
+        
+        // Create a new recaptcha verifier and store it on the window object
+        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+            size: 'invisible',
+            callback: () => {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                console.log('reCAPTCHA verified');
+            }
+        });
+        
+        // Format phone number if needed (add country code if not present)
+        const formattedPhone = phoneNumber.startsWith('+') ? phoneNumber : `+91${phoneNumber}`;
+        
+        // Get the verification ID from the confirmation result
+        const confirmationResult = await signInWithPhoneNumber(
+            auth, 
+            formattedPhone, 
+            window.recaptchaVerifier
+        );
+        
+        return confirmationResult;
     } catch (error) {
         console.error("Phone Login Error:", error);
+        // Reset recaptcha verifier on error
+        if (window.recaptchaVerifier) {
+            window.recaptchaVerifier.clear();
+        }
         throw error;
     }
 };

@@ -5,9 +5,9 @@ import AboutPage from "./Pages/About/about";
 import ContactPage from "./Pages/Contact/contact";
 import ProfilePage from "./Pages/Profile/Profile";
 import CropRecommendationPage from "./Pages/CropRecomPage/CropRecommendationPage";
-import Login from "./Pages/Auth/Login";
-import Signup from "./Pages/Auth/Signup";
-import ForgotPassword from "./Pages/Auth/ForgotPassword";
+import Login from "./components/Auth/Login/Login";
+import Signup from "./components/Auth/Signup/Signup";
+import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 
 function App() {
   return (
@@ -17,7 +17,10 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/profile/:name" element={<ProfilePage />} />
-        <Route path="/crop-recommendation" element={<CropRecommendationPage />} />
+        <Route
+          path="/crop-recommendation"
+          element={<CropRecommendationPage />}
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
