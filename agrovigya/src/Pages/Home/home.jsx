@@ -15,7 +15,6 @@ const Home = () => {
     <div>
       <Navbar />
       {/*LanguageSwitcher*/}
-      <LanguageSwitcher /> 
       {/* Hero Section */}
       <HeroSlider />
       {/* Services Section */}
