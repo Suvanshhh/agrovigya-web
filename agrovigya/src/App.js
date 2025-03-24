@@ -5,8 +5,8 @@ import AboutPage from "./Pages/About/about";
 import ContactPage from "./Pages/Contact/contact";
 import ProfilePage from "./Pages/Profile/Profile";
 import CropRecommendationPage from "./Pages/CropRecomPage/CropRecommendationPage";
-import Login from "./components/Auth/Login/Login";
-import Signup from "./components/Auth/Signup/Signup";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import SignupPage from "./Pages/SignupPage/SignupPage";
 import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 import AuthModal from "./components/Auth/AuthModal/AuthModal";
 import { useAuth } from "./context/AuthContext";
@@ -70,8 +70,8 @@ function App() {
           path="/crop-recommendation"
           element={<CropRecommendationPage />}
         />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </Router>

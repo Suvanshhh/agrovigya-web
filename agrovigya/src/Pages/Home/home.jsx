@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Added import for Link
+
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
 import styles from "./home.module.css";
 import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "../../components/LanguageSwitcher/LanguageSwitcher";
+
 import WhyChooseUs from "../../components/WhyUs/WhyUs";
 import ServicesSection from "../../components/Services/ServicesSection";
 import HeroSlider from "../../components/Hero/Hero";
@@ -24,9 +26,9 @@ const Home = () => {
       {/* CTA Section */}
       <section className={styles.ctaSection}>
         <h2 className={styles.ctaTitle}>{t("home.contact")}</h2>
-        <a href="/register" className={styles.ctaButton}>
+        <Link to="/register" className={styles.ctaButton}>
           {t("home.contact")}
-        </a>
+        </Link>
       </section>
       <Footer />
     </div>
