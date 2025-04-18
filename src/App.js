@@ -8,17 +8,19 @@ import CropRecommendationPage from "./Pages/CropRecomPage/CropRecommendationPage
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignupPage from "./Pages/SignupPage/SignupPage";
 import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
+import LabourEstimation from './components/LabourEstimation/LabourEstimation';
 import AuthModal from "./components/Auth/AuthModal/AuthModal";
 import { useAuth } from "./context/AuthContext";
+import i18n from "./i18n"; // Importing i18n configuration
 
 function App() {
   // For testing, temporarily force modal to show
   const [showAuthModal, setShowAuthModal] = useState(true);
-  
+
   const auth = useAuth();
   console.log("Auth context:", auth);
   const user = auth?.user;
-  
+
   useEffect(() => {
     // Check if user is not logged in and hasn't chosen to hide the modal
     const hideAuthModal = localStorage.getItem("hideAuthModal");
@@ -36,14 +38,17 @@ function App() {
           console.log("After state update, showAuthModal should be:", true);
         }, 0);
       }, 1000);
-      
+
       return () => clearTimeout(timer);
     } else {
       console.log("Conditions NOT met to show the AuthModal.");
-      console.log("Reason:", user ? "User is logged in" : "hideAuthModal is true");
+      console.log(
+        "Reason:",
+        user ? "User is logged in" : "hideAuthModal is true"
+      );
     }
   }, [user]);
-  
+
   const handleLogin = (user) => {
     console.log("User logged in:", user);
     // You can add additional logic here if needed
@@ -53,16 +58,17 @@ function App() {
     <Router>
       {console.log("Before rendering, showAuthModal is:", showAuthModal)}
       {showAuthModal && (
-        <AuthModal 
+        <AuthModal
           onClose={() => {
             console.log("Closing AuthModal");
             setShowAuthModal(false);
-          }} 
+          }}
           onLogin={handleLogin}
         />
       )}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/labour-estimation" element={<LabourEstimation />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/profile/:name" element={<ProfilePage />} />

@@ -37,7 +37,32 @@ i18n
             findJobsDesc: "Explore agricultural employment opportunities tailored for farmers.",
             skillDevelopment: "Skill Development",
             skillDevelopmentDesc: "Upskill with training programs on modern farming techniques.",
-            exploreMarketplace: "Explore Marketplace"
+            exploreMarketplace: "Explore Marketplace",
+            labourEstimation: "Labour Estimation", // Added key
+            labourEstimationDesc: "Calculate the estimated labour costs for your agricultural needs." // Added key
+          },
+          labourEstimation: {
+            title: "Labour Cost Estimation",
+            selectCrop: "Select Crop",
+            chooseCrop: "Choose a crop...",
+            landArea: "Land Area",
+            areaPlaceholder: "Enter land area (hectares)",
+            resultsTitle: "Estimated Costs",
+            govtRates: "Government Rates",
+            expectedRates: "Market Rates",
+            labourDays: "Total Labour Days",
+            cropType: "Crop Type"
+          },
+          common: {
+            calculating: "Calculating...",
+            estimateNow: "Estimate Now",
+            hectare: "Hectare",
+            hectares: "Hectares",
+            govtRate: "Government Rate"
+          },
+          errors: {
+            fetchCrops: "Failed to load crop list.",
+            estimationFailed: "Cost estimation failed."
           },
           whyChooseUs: {
             smartFarming: "Smart Farming",
@@ -94,6 +119,29 @@ i18n
             skillDevelopmentDesc: "आधुनिक कृषि तकनीकों पर प्रशिक्षण कार्यक्रमों के साथ कौशल बढ़ाएँ।",
             exploreMarketplace: "बाजार का अन्वेषण करें",
           },
+          labourEstimation: {
+            title: "श्रम लागत अनुमान",
+            selectCrop: "फसल चुनें",
+            chooseCrop: "एक फसल चुनें...",
+            landArea: "भूमि क्षेत्रफल",
+            areaPlaceholder: "भूमि क्षेत्रफल दर्ज करें (हेक्टेयर)",
+            resultsTitle: "अनुमानित लागत",
+            govtRates: "सरकारी दरें",
+            expectedRates: "बाजार दरें",
+            labourDays: "कुल श्रम दिवस",
+            cropType: "फसल का प्रकार"
+          },
+          common: {
+            calculating: "गणना हो रही है...",
+            estimateNow: "अभी अनुमान लगाएं",
+            hectare: "हेक्टेयर",
+            hectares: "हेक्टेयर",
+            govtRate: "सरकारी दर"
+          },
+          errors: {
+            fetchCrops: "फसल सूची लोड करने में विफल।",
+            estimationFailed: "लागत अनुमान विफल।"
+          },
           whyChooseUs: {
             smartFarming: "स्मार्ट खेती",
             smartFarmingDesc: "उपज को अनुकूलित करने और उत्पादकता बढ़ाने के लिए एआई-संचालित उपकरणों का उपयोग करें।",
@@ -112,7 +160,7 @@ i18n
             newsletterTitle: "हमारे न्यूज़लेटर की सदस्यता लें",
             emailPlaceholder: "अपना ईमेल दर्ज करें",
             subscribe: "सदस्यता लें",
-            rightsReserved: "सभी अधिकार सुरक्षित।",
+            rightsReserved: "सभी हक्क राखीव.",
             privacyPolicy: "गोपनीयता नीति",
           },
         },
@@ -157,6 +205,29 @@ i18n
             sustainableAgriculture: "शाश्वत शेती",
             sustainableAgricultureDesc: "सेंद्रिय आणि पर्यावरणपूरक शेती पद्धती शिका.",
             learnMore: "अधिक जाणून घ्या",
+          },
+          labourEstimation: {
+            title: "कामगार खर्च अंदाज",
+            selectCrop: "पीक निवडा",
+            chooseCrop: "एक पीक निवडा...",
+            landArea: "जमिनीचे क्षेत्रफळ",
+            areaPlaceholder: "जमिनीचे क्षेत्रफळ प्रविष्ट करा (हेक्टेयर)",
+            resultsTitle: "अंदाजित खर्च",
+            govtRates: "सरकारी दर",
+            expectedRates: "बाजार दर",
+            labourDays: "एकूण कामगार दिवस",
+            cropType: "पिकाचा प्रकार"
+          },
+          common: {
+            calculating: "गणना चालू आहे...",
+            estimateNow: "आता अंदाज लावा",
+            hectare: "हेक्टेयर",
+            hectares: "हेक्टेयर",
+            govtRate: "सरकारी दर"
+          },
+          errors: {
+            fetchCrops: "पीक यादी लोड करण्यात अयशस्वी.",
+            estimationFailed: "खर्चाचा अंदाज अयशस्वी."
           },
           footer: {
             companyDesc: "शेतकऱ्यांना तंत्रज्ञानावर आधारित उपायांसह सशक्त करणे.",

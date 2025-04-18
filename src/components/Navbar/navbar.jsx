@@ -34,10 +34,10 @@ const Navbar = () => {
   };
 
   const services = [
-    { name: t("services.governmentSchemes"), path: "/government-schemes" },
-    { name: t("services.skillDevelopment"), path: "/skill-development" },
-    { name: t("services.findJobs"), path: "/find-jobs" },
-    { name: t("services.cropSuggestion"), path: "/crop-recommendation" }
+    { name: t("services.cropSuggestion"), path: "/crop-recommendation" },
+    { name: t("services.labourEstimation"), path: "/labour-estimation" },
+    { name: t("services.governmentSchemes"), path: "/governmentschemes" },
+    { name: t("services.marketplace"), path: "/marketplace" }
   ];
 
   return (

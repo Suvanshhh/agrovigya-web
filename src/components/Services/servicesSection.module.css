@@ -9,6 +9,15 @@
     margin-bottom: 20px;
 }
 
+/* servicesSection.module.css */
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+  
+
 .servicesGrid {
     display: flex;
     flex-wrap: wrap;

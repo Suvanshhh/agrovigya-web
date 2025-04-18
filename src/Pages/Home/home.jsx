@@ -26,7 +26,7 @@ const Home = () => {
       {/* CTA Section */}
       <section className={styles.ctaSection}>
         <h2 className={styles.ctaTitle}>{t("home.contact")}</h2>
-        <Link to="/register" className={styles.ctaButton}>
+        <Link to="/contact" className={styles.ctaButton}>
           {t("home.contact")}
         </Link>
       </section>
