@@ -1,13 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Twitter,
   Linkedin,
   Instagram,
-  Github,
+  X,
 } from "lucide-react";
 import styles from "./footer.module.css";
 
@@ -18,93 +14,67 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
-        {/* Company Info Section */}
+        {/* Logo & Company Info */}
         <div className={styles.companySection}>
           <img
             src="https://i.postimg.cc/j2tXv7Cn/agro-Vigya-Logo.png"
             alt="Agrovigya Logo"
             className={styles.footerLogo}
           />
-          <p className={styles.companyDesc}>{t("footer.companyDesc")}</p>
+          <p className={styles.companyDesc}>
+            Empowering farmers with technology-driven solutions for a sustainable future.
+          </p>
           <div className={styles.socialLinks}>
-            <a href="#" className={styles.socialIcon}><Twitter size={20} /></a>
-            <a href="#" className={styles.socialIcon}><Linkedin size={20} /></a>
-            <a href="#" className={styles.socialIcon}><Instagram size={20} /></a>
-            <a href="#" className={styles.socialIcon}><Github size={20} /></a>
+            <a href="#" className={styles.socialIcon}><Linkedin size={18} /></a>
+            <a href="#" className={styles.socialIcon}><X size={18} /></a>
+            <a href="#" className={styles.socialIcon}><Instagram size={18} /></a>
           </div>
         </div>
 
-        {/* Quick Links Section */}
+        {/* Quick Links */}
         <div className={styles.linksSection}>
-          <h3 className={styles.footerTitle}>{t("footer.quickLinks")}</h3>
+          <div className={styles.linksTitle}>Quick Links</div>
           <ul className={styles.linksList}>
-            <li><a href="/dashboard">{t("navbar.dashboard")}</a></li>
-            <li><a href="/schemes">{t("services.governmentSchemes")}</a></li>
-            <li><a href="/crop-suggestion">{t("services.cropSuggestion")}</a></li>
-            <li><a href="/jobs">{t("services.findJobs")}</a></li>
-            <li><a href="/skills">{t("services.skillDevelopment")}</a></li>
-            <li><a href="/contact">{t("footer.contactUs")}</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Government Schemes</a></li>
+            <li><a href="#">Crop Suggestion</a></li>
+            <li><a href="#">Find Jobs</a></li>
+            <li><a href="#">Skill Development</a></li>
+            <li><a href="#">Contact us</a></li>
           </ul>
         </div>
 
-        {/* Services Section */}
-        <div className={styles.servicesSection}>
-          <h3 className={styles.footerTitle}>{t("footer.ourServices")}</h3>
+        {/* Our Services */}
+        <div className={styles.linksSection}>
+          <div className={styles.linksTitle}>Our Services</div>
           <ul className={styles.linksList}>
-            <li><a href="/dashboard">{t("navbar.dashboard")}</a></li>
-            <li><a href="/profile">{t("navbar.profile")}</a></li>
-            <li><a href="/schemes">{t("services.governmentSchemes")}</a></li>
-            <li><a href="/skills">{t("services.skillDevelopment")}</a></li>
-            <li><a href="/jobs">{t("services.findJobs")}</a></li>
-            <li><a href="/crop-suggestion">{t("services.cropSuggestion")}</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Government Schemes</a></li>
+            <li><a href="#">Skill Development</a></li>
+            <li><a href="#">Find Jobs</a></li>
+            <li><a href="#">Crop Suggestion</a></li>
           </ul>
         </div>
 
-        {/* Contact Section */}
-        <div className={styles.contactSection}>
-          <h3 className={styles.footerTitle}>{t("footer.contactUs")}</h3>
-          <div className={styles.contactInfo}>
-            <div className={styles.contactItem}>
-              <Mail size={16} />
-              <a href="mailto:info@agrovigya.com">info@agrovigya.com</a>
-            </div>
-            <div className={styles.contactItem}>
-              <Phone size={16} />
-              <a href="tel:+916392919914">+91 6392919914</a>
-            </div>
-            <div className={styles.contactItem}>
-              <MapPin size={16} />
-              <p>{t("footer.address")}</p>
-            </div>
-          </div>
-
-          {/* Newsletter Signup */}
-          <div className={styles.newsletter}>
-            <h4 className={styles.newsletterTitle}>{t("footer.newsletterTitle")}</h4>
-            <form className={styles.subscribeForm}>
-              <input
-                type="email"
-                placeholder={t("footer.emailPlaceholder")}
-                className={styles.emailInput}
-              />
-              <button type="submit" className={styles.subscribeBtn}>
-                {t("footer.subscribe")}
-              </button>
-            </form>
-          </div>
+        {/* Contact */}
+        <div className={styles.linksSection}>
+          <div className={styles.linksTitle}>Contact Us</div>
+          <ul className={styles.contactList}>
+            <li><a href="mailto:info@agrovigya.com">info@agrovigya.com</a></li>
+            <li><a href="tel:+916392919914">+91 6392919914</a></li>
+            <li>XYZ, Maharashtra, India</li>
+          </ul>
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      <hr className={styles.divider} />
+
       <div className={styles.bottomBar}>
-        <div className={styles.bottomContent}>
-          <p className={styles.copyright}>
-            © {currentYear} AgroVigya. {t("footer.rightsReserved")}
-          </p>
-          <div className={styles.legalLinks}>
-            <a href="/privacy">{t("footer.privacyPolicy")}</a>
-          </div>
-        </div>
+        <span className={styles.copyright}>
+          © {currentYear} Agrovigya. All copyrights reserved
+        </span>
+        <a href="#" className={styles.privacyLink}>Privacy Policy</a>
       </div>
     </footer>
   );

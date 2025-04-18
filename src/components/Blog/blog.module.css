@@ -1,0 +1,168 @@
+.blogSection {
+    background: #1B3738;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    /* border-radius: 0.7rem; */
+    max-width: 100vw;
+    margin: 2rem auto;
+    color: #EFEFEF;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+ 
+  
+  
+  .headerRow {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.7rem;
+    border-bottom: 1px solid #C8CACA;
+    padding-bottom: 0.8rem;
+  }
+  
+  .quoteMark {
+    font-size: 3.5rem;
+    color: #90E668;
+    font-family: serif;
+    font-weight: bold;
+    line-height: 1;
+    margin-left: 0.3rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #EFEFEF;
+    letter-spacing: 0.01em;
+  }
+  
+  .blogGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0 1.5rem 0;
+  }
+  
+  .blogCard {
+    background: transparent;
+    border-radius: 2.2rem 2.2rem 0.8rem 0.8rem;
+    box-shadow: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .imgWrapper {
+    width: 100%;
+    aspect-ratio: 1.1/1;
+    overflow: hidden;
+    border-radius: 0rem 2.2rem 0rem 2.2rem;
+  }
+  
+  .imgWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2.2rem 2.2rem 0 0;
+    display: block;
+  }
+  
+  .blogContent {
+    background: transparent;
+    padding: 1.1rem 0.7rem 0.7rem 0.7rem;
+    color: #EFEFEF;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .blogContent h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #EFEFEF;
+    min-height: 3.3em;
+  }
+  
+  .blogContent p {
+    font-size: 0.98rem;
+    color: #EFEFEF;
+    opacity: 0.87;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .readMore {
+    color: #90E668;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 0.3rem;
+    font-size: 0.98rem;
+  }
+  
+  .readMore:hover {
+    text-decoration: underline;
+  }
+  
+  .buttonRow {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
+  .readMoreBtn {
+    background: transparent;
+    color: #90E668;
+    border: 1px solid #90E668;
+    border-radius: 1.5rem;
+    padding: 0.6rem 2.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .readMoreBtn:hover {
+    background: #90E668;
+    color: #1B3738;
+  }
+  
+  .footerQuotes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.8rem;
+  }
+  
+  .quoteMarkFooter {
+    font-size: 3.5rem;
+    color: #90E668;
+    font-family: serif;
+    font-weight: bold;
+    line-height: 1;
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 900px) {
+    .blogGrid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .headerRow {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
+    .blogGrid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .footerQuotes {
+      justify-content: center;
+    }
+  }
+  

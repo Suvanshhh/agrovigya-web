@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
 import styles from "./home.module.css";
 import { useTranslation } from "react-i18next";
+import BlogSection from "../../components/Blog/blog";
 
 import WhyChooseUs from "../../components/WhyUs/WhyUs";
 import ServicesSection from "../../components/Services/ServicesSection";
@@ -23,13 +24,8 @@ const Home = () => {
       <ServicesSection /> {/* Replaced inline code with the new component */}
       {/* Why Choose Us Section */}
       <WhyChooseUs />
-      {/* CTA Section */}
-      <section className={styles.ctaSection}>
-        <h2 className={styles.ctaTitle}>{t("home.contact")}</h2>
-        <Link to="/contact" className={styles.ctaButton}>
-          {t("home.contact")}
-        </Link>
-      </section>
+  
+      <BlogSection />
       <Footer />
     </div>
   );

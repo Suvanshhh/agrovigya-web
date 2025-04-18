@@ -1,17 +1,19 @@
 /* Hero Section */
 .heroSection {
     position: relative;
-    height: 85vh;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    background-image: url('https://i.postimg.cc/j2tXv7Cn/rice-field-background.jpg');
     background-size: cover;
     background-position: center;
-    transition: background-image 1s ease-in-out;
-    padding: 20px;
-}
+    margin-top: 0; /* Remove margin to allow hero to go behind navbar */
+    padding-top: 0; /* No padding needed at top */
+  }
+  
 
 /* Overlay for better contrast */
 .heroOverlay {

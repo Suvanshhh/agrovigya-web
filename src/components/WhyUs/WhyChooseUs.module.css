@@ -1,43 +1,141 @@
 .whyChooseUs {
-    text-align: center;
-    padding: 4rem 2rem;
-    background-color: #f9f9f9;
+  background: #f9f9f9;
+  padding: 3rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topRow {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  margin-bottom: 2.5rem;
+}
+
+.imageCard {
+  position: relative;
+  flex: 1 1 55%;
+  min-width: 320px;
+  min-height: 260px;
+  border-radius: 0rem 2.5rem 0rem 2.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 4px 24px 0 rgba(27, 55, 56, 0.10);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  background: linear-gradient(0deg, rgba(27,55,56,0.72) 60%, rgba(27,55,56,0.01) 100%);
+  color: #fff;
+  text-align: left;
+}
+
+.overlayTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.overlayDesc {
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.topText {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+}
+
+.topText h2 {
+  color: #1B3738;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+}
+
+.bottomRow {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.infoCard {
+  flex: 1 1 50%;
+  background: #e5e5e5;
+  border-radius: 2.5rem 2.5rem 2.5rem 2.5rem;
+  padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 260px;
+  min-height: 160px;
+  color: #fff;
+  background: linear-gradient(120deg, #C8CACA 60%, #1B3738 100%);
+  box-shadow: 0 4px 24px 0 rgba(27, 55, 56, 0.10);
+}
+
+.infoTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.infoDesc {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.92;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .topRow, .bottomRow {
+    flex-direction: column;
+    gap: 1.5rem;
   }
-  
-  .sectionTitle {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
+  .topText {
+    padding-top: 0.5rem;
+    padding-left: 0;
   }
-  
-  .whyGrid {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .whyChooseUs {
+    padding: 2rem 0.5rem 1rem 0.5rem;
   }
-  
-  .whyCard {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease;
+  .imageCard, .infoCard {
+    min-width: 0;
+    border-radius: 1.4rem;
+    padding: 1.2rem 0.7rem;
   }
-  
-  .whyCard:hover {
-    transform: translateY(-5px);
+  .imageOverlay {
+    padding: 1rem 0.7rem;
   }
-  
-  .whyCard h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  .overlayTitle {
+    font-size: 1.2rem;
   }
-  
-  .whyCard p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
+}
