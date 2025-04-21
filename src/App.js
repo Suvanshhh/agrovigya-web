@@ -71,7 +71,7 @@ function App() {
         <Route path="/labour-estimation" element={<LabourEstimation />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/profile/:name" element={<ProfilePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route
           path="/crop-recommendation"
           element={<CropRecommendationPage />}

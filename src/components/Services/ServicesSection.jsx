@@ -48,7 +48,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Marketplace (Existing) */}
-        <div className={styles.serviceCard} onClick={() => navigate("/marketplace")}>
+        {/* <div className={styles.serviceCard} onClick={() => navigate("/marketplace")}>
           <div className={styles.icon}>
             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 12H20M6 12V18M18 12V18M2 18H22M2 22H22M12 2L3 7V10H21V7L12 2Z" 
@@ -57,7 +57,7 @@ const ServicesSection = () => {
           </div>
           <h3>{t("services.marketplace")}</h3>
           <p>{t("services.marketplaceDesc")}</p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -1,89 +1,105 @@
 // Profile.jsx
 import React, { useState } from "react";
 import styles from "./Profile.module.css";
-import { Edit2 } from "lucide-react";
+import { Bell, Settings, User, ChevronDown } from "lucide-react";
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [profileData, setProfileData] = useState({
-    name: "John Doe",
-    email: "john.doe@example.com",
-    phone: "+123 456 7890",
-    location: "New York, USA",
-  });
-
-  const handleEditClick = () => {
-    setIsEditing(!isEditing);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProfileData((prev) => ({ ...prev, [name]: value }));
-  };
+  const notifications = [
+    { id: 1, type: "New job notification", content: "notification content" },
+    { id: 2, type: "New sale notification", content: "notification content" },
+    { id: 3, type: "Weather notification", content: "notification content" },
+    { id: 4, type: "New job notification", content: "notification content" },
+    { id: 5, type: "New job notification", content: "notification content" },
+    { id: 6, type: "New job notification", content: "notification content" },
+    { id: 7, type: "New job notification", content: "notification content" },
+    { id: 8, type: "New job notification", content: "notification content" },
+    { id: 9, type: "New job notification", content: "notification content" },
+  ];
 
   return (
-    <div className={styles.profileContainer}>
-      <h2 className={styles.profileTitle}>Profile</h2>
-      <div className={styles.profileCard}>
-        <div className={styles.profileField}>
-          <label>Name:</label>
-          {isEditing ? (
-            <input
-              type="text"
-              name="name"
-              value={profileData.name}
-              onChange={handleChange}
-              className={styles.inputField}
-            />
-          ) : (
-            <span>{profileData.name}</span>
-          )}
+    <div className={styles.pageContainer}>
+      {/* Navbar */}
+      <div className={styles.navbar}>
+        <div className={styles.logoContainer}>
+          <img 
+            src="https://i.postimg.cc/L8zxQBhP/agrovigya-logo.png" 
+            alt="AgroVigya Logo" 
+            className={styles.logo} 
+          />
+          <div className={styles.logoText}>
+            <span>agrovigya</span>
+            <span className={styles.logoSubtext}>कृषि की नयी दिशा</span>
+          </div>
         </div>
-        <div className={styles.profileField}>
-          <label>Email:</label>
-          {isEditing ? (
-            <input
-              type="email"
-              name="email"
-              value={profileData.email}
-              onChange={handleChange}
-              className={styles.inputField}
-            />
-          ) : (
-            <span>{profileData.email}</span>
-          )}
+        
+        <div className={styles.navLinks}>
+          <span>Home</span>
+          <span>About Us</span>
+          <span>Our Services <ChevronDown size={16} /></span>
+          <span>Download App</span>
+          <span>भाषा | हिन्दी <ChevronDown size={16} /></span>
         </div>
-        <div className={styles.profileField}>
-          <label>Phone:</label>
-          {isEditing ? (
-            <input
-              type="text"
-              name="phone"
-              value={profileData.phone}
-              onChange={handleChange}
-              className={styles.inputField}
-            />
-          ) : (
-            <span>{profileData.phone}</span>
-          )}
+        
+        <div className={styles.userSection}>
+          <User size={20} className={styles.userIcon} />
         </div>
-        <div className={styles.profileField}>
-          <label>Location:</label>
-          {isEditing ? (
-            <input
-              type="text"
-              name="location"
-              value={profileData.location}
-              onChange={handleChange}
-              className={styles.inputField}
-            />
-          ) : (
-            <span>{profileData.location}</span>
-          )}
+      </div>
+
+      {/* Main Content */}
+      <div className={styles.contentContainer}>
+        <div className={styles.profileHeader}>
+          <h1>Profile</h1>
         </div>
-        <button onClick={handleEditClick} className={styles.editButton}>
-          {isEditing ? "Save" : "Edit"} <Edit2 className={styles.icon} />
-        </button>
+        
+        <div className={styles.threeColumnLayout}>
+          {/* Left Column - User Profile */}
+          <div className={styles.profileCard}>
+            <div className={styles.profileImageContainer}>
+              <img 
+                src="https://i.postimg.cc/FRRvk0wL/carrot-icon.png" 
+                alt="Profile" 
+                className={styles.profileImage} 
+              />
+            </div>
+            <h2 className={styles.userName}>John Doe</h2>
+            <p className={styles.userRole}>Mobile Developer</p>
+            <p className={styles.userJobStatus}>current job</p>
+          </div>
+
+          {/* Middle Column - Experience & Market Stats */}
+          <div className={styles.middleContent}>
+            <div className={styles.experienceSection}>
+              <h2>Experience</h2>
+              {/* Empty content for now to match the design */}
+            </div>
+            
+            <div className={styles.marketStats}>
+              <h2>Market Statistics</h2>
+              {/* Empty content for now to match the design */}
+            </div>
+          </div>
+
+          {/* Right Column - Notifications */}
+          <div className={styles.notificationsPanel}>
+            <div className={styles.notificationsHeader}>
+              <Bell size={16} />
+              <h2>Notifications</h2>
+              <Settings size={16} className={styles.settingsIcon} />
+            </div>
+            
+            <div className={styles.notificationsList}>
+              {notifications.map(notification => (
+                <div key={notification.id} className={styles.notificationItem}>
+                  <div className={styles.notificationDot}></div>
+                  <div className={styles.notificationContent}>
+                    <h3>{notification.type}</h3>
+                    <p>{notification.content}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, LogOut } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ const Navbar = () => {
   const auth = useAuth();
   const user = auth?.user;
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +41,18 @@ const Navbar = () => {
     { name: t("services.marketplace"), path: "/marketplace" }
   ];
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsServicesOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.navContainer}>
@@ -47,7 +60,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className={styles.logo}>
             <img
-              src="https://i.postimg.cc/j2tXv7Cn/agro-Vigya-Logo.png"
+              src="https://i.postimg.cc/sDHmr0Hp/logo-1-03.png"
               alt="AgroVigya Logo"
               className={styles.logoImage}
             />
@@ -61,10 +74,14 @@ const Navbar = () => {
             {/* Services Dropdown for Desktop */}
             <div
               className={styles.dropdownContainer}
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
+              ref={dropdownRef}
             >
-              <button className={styles.dropdownTrigger}>
+              <button
+                className={styles.dropdownTrigger}
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                aria-expanded={isServicesOpen}
+                aria-haspopup="true"
+              >
                 {t("navbar.services")} <ChevronDown className={styles.dropdownIcon} />
               </button>
               {isServicesOpen && (
