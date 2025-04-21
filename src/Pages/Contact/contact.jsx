@@ -6,56 +6,54 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div>
+    <div className={styles.pageBg}>
       <Navbar />
 
-      {/* Hero Section */}
-      <section className={styles.heroSection}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Contact Us</h1>
-          <p className={styles.heroSubtitle}>We'd love to hear from you!</p>
-        </div>
-      </section>
-
-
-      {/* Contact Form Section */}
-      <section className={styles.formSection}>
-        <h2 className={styles.sectionTitle}>Send Us a Message</h2>
-        <div className={styles.formWrapper}>
+      <div className={styles.contactWrapper}>
+        <div className={styles.contactCard}>
+          <h2 className={styles.contactTitle}>Contact us</h2>
           <form className={styles.contactForm}>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" className={styles.submitButton}>Send Message</button>
+            <input
+              type="text"
+              className={styles.input}
+              placeholder="Your Name"
+              required
+            />
+            <input
+              type="email"
+              className={styles.input}
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              className={styles.textarea}
+              placeholder="Your Message"
+              required
+            />
+            <button type="submit" className={styles.submitButton}>
+              Send Message
+            </button>
           </form>
-        </div>
-      </section>
-
-
-      {/* Contact Information Section */}
-      <section className={styles.contactInfoSection}>
-        <h2 className={styles.sectionTitle}>Get in Touch</h2>
-        <div className={styles.infoGrid}>
-          <div className={styles.infoCard}>
-            <Mail className={styles.icon} />
-            <h3>Email</h3>
-            <p>info@example.com</p>
-          </div>
-          <div className={styles.infoCard}>
-            <Phone className={styles.icon} />
-            <h3>Phone</h3>
-            <p>+123 456 7890</p>
-          </div>
-          <div className={styles.infoCard}>
-            <MapPin className={styles.icon} />
-            <h3>Location</h3>
-            <p>123 Main Street, City, Country</p>
+          <div className={styles.infoRow}>
+            <div className={styles.infoCol}>
+              <Mail className={styles.infoIcon} />
+              <h3>Email</h3>
+              <p>info@agrovigya.com</p>
+            </div>
+            <div className={styles.infoCol}>
+              <Phone className={styles.infoIcon} />
+              <h3>Phone</h3>
+              <p>+91 8129619914</p>
+            </div>
+            <div className={styles.infoCol}>
+              <MapPin className={styles.infoIcon} />
+              <h3>Location</h3>
+              <p>XYZ, Maharashtra, India</p>
+            </div>
           </div>
         </div>
-      </section>
-      
-      {/* Map Section */}
+      </div>
+
       <section className={styles.mapSection}>
         <iframe
           title="Location Map"

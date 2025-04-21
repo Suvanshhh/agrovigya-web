@@ -6,74 +6,237 @@
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', sans-serif; /* Modern font */
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%); /* Subtle gradient background */
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: #1B3738;
     color: #333;
 }
 
-.loginSection {
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Split Layout */
+.pageWrapper {
     min-height: 100vh;
+    background: #1B3738;
+    display: flex;
+    flex-direction: column;
 }
 
-.loginContainer {
-    max-width: 400px;
+.loginSplit {
+    flex: 1;
+    display: flex;
+    min-height: 100vh;
+    align-items: stretch;
+    justify-content: center;
+    background: #1B3738;
+    padding-top: 80px; /* for navbar space */
+}
+
+.leftPane {
+    flex: 1;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    padding: 40px 24px 40px 60px;
+}
+
+.brandLogoRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.brandLogo {
+    height: 36px;
+    margin-right: 10px;
+}
+
+.brandText {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.loginCard {
     width: 100%;
-    background: white;
-    padding: 40px;
-    border-radius: 16px; /* Increased border radius */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    background: #1C4F47;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 36px 28px 28px 28px;
+    display: flex;
+    border-radius: 0px 48px 0px 48px;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.loginTitle {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border: none;
+    background: #f4f4f4;
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.input:focus {
+    box-shadow: 0 0 0 2px #147b2c33;
+    border-color: #147b2c;
+}
+
+.loginButton {
+    width: 100%;
+    padding: 14px 0;
+    background: #1ec37b;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.loginButton:hover {
+    background: #189e62;
+}
+
+.googleButton {
+    width: 100%;
+    padding: 13px 0;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(20,123,44,0.06);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.googleButton:hover {
+    background: #f4f4f4;
+}
+
+.googleIcon {
+    width: 22px;
+    height: 22px;
+}
+
+.forgotRow {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.forgotRow a {
+    color: #8fd6b3;
+    font-size: 0.98rem;
+    text-decoration: none;
+}
+
+.forgotRow a:hover {
+    text-decoration: underline;
+}
+
+.signupPrompt {
+    margin-top: 18px;
+    color: #d3f7e6;
+    font-size: 1rem;
     text-align: center;
 }
 
-.loginContainer h2 {
-    margin-bottom: 30px;
-    font-size: 1.75rem;
-    color: #1a1a1a;
+.signupPrompt a {
+    color: #fff;
     font-weight: 600;
+    text-decoration: underline;
 }
 
-.loginContainer input {
-    padding: 12px 16px;
-    margin-bottom: 20px;
-    border: 2px solid #eee;
+.signupPrompt a:hover {
+    color: #1ec37b;
+}
+
+.errorMessage {
+    background: #ffeaea;
+    color: #c0392b;
+    padding: 10px 0;
     border-radius: 8px;
+    margin-bottom: 16px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    text-align: center;
 }
 
-.loginContainer input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+/* Right Illustration Panel */
+.rightPane {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1B3738;
+    min-width: 0;
+    padding: 0 24px;
 }
 
-.loginContainer button {
-    padding: 12px;
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+.illustration {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-.loginContainer button:hover {
-    background-color: #1d4ed8;
+/* Responsive Design */
+@media (max-width: 991px) {
+    .loginSplit {
+        flex-direction: column;
+        padding-top: 60px;
+    }
+    .rightPane {
+        padding: 24px 0 0 0;
+        justify-content: flex-start;
+    }
+    .leftPane {
+        max-width: 100%;
+        padding: 32px 8vw 24px 8vw;
+    }
+    .illustration {
+        max-width: 340px;
+    }
 }
 
-.loginContainer .googleButton {
-    background-color: #fff;
-    border: 2px solid #eee;
-    border-radius: 8px;
-    padding: 12px;
-    transition: background-color 0.3s ease;
-}
-
-.loginContainer .googleButton:hover {
-    background-color: #f8f9fa;
+@media (max-width: 600px) {
+    .loginSplit {
+        flex-direction: column;
+        padding-top: 40px;
+    }
+    .leftPane {
+        padding: 24px 6vw 16px 6vw;
+    }
+    .loginCard {
+        padding: 24px 10px 16px 10px;
+    }
+    .brandLogoRow {
+        margin-bottom: 24px;
+    }
+    .rightPane {
+        display: none; /* Hide illustration on small screens */
+    }
 }

@@ -1,252 +1,257 @@
 /* General Styles */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background: #f8f9fa;
-    color: #333;
-  }
-  
-  /* Hero Section */
-  .heroSection {
-    position: relative;
-    background: url("https://plus.unsplash.com/premium_photo-1664475322361-344e9b6bce15?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    animation: fadeIn 1.5s ease-in-out;
-    margin-bottom: 40px;
-  }
-  
-  .heroOverlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-  }
-  
-  .heroContent {
-    position: relative;
-    max-width: 700px;
-    z-index: 1;
-  }
-  
-  .heroTitle {
-    color: white !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: bold;
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
-  .heroSubtitle {
-    color: rgba(255, 255, 255, 0.703);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
-    animation: fadeInUp 1.2s ease-in-out;
-  }
-  
-  /* Scroll Indicator */
-  .scrollIndicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-  }
-  
-  .chevron {
-    color: white;
-    width: 30px;
-    height: 30px;
-  }
-  
-  /* Signup Section */
-  .signupSection {
-    padding: 40px 20px 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .signupContainer {
-    max-width: 500px;
-    width: 100%;
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Arial', sans-serif;
+  background:#1B3738;
+  color: #fff;
+}
+
+.signupSection {
+  min-height: 100vh;
+  width: 100vw;
+  background: #1B3738;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Add margin from all four sides */
+  padding: 40px 40px;
+}
+
+.signupContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.signupCard {
+  background: #1C4F47;
+  border-radius: 0px 48px 0 48px;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+  padding: 32px 30px 24px 30px;  /* Reduced padding for less height */
+  min-width: 600px;  /* Increased minimum width */
+  max-width: 780px;  /* Increased maximum width */
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Reduced margin for less vertical space */
+  margin: 80px;
+}
+
+.signupCard h3,
+.signupTitle {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 28px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.inputRow {
+  display: flex;
+  width: 100%;
+  gap: 32px;
+  margin-bottom: 18px;
+}
+
+.inputCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputCol label {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 6px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.input {
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 12px;
+  border: none;
+  background: #fff;
+  color: #222;
+  font-size: 1.08rem;
+  margin-bottom: 2px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #1ec37b55;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.checkboxRow input[type="checkbox"] {
+  accent-color: #1ec37b;
+  width: 18px;
+  height: 18px;
+}
+
+.checkboxRow label {
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.termsLink {
+  color: #1ec37b;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.signupBtn {
+  width: 100%;
+  padding: 14px 0;
+  background: #27d964;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.signupBtn:hover {
+  background: #1ec37b;
+}
+
+.dividerRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 18px 0 12px 0;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: #1B3738;
+  border-radius: 1px;
+}
+
+.dividerText {
+  color: #b7e7d1;
+  font-size: 1rem;
+  margin: 0 10px;
+}
+
+.googleBtn {
+  width: 60%;
+  min-width: 200px;
+  padding: 12px 0;
+  background: #fff;
+  color: #333;
+  border: none;
+  border-radius: 14px;
+  font-weight: 500;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 8px auto;
+  box-shadow: 0 2px 10px rgba(20,123,44,0.06);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.googleBtn:hover {
+  background: #f4f4f4;
+}
+
+.googleIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.loginPrompt {
+  margin-top: 18px;
+  color: #e0f7e6;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.loginLink {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.loginLink:hover {
+  color: #1ec37b;
+}
+
+.errorMsg {
+  background: #ffeaea;
+  color: #c0392b;
+  padding: 10px 0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
   .signupCard {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    margin-bottom: 20px;
+      min-width: 320px;
+      max-width: 98vw;
+      padding: 32px 10vw 24px 10vw;
+      margin: 84px;
   }
-  
-  .signupCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  .inputRow {
+      flex-direction: column;
+      gap: 0;
   }
-  
-  .icon {
-    color: #147b2c;
-    font-size: 2rem;
-    margin-bottom: 15px;
+  .googleBtn {
+      width: 100%;
   }
-  
-  .signupCard h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #333;
+  .signupSection {
+      padding: 24px 12px;
   }
-  
-  .inputGroup {
-    margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .signupCard {
+      min-width: 0;
+      padding: 18px 4vw 16px 4vw;
+      border-radius: 28px 0 12px 12px;
+      margin: 12px;
   }
-  
-  .input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+  .signupCard h3,
+  .signupTitle {
+      font-size: 1.3rem;
   }
-  
-  .input:focus {
-    outline: none;
-    border-color: #147b2c;
+  .googleBtn {
+      font-size: 0.98rem;
   }
-  
-  .passwordRequirements {
-    text-align: left;
-    margin-bottom: 20px;
-    font-size: 0.85rem;
-    color: #666;
+  .signupSection {
+      padding: 12px 4px;
   }
-  
-  .signupButton, .googleButton {
-    width: 100%;
-    padding: 12px;
-    background-color: #147b2c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .signupButton:hover, .googleButton:hover {
-    background-color: #0f5c21;
-  }
-  
-  .signupButton:disabled, .googleButton:disabled {
-    background-color: #88c5a1;
-    cursor: not-allowed;
-  }
-  
-  .divider {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-  }
-  
-  .divider::before,
-  .divider::after {
-    content: "";
-    flex: 1;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .divider span {
-    padding: 0 10px;
-    color: #666;
-    font-size: 14px;
-  }
-  
-  .googleButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: white;
-    color: #333;
-    border: 1px solid #ddd;
-  }
-  
-  .googleButton:hover {
-    background-color: #f5f5f5;
-    color: #333;
-  }
-  
-  .googleIcon {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .errorMessage {
-    background-color: rgba(220, 53, 69, 0.1);
-    color: #dc3545;
-    padding: 12px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .loginPrompt {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.95rem;
-  }
-  
-  .loginPrompt a {
-    color: #147b2c;
-    font-weight: 600;
-    text-decoration: none;
-  }
-  
-  .loginPrompt a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .heroTitle {
-      font-size: 2rem;
-    }
-    .heroSubtitle {
-      font-size: 1rem;
-    }
-    .signupCard {
-      padding: 20px;
-    }
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  
+}

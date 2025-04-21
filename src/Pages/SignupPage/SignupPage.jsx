@@ -1,181 +1,162 @@
 import React, { useState } from "react";
 import { signInWithGoogle, signUpWithEmail } from "../../firebase/auth";
-
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
-import { Mail, Lock, ChevronDown } from "lucide-react";
 import styles from "./SignupPage.module.css";
 
 const Signup = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [agree, setAgree] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-    const handleGoogleSignup = async () => {
-        setLoading(true);
-        setError("");
-        try {
-            const user = await signInWithGoogle();
-            if (user) navigate("/dashboard");
-        } catch (error) {
-            switch (error.code) {
-                case "auth/popup-closed-by-user":
-                    setError("Signup canceled. You closed the signup window.");
-                    break;
-                case "auth/cancelled-popup-request":
-                    setError("Another popup is already open.");
-                    break;
-                case "auth/popup-blocked":
-                    setError("Signup popup was blocked by your browser. Please allow popups for this site.");
-                    break;
-                case "auth/email-already-in-use":
-                    setError("This email is already registered. Please login instead.");
-                    break;
-                default:
-                    setError(`Signup failed: ${error.message}`);
-            }
-            console.error("Google Signup Error:", error.code, error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
+  const handleGoogleSignup = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const user = await signInWithGoogle();
+      if (user) navigate("/dashboard");
+    } catch (error) {
+      setError("Google signup failed.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const handleEmailSignup = async (e) => {
-        e.preventDefault();
-        
-        if (!email || !password || !confirmPassword) {
-            setError("Please fill in all fields");
-            return;
-        }
-        
-        if (password !== confirmPassword) {
-            setError("Passwords do not match");
-            return;
-        }
-        
-        if (password.length < 6) {
-            setError("Password should be at least 6 characters");
-            return;
-        }
-        
-        setLoading(true);
-        setError("");
-        try {
-            const user = await signUpWithEmail(email, password);
-            if (user) navigate("/dashboard");
-        } catch (error) {
-            switch (error.code) {
-                case "auth/email-already-in-use":
-                    setError("This email is already registered. Please login instead.");
-                    break;
-                case "auth/invalid-email":
-                    setError("Invalid email address format.");
-                    break;
-                case "auth/weak-password":
-                    setError("Password is too weak. Please choose a stronger password.");
-                    break;
-                default:
-                    setError(`Signup failed: ${error.message}`);
-            }
-            console.error("Email Signup Error:", error.code, error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
+  const handleEmailSignup = async (e) => {
+    e.preventDefault();
+    if (!name || !phone || !email || !password || !confirmPassword) {
+      setError("Please fill in all fields");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+    if (!agree) {
+      setError("You must agree to the Terms of Use and Privacy Policy");
+      return;
+    }
+    setLoading(true);
+    setError("");
+    try {
+      const user = await signUpWithEmail(email, password);
+      if (user) navigate("/dashboard");
+    } catch (error) {
+      setError("Signup failed: " + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    return (
-        <div>
-            <Navbar />
-
-            {/* Hero Section */}
-            <section className={styles.heroSection}>
-                <div className={styles.heroOverlay} />
-                <div className={styles.heroContent}>
-                    <h1 className={styles.heroTitle}>Join AgroVigya</h1>
-                    <p className={styles.heroSubtitle}>
-                        Create an account to access agricultural insights and tools
-                    </p>
-                </div>
-                <div className={styles.scrollIndicator}>
-                    <ChevronDown className={styles.chevron} />
-                </div>
-            </section>
-
-            {/* Signup Section */}
-            <section className={styles.signupSection}>
-                <div className={styles.signupContainer}>
-                    {error && <div className={styles.errorMessage}>{error}</div>}
-                    
-                    <div className={styles.signupCard}>
-                        <Mail className={styles.icon} />
-                        <h3>Create Your Account</h3>
-                        
-                        <form onSubmit={handleEmailSignup}>
-                            <div className={styles.inputGroup}>
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Email"
-                                    disabled={loading}
-                                    className={styles.input}
-                                />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    placeholder="Password"
-                                    disabled={loading}
-                                    className={styles.input}
-                                />
-                            </div>
-                            <div className={styles.inputGroup}>
-                                <input
-                                    type="password"
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                    placeholder="Confirm Password"
-                                    disabled={loading}
-                                    className={styles.input}
-                                />
-                            </div>
-                            <div className={styles.passwordRequirements}>
-                                <p>Password must be at least 6 characters long</p>
-                            </div>
-                            <button type="submit" disabled={loading} className={styles.signupButton}>
-                                {loading ? "Processing..." : "Sign up with Email"}
-                            </button>
-                        </form>
-                        
-                        <div className={styles.divider}>
-                            <span>OR</span>
-                        </div>
-                        
-                        <button onClick={handleGoogleSignup} disabled={loading} className={styles.googleButton}>
-                            <img 
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" 
-                                alt="Google" 
-                                className={styles.googleIcon} 
-                            />
-                            {loading ? "Processing..." : "Sign up with Google"}
-                        </button>
-                    </div>
-
-                    <div className={styles.loginPrompt}>
-                        Already have an account? <Link to="/login">Login</Link>
-                    </div>
-                </div>
-            </section>
-
-            <Footer />
-        </div>
-    );
+  return (
+    <div className={styles.pageBg}>
+      <Navbar />
+      <div className={styles.signupWrapper}>
+        <form className={styles.signupCard} onSubmit={handleEmailSignup}>
+          <h2 className={styles.signupTitle}>Sign up</h2>
+          <div className={styles.inputRow}>
+            <div className={styles.inputCol}>
+              <label>Full Name</label>
+              <input
+                type="text"
+                placeholder="Ex: John Doe"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                className={styles.input}
+                disabled={loading}
+              />
+              <label>Phone Number</label>
+              <input
+                type="tel"
+                placeholder="Ex: 1234567890"
+                value={phone}
+                onChange={e => setPhone(e.target.value)}
+                className={styles.input}
+                disabled={loading}
+              />
+              <label>Email</label>
+              <input
+                type="email"
+                placeholder="Ex: johndoe@gmail.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                className={styles.input}
+                disabled={loading}
+              />
+            </div>
+            <div className={styles.inputCol}>
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="Ex: JohnDoe@123"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                className={styles.input}
+                disabled={loading}
+              />
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                value={confirmPassword}
+                onChange={e => setConfirmPassword(e.target.value)}
+                className={styles.input}
+                disabled={loading}
+              />
+              <div className={styles.checkboxRow}>
+                <input
+                  type="checkbox"
+                  checked={agree}
+                  onChange={e => setAgree(e.target.checked)}
+                  id="terms"
+                  disabled={loading}
+                />
+                <label htmlFor="terms">
+                  I agree to all <span className={styles.termsLink}>Terms of Use</span> and <span className={styles.termsLink}>Privacy Policy</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          {error && <div className={styles.errorMsg}>{error}</div>}
+          <button className={styles.signupBtn} type="submit" disabled={loading}>
+            Sign in
+          </button>
+          <div className={styles.dividerRow}>
+            <span className={styles.dividerLine}></span>
+            <span className={styles.dividerText}>or</span>
+            <span className={styles.dividerLine}></span>
+          </div>
+          <button
+            type="button"
+            className={styles.googleBtn}
+            onClick={handleGoogleSignup}
+            disabled={loading}
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              alt="Google"
+              className={styles.googleIcon}
+            />
+            Sign up with google
+          </button>
+          <div className={styles.loginPrompt}>
+            Already have an account?{" "}
+            <Link to="/login" className={styles.loginLink}>
+              Log in here
+            </Link>
+          </div>
+        </form>
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default Signup;
