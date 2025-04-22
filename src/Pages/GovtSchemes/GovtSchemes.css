@@ -1,0 +1,17 @@
+.construction-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* removed padding */
+    min-height: 100vh; /* changed from 60vh to 100vh */
+    background-color: white;
+    width: 100%; /* added full width */
+}
+
+.construction-image {
+    width: 65%; /* changed from max-width */
+    height: 100vh; /* changed from max-height */
+    object-fit: cover; /* changed from contain to cover */
+    border-radius: 0; /* removed border radius */
+    box-shadow: none; /* removed shadow */
+}
