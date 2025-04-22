@@ -113,7 +113,10 @@ const Profile = () => {
     if (imageFile) {
       try {
         const storage = getStorage();
-        const storageRef = ref(storage, `profileImages/${firebaseUser.uid}/${imageFile.name}`);
+        const storageRef = ref(
+          storage,
+          `profileImages/${firebaseUser.uid}/${imageFile.name}`
+        );
         await uploadBytes(storageRef, imageFile);
         photoURL = await getDownloadURL(storageRef);
       } catch (err) {
@@ -147,16 +150,14 @@ const Profile = () => {
           {/* Left: Profile Card */}
           <div className={styles.profileCard}>
             <div
-              className={`${styles.avatarWrapper} ${isEditing ? styles.avatarEdit : ""}`}
+              className={`${styles.avatarWrapper} ${
+                isEditing ? styles.avatarEdit : ""
+              }`}
               onClick={handleImageClick}
               title={isEditing ? "Click to change profile image" : ""}
               style={{ cursor: isEditing ? "pointer" : "default" }}
             >
-              <img
-                src={imagePreview}
-                alt="Profile"
-                className={styles.avatar}
-              />
+              <img src={imagePreview} alt="Profile" className={styles.avatar} />
               {isEditing && (
                 <>
                   <div className={styles.avatarOverlay}>
