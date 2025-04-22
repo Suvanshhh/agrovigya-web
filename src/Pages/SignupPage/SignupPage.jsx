@@ -66,7 +66,7 @@ const Signup = () => {
               <label>Full Name</label>
               <input
                 type="text"
-                placeholder="Ex: John Doe"
+                placeholder="Ex: Suvansh Choudhary"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 className={styles.input}
@@ -84,7 +84,7 @@ const Signup = () => {
               <label>Email</label>
               <input
                 type="email"
-                placeholder="Ex: johndoe@gmail.com"
+                placeholder="Ex: abcd@gmail.com"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className={styles.input}
@@ -95,7 +95,7 @@ const Signup = () => {
               <label>Password</label>
               <input
                 type="password"
-                placeholder="Ex: JohnDoe@123"
+                placeholder="Ex: 12345678"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 className={styles.input}

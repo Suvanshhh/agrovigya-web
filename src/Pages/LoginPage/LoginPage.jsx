@@ -33,7 +33,19 @@ const LoginPage = () => {
                     <div className={styles.loginCard}>
                         <h2 className={styles.loginTitle}>Login</h2>
                         {error && <div className={styles.errorMessage}>{error}</div>}
-                        <form onSubmit={activeTab === "email" ? (e) => { e.preventDefault(); /* call email handler */ } : undefined}>
+<form onSubmit={activeTab === "email" ? async (e) => {
+    e.preventDefault();
+    try {
+        setLoading(true);
+        await loginWithEmail(email, password);
+        setLoading(false);
+        navigate("/");
+    } catch (error) {
+        setLoading(false);
+        console.error("Login error:", error);
+        setError(`Failed to log in: ${error.message || error}`);
+    }
+} : undefined}>
                             <input
                                 type="email"
                                 placeholder="Email"
@@ -60,7 +72,20 @@ const LoginPage = () => {
                                 Log in
                             </button>
                         </form>
-                        <button className={styles.googleButton}>
+                        <button
+                            className={styles.googleButton}
+                            onClick={async () => {
+                                try {
+                                    setLoading(true);
+                                    await signInWithGoogle();
+                                    setLoading(false);
+                                    navigate("/");
+                                } catch (error) {
+                                    setLoading(false);
+                                    setError("Failed to sign in with Google");
+                                }
+                            }}
+                        >
                             <img
                                 src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
                                 alt="Google"
