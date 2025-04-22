@@ -53,6 +53,15 @@ const Navbar = () => {
     };
   }, [dropdownRef]);
 
+  // --- Profile Button Handler ---
+  const handleProfileClick = () => {
+    if (user) {
+      navigate("/profile");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.navContainer}>
@@ -95,7 +104,14 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link to="/profile" className={styles.navLink}>{t("navbar.profile")}</Link>
+            {/* Updated Profile Button */}
+            <button
+              className={styles.navButton}
+              onClick={handleProfileClick}
+              type="button"
+            >
+              {t("navbar.profile")}
+            </button>
 
             {/* Conditional Login/Logout Buttons */}
             {user ? (
@@ -152,7 +168,14 @@ const Navbar = () => {
             )}
           </div>
 
-          <Link to="/profile" className={styles.mobileNavLink}>{t("navbar.profile")}</Link>
+          {/* Updated Profile Button for Mobile */}
+          <button
+            className={styles.mobileNavLink}
+            onClick={handleProfileClick}
+            type="button"
+          >
+            {t("navbar.profile")}
+          </button>
 
           {/* Conditional Login/Logout Buttons for Mobile */}
           {user ? (

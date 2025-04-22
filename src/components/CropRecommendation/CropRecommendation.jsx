@@ -46,7 +46,7 @@ const CropRecommendation = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.heading}>Crop Recommendation System</h1>
+      {/* <h1 className={styles.heading}>Crop Recommendation System</h1> */}
       <form className={styles.form} onSubmit={handleSubmit}>
         {Object.keys(formData).map((key) => (
           <div className={styles.inputGroup} key={key}>

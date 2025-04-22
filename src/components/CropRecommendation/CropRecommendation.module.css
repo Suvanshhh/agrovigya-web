@@ -1,21 +1,27 @@
 .container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(20, 123, 44, 0.1);
-  text-align: center;
-  animation: fadeInUp 1s ease forwards;
+  max-width: 1200px;
+margin: 1rem;
+padding: 2.5rem 2rem;
+background-color: #fff;
+border-radius: 0px 32px;
+box-shadow: 0 8px 32px rgba(20, 123, 44, 0.10);
+text-align: center;
+animation: CropRecommendation_fadeInUp__tXc9Z 1s ease forwards;
+}
+/* Center the card on a dark background */
+:global(body) {
+  background: #19443a !important;
 }
 
 .heading {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 700;
-  color: #147b2c;
-  margin-bottom: 2rem;
+  color: #111;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
   animation: fadeIn 1s ease forwards;
 }
+
 
 .form {
   display: flex;
@@ -23,70 +29,109 @@
   gap: 1.5rem;
 }
 
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  width: 100%; /* Added full width */
+}
+
 .inputGroup {
   display: flex;
   flex-direction: column;
   text-align: left;
   animation: fadeInUp 0.8s ease forwards;
+  width: 100%; /* Added full width */
+}
+
+@media (max-width: 700px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
 }
 
 .label {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #0d4a36;
+  color: #19443a;
 }
-
 .input {
-  padding: 0.85rem;
+  padding: 1.1rem;
   font-size: 1rem;
-  border: 1.5px solid #147b2c;
-  border-radius: 12px;
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 2px solid #1ec37b;
+  border-radius: 16px;
+  background: #f9f9f9;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .input:focus {
-  border-color: #1ec37b;
-  box-shadow: 0 0 8px rgba(30, 199, 123, 0.5);
+  border-color: #147b2c;
+  box-shadow: 0 0 8px rgba(20, 123, 44, 0.12);
   outline: none;
 }
 
 .button {
-  padding: 0.85rem;
-  font-size: 1.1rem;
+  padding: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   background-color: #147b2c;
   color: #fff;
   border: none;
-  border-radius: 12px;
+  border-radius: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 0.5rem;
   animation: fadeIn 1s ease forwards;
 }
 
 .button:hover {
   background-color: #0f5c21;
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .result {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   padding: 1.2rem;
   background-color: #e6f7ee;
   border-left: 6px solid #147b2c;
   font-size: 1.3rem;
   font-weight: 700;
   color: #0f5c21;
-  border-radius: 8px;
+  border-radius: 10px;
   animation: fadeInUp 1s ease forwards;
 }
 
+/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .container {
+    padding: 1.2rem 0.5rem;
+    border-radius: 20px;
+    margin: 2rem 0.2rem;
+  }
+  .heading {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .input {
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 0.8rem;
+  }
+  .button {
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 0.8rem;
+  }
 }
