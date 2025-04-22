@@ -1,99 +1,267 @@
-// Profile.jsx
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import Navbar from "../../components/Navbar/navbar";
+import Footer from "../../components/Footer/footer";
 import styles from "./Profile.module.css";
-import { Bell, Settings, User, ChevronDown } from "lucide-react";
+import { Bell, Settings, Pencil, Check, X, Camera } from "lucide-react";
+import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
+const notifications = [
+  { id: 1, type: "New job notification", caption: "notification caption" },
+  { id: 2, type: "New sale notification", caption: "notification caption" },
+  { id: 3, type: "Weather notification", caption: "notification caption" },
+  { id: 4, type: "New job notification", caption: "notification caption" },
+  { id: 5, type: "New job notification", caption: "notification caption" },
+  { id: 6, type: "New job notification", caption: "notification caption" },
+  { id: 7, type: "New job notification", caption: "notification caption" },
+  { id: 8, type: "New job notification", caption: "notification caption" },
+  { id: 9, type: "New job notification", caption: "notification caption" },
+];
+
+const defaultProfile = {
+  name: "John Doe",
+  location: "Mulshi, Maharashtra",
+  job: "current job",
+  image: "https://i.postimg.cc/3Nw6b2Kk/farmer-illustration.png",
+};
 
 const Profile = () => {
-  const notifications = [
-    { id: 1, type: "New job notification", content: "notification content" },
-    { id: 2, type: "New sale notification", content: "notification content" },
-    { id: 3, type: "Weather notification", content: "notification content" },
-    { id: 4, type: "New job notification", content: "notification content" },
-    { id: 5, type: "New job notification", content: "notification content" },
-    { id: 6, type: "New job notification", content: "notification content" },
-    { id: 7, type: "New job notification", content: "notification content" },
-    { id: 8, type: "New job notification", content: "notification content" },
-    { id: 9, type: "New job notification", content: "notification content" },
-  ];
+  // Persistent login: always use onAuthStateChanged
+  const [firebaseUser, setFirebaseUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setFirebaseUser(user);
+      setAuthLoading(false);
+    });
+    return unsubscribe;
+  }, []);
+
+  // All hooks at top level
+  const [profile, setProfile] = useState(defaultProfile);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editProfile, setEditProfile] = useState(defaultProfile);
+  const [imagePreview, setImagePreview] = useState(defaultProfile.image);
+  const [imageFile, setImageFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const fileInputRef = useRef();
+
+  // When firebaseUser changes (e.g. after refresh), update profile state
+  useEffect(() => {
+    if (firebaseUser) {
+      setProfile({
+        name: firebaseUser.displayName || defaultProfile.name,
+        location: defaultProfile.location,
+        job: defaultProfile.job,
+        image: firebaseUser.photoURL || defaultProfile.image,
+      });
+      setEditProfile({
+        name: firebaseUser.displayName || defaultProfile.name,
+        location: defaultProfile.location,
+        job: defaultProfile.job,
+        image: firebaseUser.photoURL || defaultProfile.image,
+      });
+      setImagePreview(firebaseUser.photoURL || defaultProfile.image);
+    }
+  }, [firebaseUser]);
+
+  // Loading/auth states
+  if (authLoading) return <div>Loading...</div>;
+  if (!firebaseUser) return <div>Please log in.</div>;
+
+  // Handlers
+  const handleEdit = () => {
+    setEditProfile(profile);
+    setImagePreview(profile.image);
+    setIsEditing(true);
+  };
+
+  const handleCancel = () => {
+    setEditProfile(profile);
+    setImagePreview(profile.image);
+    setImageFile(null);
+    setIsEditing(false);
+  };
+
+  const handleChange = (e) => {
+    setEditProfile({ ...editProfile, [e.target.name]: e.target.value });
+  };
+
+  const handleImageClick = () => {
+    if (isEditing && fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        setImagePreview(evt.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleSave = async () => {
+    setLoading(true);
+    let photoURL = profile.image;
+    if (imageFile) {
+      try {
+        const storage = getStorage();
+        const storageRef = ref(storage, `profileImages/${firebaseUser.uid}/${imageFile.name}`);
+        await uploadBytes(storageRef, imageFile);
+        photoURL = await getDownloadURL(storageRef);
+      } catch (err) {
+        alert("Failed to upload image. Try again.");
+        setLoading(false);
+        return;
+      }
+    }
+    try {
+      await updateProfile(firebaseUser, {
+        displayName: editProfile.name,
+        photoURL: photoURL,
+      });
+      setProfile({
+        ...editProfile,
+        image: photoURL,
+      });
+      setIsEditing(false);
+      setImageFile(null);
+    } catch (err) {
+      alert("Failed to update profile. Try again.");
+    }
+    setLoading(false);
+  };
 
   return (
-    <div className={styles.pageContainer}>
-      {/* Navbar */}
-      <div className={styles.navbar}>
-        <div className={styles.logoContainer}>
-          <img 
-            src="https://i.postimg.cc/L8zxQBhP/agrovigya-logo.png" 
-            alt="AgroVigya Logo" 
-            className={styles.logo} 
-          />
-          <div className={styles.logoText}>
-            <span>agrovigya</span>
-            <span className={styles.logoSubtext}>कृषि की नयी दिशा</span>
-          </div>
-        </div>
-        
-        <div className={styles.navLinks}>
-          <span>Home</span>
-          <span>About Us</span>
-          <span>Our Services <ChevronDown size={16} /></span>
-          <span>Download App</span>
-          <span>भाषा | हिन्दी <ChevronDown size={16} /></span>
-        </div>
-        
-        <div className={styles.userSection}>
-          <User size={20} className={styles.userIcon} />
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className={styles.contentContainer}>
-        <div className={styles.profileHeader}>
-          <h1>Profile</h1>
-        </div>
-        
-        <div className={styles.threeColumnLayout}>
-          {/* Left Column - User Profile */}
+    <div className={styles.pageBg}>
+      <Navbar />
+      <div className={styles.profileWrapper}>
+        <div className={styles.gridContainer}>
+          {/* Left: Profile Card */}
           <div className={styles.profileCard}>
-            <div className={styles.profileImageContainer}>
-              <img 
-                src="https://i.postimg.cc/FRRvk0wL/carrot-icon.png" 
-                alt="Profile" 
-                className={styles.profileImage} 
+            <div
+              className={`${styles.avatarWrapper} ${isEditing ? styles.avatarEdit : ""}`}
+              onClick={handleImageClick}
+              title={isEditing ? "Click to change profile image" : ""}
+              style={{ cursor: isEditing ? "pointer" : "default" }}
+            >
+              <img
+                src={imagePreview}
+                alt="Profile"
+                className={styles.avatar}
               />
+              {isEditing && (
+                <>
+                  <div className={styles.avatarOverlay}>
+                    <Camera size={28} />
+                  </div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    ref={fileInputRef}
+                    className={styles.avatarInput}
+                    onChange={handleImageChange}
+                    tabIndex={-1}
+                  />
+                </>
+              )}
             </div>
-            <h2 className={styles.userName}>John Doe</h2>
-            <p className={styles.userRole}>Mobile Developer</p>
-            <p className={styles.userJobStatus}>current job</p>
+            <div className={styles.profileInfo}>
+              {isEditing ? (
+                <>
+                  <input
+                    className={styles.profileInput}
+                    name="name"
+                    value={editProfile.name}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className={styles.profileInput}
+                    name="location"
+                    value={editProfile.location}
+                    onChange={handleChange}
+                  />
+                  <input
+                    className={styles.profileInput}
+                    name="job"
+                    value={editProfile.job}
+                    onChange={handleChange}
+                  />
+                </>
+              ) : (
+                <>
+                  <div className={styles.profileName}>{profile.name}</div>
+                  <div className={styles.profileLoc}>{profile.location}</div>
+                  <div className={styles.profileJob}>{profile.job}</div>
+                </>
+              )}
+            </div>
+            <div className={styles.profileActions}>
+              {isEditing ? (
+                <>
+                  <button
+                    className={styles.saveBtn}
+                    aria-label="Save"
+                    onClick={handleSave}
+                    disabled={loading}
+                  >
+                    <Check size={18} /> {loading ? "Saving..." : "Save"}
+                  </button>
+                  <button
+                    className={styles.cancelBtn}
+                    aria-label="Cancel"
+                    onClick={handleCancel}
+                    disabled={loading}
+                  >
+                    <X size={18} /> Cancel
+                  </button>
+                </>
+              ) : (
+                <button
+                  className={styles.editBtn}
+                  aria-label="Edit"
+                  onClick={handleEdit}
+                >
+                  <Pencil size={18} /> Edit
+                </button>
+              )}
+            </div>
           </div>
-
-          {/* Middle Column - Experience & Market Stats */}
-          <div className={styles.middleContent}>
-            <div className={styles.experienceSection}>
-              <h2>Experience</h2>
-              {/* Empty content for now to match the design */}
-            </div>
-            
-            <div className={styles.marketStats}>
-              <h2>Market Statistics</h2>
-              {/* Empty content for now to match the design */}
-            </div>
+          {/* Top Middle Left: Empty Card */}
+          <div className={styles.emptyCard}></div>
+          {/* Experience */}
+          <div className={styles.expCard}>
+            <div className={styles.cardTitle}>Experience</div>
           </div>
-
-          {/* Right Column - Notifications */}
+          {/* Bottom Middle Left: Empty Card */}
+          <div className={styles.emptyCard}></div>
+          {/* Market Statistics */}
+          <div className={styles.marketCard}>
+            <div className={styles.cardTitle}>Market Statistics</div>
+          </div>
+          {/* Bottom Middle Right: Empty Card */}
+          <div className={styles.emptyCard}></div>
+          {/* Notifications */}
           <div className={styles.notificationsPanel}>
             <div className={styles.notificationsHeader}>
-              <Bell size={16} />
-              <h2>Notifications</h2>
-              <Settings size={16} className={styles.settingsIcon} />
+              <Bell size={20} />
+              <span>Notifications</span>
+              <Settings size={18} />
             </div>
-            
             <div className={styles.notificationsList}>
-              {notifications.map(notification => (
-                <div key={notification.id} className={styles.notificationItem}>
-                  <div className={styles.notificationDot}></div>
-                  <div className={styles.notificationContent}>
-                    <h3>{notification.type}</h3>
-                    <p>{notification.content}</p>
+              {notifications.map((notif, i) => (
+                <div className={styles.notificationItem} key={notif.id}>
+                  <div className={styles.notifDot}></div>
+                  <div>
+                    <div className={styles.notifType}>{notif.type}</div>
+                    <div className={styles.notifCaption}>{notif.caption}</div>
                   </div>
                 </div>
               ))}
@@ -101,6 +269,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

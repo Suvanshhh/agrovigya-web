@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './labourEstimation.module.css';
+import Navbar from "../../components/Navbar/navbar";
 
 const LabourEstimation = () => {
   const { t } = useTranslation();
@@ -55,7 +56,9 @@ const LabourEstimation = () => {
   };
 
   return (
+
     <div className={styles.container}>
+      <Navbar />
       <h1 className={styles.heading}>{t('labourEstimation.title')}</h1>
       
       <form className={styles.form} onSubmit={handleSubmit}>

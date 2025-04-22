@@ -62,7 +62,7 @@ const LoginPage = () => {
                         </form>
                         <button className={styles.googleButton}>
                             <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                                src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
                                 alt="Google"
                                 className={styles.googleIcon}
                             />
@@ -78,7 +78,7 @@ const LoginPage = () => {
                 </div>
                 <div className={styles.rightPane}>
                     <img
-                        src="https://i.postimg.cc/3Nw6b2Kk/farmer-illustration.png"
+                        src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
                         alt="Farmers Illustration"
                         className={styles.illustration}
                     />

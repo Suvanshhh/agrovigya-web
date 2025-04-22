@@ -8,13 +8,15 @@ const CropRecommendationPage = () => {
   return (
     <div className={styles.pageWrapper}>
       <Navbar />
-      <div className={styles.heroSection}>
-        <div className={styles.heroOverlay}></div>
-        <h1 className={styles.heroTitle}>Crop Recommendation System</h1>
-        <p className={styles.heroSubtitle}>
-          Get the best crop suggestions based on soil and weather conditions.
-        </p>
-      </div>
+      {/* <div className={styles.heroSection}>
+         <div className={styles.heroOverlay}></div> 
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>Crop Recommendation System</h1>
+          <p className={styles.heroSubtitle}>
+            Get the best crop suggestions based on soil and weather conditions.
+          </p>
+        </div>
+      </div> */}
       <div className={styles.contentContainer}>
         <CropRecommendation />
       </div>

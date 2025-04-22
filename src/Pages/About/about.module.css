@@ -1,10 +1,3 @@
-/* General Styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: 'Inter', 'Arial', sans-serif;
   background: #fff;
@@ -15,50 +8,34 @@ body {
 /* Hero Section */
 .heroSection {
   position: relative;
-  background: url("https://plus.unsplash.com/premium_photo-1664475322361-344e9b6bce15?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
-  height: 70vh;
+  background: #393939;
+  height: 80px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  color: white;
+  justify-content: flex-start;
+  padding-left: 32px;
   margin-bottom: 0;
-  border-radius: 0 0 40px 40px;
 }
 
 .heroOverlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(13, 97, 26, 0.7);
-  border-radius: 0 0 40px 40px;
+  display: none;
 }
 
 .heroContent {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 1000px;
-  padding: 0 20px;
 }
 
 .heroTitle {
-  color: white !important;
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.heroSubtitle {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.8rem;
-  font-weight: 400;
+  color: #fff !important;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .scrollIndicator {
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -70,268 +47,249 @@ body {
   font-size: 28px;
 }
 
-/* Main Content Sections */
-.infoSection, .mentorsSection, .projectDirectorSection, .teamSection {
-  max-width: 1200px;
+
+.whoWeAreSection {
+  background: #fff;
+  /* border-radius: 0 0 32px 32px; */
+  margin-top: -1px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(20, 123, 44, 0.04);
+}
+.sectionTitle {
+  color: #1B3738;
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 28px;
+  padding-top: 10px;
+  letter-spacing: 0.5px;
+}
+
+.whoWeAreContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  padding:20px;
+}
+
+.aboutText {
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  font-size: 1.08rem;
+  color: #222;
+  text-align: center;
+  line-height: 1.7;
+  animation: fadeIn 1.2s;
+}
+
+/* Feature Cards Grid */
+.featureGrid {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-rows: repeat(2, 180px);
+  gap: 5px;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 50px 20px;
-  border-radius: 30px;
+}
+
+.featureCard {
+  position: relative;
+  border-radius: 32px 0px 32px 0px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 160px;
+  /* box-shadow: 0 4px 24px rgba(13, 74, 54, 0.08); */
+  animation: fadeIn 1.2s;
+}
+
+.featureBg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  /* border-radius: 0px 20px 0px 20px; */
+  background-position: center;
+  /* filter: brightness(0.8); */
+  z-index: 1;
+}
+
+.featureContent {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 26px 32px;
+  width: 100%;
+  /* background: linear-gradient(to top, rgba(13, 74, 54, 0.72) 60%, rgba(0,0,0,0) 100%); */
+  border-radius: 0 0 32px 32px;
+}
+
+.featureCard h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.featureCard p {
+  font-size: 1.03rem;
+}
+
+/* Vision Section */
+.visionSection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 28px 0 0 0;
   background: #fff;
 }
 
-/* Who We Are Section */
-.sectionTitle {
-  color: #0d7c20;
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 30px;
-  padding-top: 20px;
-}
-
-/* About Description */
-.aboutDescription {
-  text-align: justify;
-  max-width: 1000px;
-  margin: 0 auto 50px;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
-  padding: 0 20px;
-}
-
-/* Feature Cards */
-.infoGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 0 20px;
-}
-
-.infoCard {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  height: 250px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 30px;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.infoCard:nth-child(1) {
-  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-  text-align: right;
-}
-
-.infoCard:nth-child(2) {
-  background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-  text-align: left;
-}
-
-.infoCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.visionCard {
+  background: #e8f5e9;
+  border-radius: 32px;
+  padding: 36px 30px;
+  max-width: 800px;
   width: 100%;
-  height: 100%;
-  background: rgba(13, 97, 26, 0.7);
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(13, 74, 54, 0.10);
+  text-align: left;
+  animation: fadeInUp 1.2s;
 }
 
-.infoCard:hover {
-  transform: translateY(-5px);
-}
-
-.infoCard h3 {
-  position: relative;
-  font-size: 2rem;
+.visionCard h2 {
+  color:1B3738;
+  font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 10px;
-  z-index: 1;
+  margin-bottom: 12px;
 }
 
-.infoCard p {
-  position: relative;
-  font-size: 1.1rem;
-  z-index: 1;
+.visionCard p {
+  color: #222;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-.icon {
-  display: none; /* Hide the icons as they aren't used in the new design */
+/* Mentors, Founder, Team Sections */
+.mentorsSection, .founderSection, .teamSection {
+  background: #fff;
+  padding: 34px 0 0 0;
 }
 
-/* Team Section styling */
 .teamGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 30px;
-  margin: 40px auto;
-  max-width: 1200px;
-  padding: 0 20px;
+  justify-content: center;
+  margin-top: 18px;
 }
 
 .teamCard {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #e8f5e9;
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgba(13, 74, 54, 0.09);
+  padding: 28px 18px 18px 18px;
+  width: 180px;
+  min-height: 220px;
   text-align: center;
-  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 1.2s;
 }
 
 .teamCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(13, 74, 54, 0.18);
 }
 
 .teamImage {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #0d7c20;
-  margin: 0 auto 15px;
+  border: 3px solid #1B3738;
+  margin: 0 auto 13px auto;
+  background: #fff;
 }
 
 .teamName {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 5px;
+  color: #1B3738;
+  margin-bottom: 4px;
 }
 
 .teamRole {
-  font-size: 0.9rem;
-  color: #777;
+  font-size: 0.93rem;
+  color: #3d5c47;
 }
 
-/* Project Director Section */
-.projectDirectorSection {
+.founderSection {
+  background: #1B3738;
+  padding: 46px 0 0 0;
   text-align: center;
-  padding: 60px 20px;
 }
 
-.projectDirectorCard {
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 300px;
+.founderCard {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px 18px 18px 18px;
+  width: 220px;
   margin: 0 auto;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(13, 74, 54, 0.16);
+  animation: fadeInUp 1.2s;
 }
 
-.projectDirectorCard img {
-  width: 150px;
-  height: 150px;
+.founderImage {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #0d7c20;
-  margin-bottom: 20px;
+  border: 4px solid #1B3738;
+  margin-bottom: 13px;
+  background: #fff;
 }
 
-/* Custom Animations */
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px);}
+  to { opacity: 1; transform: translateX(0);}
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-  40% { transform: translateY(-20px) translateX(-50%); }
-  60% { transform: translateY(-10px) translateX(-50%); }
-}
+.fadeInLeft { animation: fadeInLeft 1.2s; }
+.fadeInRight { animation: fadeInRight 1.2s; }
+.fadeInUp { animation: fadeInUp 1.2s; }
 
 /* Responsive Design */
-@media (max-width: 992px) {
-  .heroTitle {
-    font-size: 3rem;
-  }
-  
-  .heroSubtitle {
-    font-size: 1.5rem;
-  }
-  
-  .infoGrid {
+@media (max-width: 1100px) {
+  .featureGrid {
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 180px);
   }
-  
-  .infoCard {
-    height: 200px;
-    text-align: center !important;
-  }
+  .visionCard { padding: 24px 10px; }
 }
 
-@media (max-width: 768px) {
-  .heroSection {
-    height: 60vh;
-  }
-  
-  .heroTitle {
-    font-size: 2.5rem;
-  }
-  
-  .heroSubtitle {
-    font-size: 1.2rem;
-  }
-  
-  .sectionTitle {
-    font-size: 2rem;
-  }
-  
-  .teamGrid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
+@media (max-width: 700px) {
+  .heroSection { padding-left: 16px; }
+  .featureGrid { gap: 12px; }
+  .teamGrid { gap: 14px; }
+  .teamCard, .founderCard { width: 98vw; min-width: 0; }
+  .visionCard { padding: 14px 4vw; }
+  .whoWeAreSection, .mentorsSection, .founderSection, .teamSection { padding: 18px 0 0 0; }
 }
 
-@media (max-width: 480px) {
-  .heroSection {
-    height: 50vh;
-  }
-  
-  .heroTitle {
-    font-size: 2rem;
-  }
-  
-  .heroSubtitle {
-    font-size: 1rem;
-  }
-}
-
-/* Add the following to your JSX file */
-.aboutDescription {
-  margin-bottom: 50px;
-}
-
-/* For the navbar - be sure to update your navbar component CSS */
-.navbar {
-  background-color: #0d4a1c;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navLink {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navLink:hover {
-  color: #76ee7e;
-}
-
-.logo {
-  height: 40px;
+@media (max-width: 500px) {
+  .heroTitle { font-size: 1.2rem; }
+  .teamImage, .founderImage { width: 60px; height: 60px; }
+  .featureCard { min-height: 120px; }
 }
