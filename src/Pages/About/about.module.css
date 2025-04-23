@@ -59,7 +59,7 @@ body {
   font-size: 2.1rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   padding-top: 30px;
   letter-spacing: 0.5px;
 }
@@ -148,7 +148,7 @@ body {
 
 .visionCard {
   background: #e8f5e9;
-  border-radius: 32px;
+  border-radius: 0px 32px 0px 32px;
   padding: 36px 30px;
   max-width: 800px;
   width: 100%;
@@ -191,7 +191,7 @@ body {
 
 .teamCard {
   background: #fff;
-  border-radius: 24px;
+  border-radius: 0px 24px 0px 24px;
   box-shadow: 0 4px 16px rgba(13, 74, 54, 0.09);
   padding: 28px 18px 18px 18px;
   width: 180px;
@@ -228,6 +228,14 @@ body {
   color: #3d5c47;
 }
 
+.founderName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1b3738;
+  margin-bottom: 34px;
+  text-align: center;
+}
+
 .founderSection {
   background: white;
   /* padding: 46px 0 0 0; */
@@ -236,12 +244,13 @@ body {
 
 .founderCard {
   background: #fff;
-  border-radius: 0px 24px;
-  padding: 27px 18px 18px 18px;
-  width: 220px;
-  margin: 21px auto;
-  box-shadow: 0 8px 32px rgba(13, 74, 54, 0.16);
-  animation: about_fadeInUp__jI0PY 1.2s;
+  border-radius: 16px;
+  padding: 32px 24px;
+  width: 280px;
+  margin: 30px auto;
+  /* box-shadow: 0 4px 20px rgba(27, 55, 56, 0.12); */
+  animation: fadeInUp 1.2s;
+  transition: transform 0.3s ease;
 }
 
 .founderImage {
@@ -250,8 +259,10 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #1b3738;
-  margin-bottom: 13px;
+  margin: 0 auto 13px auto;
   background: #fff;
+  display: block;
+  
 }
 
 /* Animations */

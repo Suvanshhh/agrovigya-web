@@ -207,8 +207,8 @@ const About = () => (
           alt={projectDirector.name}
           className={styles.founderImage}
         />
-        <h3 className={styles.teamName}>{projectDirector.name}</h3>
-        <p className={styles.teamRole}>{projectDirector.role}</p>
+        <h3 className={styles.founderName}>{projectDirector.name}</h3>
+        {/* <p className={styles.teamRole}>{projectDirector.role}</p> */}
       </Link>
     </section>
 

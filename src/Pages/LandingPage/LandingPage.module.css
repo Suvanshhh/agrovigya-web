@@ -1,0 +1,31 @@
+.landingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1B3738;
+}
+
+@keyframes shutterAnimation {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    50% {
+        opacity: 1;
+        transform: scaleY(1.05); /* Reduced from 1.1 to 1.05 for less stretch */
+        transform-origin: top;
+    }
+    100% {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+}
+
+.animatedLogo {
+    width: 200px;
+    height: 200px;
+    animation: shutterAnimation 5s ease-in-out forwards; /* Increased from 3s to 4s */
+}

@@ -29,7 +29,10 @@ import Siya from "./Pages/AboutEveryone/Siya/Siya";
 import Sunita from "./Pages/AboutEveryone/Sunita/Sunita";
 import Suvansh from "./Pages/AboutEveryone/Suvansh/Suvansh";
 
+import LandingPage from "./Pages/LandingPage/LandingPage";
+
 function App() {
+  const [showLanding, setShowLanding] = useState(true);
   // For testing, temporarily force modal to show
   const [showAuthModal, setShowAuthModal] = useState(true);
 
@@ -38,6 +41,11 @@ function App() {
   const user = auth?.user;
 
   useEffect(() => {
+    // Show landing page for 3 seconds then hide
+    const landingTimer = setTimeout(() => {
+      setShowLanding(false);
+    }, 3000);
+
     // Check if user is not logged in and hasn't chosen to hide the modal
     const hideAuthModal = localStorage.getItem("hideAuthModal");
     console.log("Current user:", user);
@@ -55,7 +63,10 @@ function App() {
         }, 0);
       }, 1000);
 
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(landingTimer);
+      };
     } else {
       console.log("Conditions NOT met to show the AuthModal.");
       console.log(
@@ -72,46 +83,52 @@ function App() {
 
   return (
     <Router>
-      {console.log("Before rendering, showAuthModal is:", showAuthModal)}
-      {showAuthModal && (
-        <AuthModal
-          onClose={() => {
-            console.log("Closing AuthModal");
-            setShowAuthModal(false);
-          }}
-          onLogin={handleLogin}
-        />
-      )}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/labour-estimation" element={<LabourEstimation />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/profile/:name" element={<DynamicProfile />} />
-        <Route
-          path="/crop-recommendation"
-          element={<CropRecommendationPage />}
-        />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/governmentschemes" element={<GovtSchemes />} />
-        <Route path="/marketplace" element={<Marketplace />} />
+      {showLanding ? (
+        <LandingPage />
+      ) : (
+        <>
+          {console.log("Before rendering, showAuthModal is:", showAuthModal)}
+          {showAuthModal && (
+            <AuthModal
+              onClose={() => {
+                console.log("Closing AuthModal");
+                setShowAuthModal(false);
+              }}
+              onLogin={handleLogin}
+            />
+          )}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/labour-estimation" element={<LabourEstimation />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile/:name" element={<DynamicProfile />} />
+            <Route
+              path="/crop-recommendation"
+              element={<CropRecommendationPage />}
+            />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/governmentschemes" element={<GovtSchemes />} />
+            <Route path="/marketplace" element={<Marketplace />} />
 
-        {/* Member routes */}
-        <Route path="/abouteveryone/agniva" element={<Agniva />} />
-        <Route path="/abouteveryone/aishwarya" element={<Aishwarya />} />
-        <Route path="/abouteveryone/anuja" element={<Anuja />} />
-        <Route path="/abouteveryone/ashok" element={<Ashok />} />
-        <Route path="/abouteveryone/isha" element={<Isha />} />
-        <Route path="/abouteveryone/shivam" element={<Shivam />} />
-        <Route path="/abouteveryone/shrut" element={<Shrut />} />
-        <Route path="/abouteveryone/shubhra" element={<Shubhra />} />
-        <Route path="/abouteveryone/siya" element={<Siya />} />
-        <Route path="/abouteveryone/sunita" element={<Sunita />} />
-        <Route path="/abouteveryone/suvansh" element={<Suvansh />} />
-      </Routes>
+            {/* Member routes */}
+            <Route path="/abouteveryone/agniva" element={<Agniva />} />
+            <Route path="/abouteveryone/aishwarya" element={<Aishwarya />} />
+            <Route path="/abouteveryone/anuja" element={<Anuja />} />
+            <Route path="/abouteveryone/ashok" element={<Ashok />} />
+            <Route path="/abouteveryone/isha" element={<Isha />} />
+            <Route path="/abouteveryone/shivam" element={<Shivam />} />
+            <Route path="/abouteveryone/shrut" element={<Shrut />} />
+            <Route path="/abouteveryone/shubhra" element={<Shubhra />} />
+            <Route path="/abouteveryone/siya" element={<Siya />} />
+            <Route path="/abouteveryone/sunita" element={<Sunita />} />
+            <Route path="/abouteveryone/suvansh" element={<Suvansh />} />
+          </Routes>
+        </>
+      )}
     </Router>
   );
 }
