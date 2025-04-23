@@ -69,7 +69,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className={styles.logo}>
             <img
-              src="https://i.postimg.cc/sDHmr0Hp/logo-1-03.png"
+              src="https://i.postimg.cc/9fPv4RGn/logo-1-h-removebg-preview.png"
               alt="AgroVigya Logo"
               className={styles.logoImage}
             />
@@ -104,33 +104,41 @@ const Navbar = () => {
               )}
             </div>
 
+            
+           
+
+            <Link to="/download-app" className={styles.navLink}>Download App</Link>
+
+            {/* <Link to="/contact" className={styles.contactButton}>{t("navbar.contact")}</Link> */}
+
+            
+
+            {/* Language Switcher for Desktop */}
+            <div className={styles.languageSwitcherContainer}>
+              <LanguageSwitcher />
+            </div>
+
+             {/* Conditional Login/Logout Buttons */}
+             {user ? (
+              <button onClick={handleLogout} className={styles.navButton}>
+                Logout <LogOut size={16} />
+              </button>
+            ) : (
+              <>
+                {/* <Link to="/login" className={styles.navLink}>Login</Link> */}
+                <Link to="/signup" className={styles.navLink}>Login/Signup</Link>
+              </>
+            )}
+
             {/* Updated Profile Button */}
             <button
               className={styles.navButton}
               onClick={handleProfileClick}
               type="button"
             >
-              {t("navbar.profile")}
+              {/* {t("navbar.profile")} */}
             </button>
 
-            {/* Conditional Login/Logout Buttons */}
-            {user ? (
-              <button onClick={handleLogout} className={styles.navButton}>
-                Logout <LogOut size={16} />
-              </button>
-            ) : (
-              <>
-                <Link to="/login" className={styles.navButton}>Login</Link>
-                <Link to="/signup" className={styles.navButton}>Signup</Link>
-              </>
-            )}
-
-            <Link to="/contact" className={styles.contactButton}>{t("navbar.contact")}</Link>
-
-            {/* Language Switcher for Desktop */}
-            <div className={styles.languageSwitcherContainer}>
-              <LanguageSwitcher />
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
