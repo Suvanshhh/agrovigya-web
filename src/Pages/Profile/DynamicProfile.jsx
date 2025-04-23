@@ -17,9 +17,13 @@ const componentMap = {
 
 const DynamicProfile = () => {
   const { name } = useParams();
-  const key = name.toLowerCase().replace(/[^a-z]/g, ""); // normalize name to key
+  // Extract first name ignoring prefixes like "Dr." and last names
+  const firstName = name
+    .toLowerCase()
+    .replace(/dr\.?\s*/g, "") // remove "dr." prefix
+    .split(" ")[0]; // take first word as key
 
-  const ProfileComponent = componentMap[key];
+  const ProfileComponent = componentMap[firstName];
 
   if (!ProfileComponent) {
     return <div>Profile not found.</div>;
