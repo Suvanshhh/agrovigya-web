@@ -89,6 +89,9 @@ body {
   margin-left: -20px; 
 }
 
+.pageBg{
+  background-color: #1B3738;
+}
 .inputCol label {
   color: #fff;
   font-size: 1rem;
