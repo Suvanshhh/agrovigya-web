@@ -131,13 +131,15 @@ const Navbar = () => {
             )}
 
             {/* Updated Profile Button */}
-            <button
-              className={styles.navButton}
-              onClick={handleProfileClick}
-              type="button"
-            >
-              {/* {t("navbar.profile")} */}
-            </button>
+            {user && (
+              <button
+                className={styles.navButton}
+                onClick={handleProfileClick}
+                type="button"
+              >
+                {/* {t("navbar.profile")} */}
+              </button>
+            )}
 
           </div>
 
@@ -177,13 +179,15 @@ const Navbar = () => {
           </div>
 
           {/* Updated Profile Button for Mobile */}
-          <button
-            className={styles.mobileNavLink}
-            onClick={handleProfileClick}
-            type="button"
-          >
-            {t("navbar.profile")}
-          </button>
+          {user && (
+            <button
+              className={styles.mobileNavLink}
+              onClick={handleProfileClick}
+              type="button"
+            >
+              {t("navbar.profile")}
+            </button>
+          )}
 
           {/* Conditional Login/Logout Buttons for Mobile */}
           {user ? (
