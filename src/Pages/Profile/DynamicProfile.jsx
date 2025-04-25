@@ -20,7 +20,7 @@ const DynamicProfile = () => {
   // Extract first name ignoring prefixes like "Dr." and last names
   const firstName = name
     .toLowerCase()
-    .replace(/dr\.?\s*/g, "") // remove "dr." prefix
+    .replace(/(?:dr|adv)\.?\s*/gi, "") // remove "dr." and "adv." prefixes
     .split(" ")[0]; // take first word as key
 
   const ProfileComponent = componentMap[firstName];

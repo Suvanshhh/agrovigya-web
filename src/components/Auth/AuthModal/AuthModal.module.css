@@ -17,7 +17,7 @@
   .auth-modal {
     background: rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(8px);
-    border-radius: 0px 48px 0px 48px;
+    border-radius: 5px 48px 5px 48px;
     width: 90%;
     max-width: 400px;
     box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);

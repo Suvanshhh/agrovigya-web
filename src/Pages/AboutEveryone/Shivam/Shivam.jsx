@@ -1,7 +1,7 @@
-import React from 'react';
-import Navbar from '../../../components/Navbar/navbar';
-import Footer from '../../../components/Footer/footer';
-import styles from './Shivam.module.css';
+import React from "react";
+import Navbar from "../../../components/Navbar/navbar";
+import Footer from "../../../components/Footer/footer";
+import styles from "./Shivam.module.css";
 
 const Shivam = () => {
   return (
@@ -9,12 +9,12 @@ const Shivam = () => {
       <Navbar />
       <div className={styles.profileBg}>
         <div className={styles.profileContainer}>
-          <h1 className={styles.profileTitle}>Suvansh Choudhary</h1>
+          <h1 className={styles.profileTitle}>Shivam</h1>
           <div className={styles.profileCard}>
             <div className={styles.profileImageWrapper}>
               <img
-                src="https://i.ibb.co/PzCw2K7S/1000158921-01.jpg"
-                alt="Suvansh Choudhary"
+                src="https://i.postimg.cc/fLkx8mPW/shivam-pic.jpg"
+                alt="Shivam"
                 className={styles.profileImage}
               />
               <div className={styles.profileDetails}>
@@ -34,17 +34,24 @@ const Shivam = () => {
             </div>
             <div className={styles.profileDesc}>
               <p>
-                I am Suvansh Choudhary, a dedicated developer and team member at AgroVigya. My passion for technology and problem-solving drives my work in building robust and scalable digital solutions for the agricultural sector. I take pride in delivering clean, efficient code and collaborating with cross-functional teams to turn ideas into impactful products.
+                As a passionate developer, I thrive on building innovative and
+                efficient solutions that enhance user experiences. With
+                expertise in Flutter, Node.js, and machine learning, I
+                specialize in crafting dynamic applications, from mobile apps to
+                intelligent chatbots. Whether it's designing seamless UI/UX,
+                optimizing backend performance, or integrating AI-driven
+                features, I’m always eager to push the boundaries of technology.
               </p>
               <p>
-                With a strong foundation in full-stack development and a commitment to continuous learning, I strive to contribute meaningfully to both academic and professional settings.
+                Being an active contributor to hackathons and entrepreneurial
+                projects, I believe in creating impactful digital products that
+                bridge gaps and solve real-world problems.
               </p>
             </div>
           </div>
         </div>
       </div>
       <Footer />
-
     </>
   );
 };

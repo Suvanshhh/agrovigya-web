@@ -1,20 +1,20 @@
-import React from 'react';
-import Navbar from '../../../components/Navbar/navbar';
-import Footer from '../../../components/Footer/footer';
-import styles from './Ashok.module.css';
+import React from "react";
+import Navbar from "../../../components/Navbar/navbar";
+import Footer from "../../../components/Footer/footer";
+import styles from "./Ashok.module.css";
 
 const Ashok = () => {
   return (
     <>
-       <Navbar />
+      <Navbar />
       <div className={styles.profileBg}>
         <div className={styles.profileContainer}>
-          <h1 className={styles.profileTitle}>Suvansh Choudhary</h1>
+          <h1 className={styles.profileTitle}>Ashok Palande</h1>
           <div className={styles.profileCard}>
             <div className={styles.profileImageWrapper}>
               <img
-                src="https://i.ibb.co/PzCw2K7S/1000158921-01.jpg"
-                alt="Suvansh Choudhary"
+                src="https://i.ibb.co/PvGB5gpM/Ashok-palande-pic.jpg"
+                alt="Ashok Palande"
                 className={styles.profileImage}
               />
               <div className={styles.profileDetails}>
@@ -27,24 +27,45 @@ const Ashok = () => {
                   <span className={styles.detailValue}>-</span>
                 </div> */}
                 <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>Role</span>
-                  <span className={styles.detailValue}>Website Developer</span>
+                  <span className={styles.detailLabel}>
+                    Vice chairman, GB and Council, DES
+                    chairman, CDC, DES SNFLC
+                  </span>
+                  {/* <span className={styles.detailValue}>Website Developer</span> */}
                 </div>
               </div>
             </div>
             <div className={styles.profileDesc}>
               <p>
-                I am Suvansh Choudhary, a dedicated developer and team member at AgroVigya. My passion for technology and problem-solving drives my work in building robust and scalable digital solutions for the agricultural sector. I take pride in delivering clean, efficient code and collaborating with cross-functional teams to turn ideas into impactful products.
+                Agriculture has always been the backbone of our nation, shaping
+                its economy, culture, and livelihoods. However, with changing
+                times, evolving challenges, and new opportunities, it is
+                essential to integrate modern technology with traditional wisdom
+                to ensure sustainable growth. Agrovigya is a step in this
+                direction—an innovative initiative that not only enhances
+                employment opportunities in the rural sector but also
+                strengthens the agricultural ecosystem through digital
+                solutions, skill development, and direct market access. Guiding
+                and supporting this project has been an inspiring experience. It
+                reflects the dedication, vision, and relentless efforts of the
+                team in addressing critical issues like disguised unemployment,
+                lack of financial accessibility, and the need for technological
+                intervention in farming. Agrovigya is more than just a
+                platform—it is a movement towards self-sufficiency, empowerment,
+                and a digitally advanced rural economy.
               </p>
               <p>
-                With a strong foundation in full-stack development and a commitment to continuous learning, I strive to contribute meaningfully to both academic and professional settings.
+                I applaud the team for their commitment, innovation, and hard
+                work in shaping this initiative. There is still much more to
+                achieve, and I am confident that Agrovigya will continue to make
+                a lasting impact on the agricultural sector and rural workforce,
+                creating new opportunities and driving sustainable progress.
               </p>
             </div>
           </div>
         </div>
       </div>
       <Footer />
-
     </>
   );
 };

@@ -17,7 +17,7 @@ const Footer = () => {
         {/* Logo & Company Info */}
         <div className={styles.companySection}>
           <img
-            src="https://i.postimg.cc/j2tXv7Cn/agro-Vigya-Logo.png"
+            src="https://i.postimg.cc/sDHmr0Hp/logo-1-03.png"
             alt="Agrovigya Logo"
             className={styles.footerLogo}
           />

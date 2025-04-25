@@ -1,20 +1,20 @@
-import React from 'react';
-import Navbar from '../../../components/Navbar/navbar';
-import Footer from '../../../components/Footer/footer';
-import styles from './Agniva.module.css';
+import React from "react";
+import Navbar from "../../../components/Navbar/navbar";
+import Footer from "../../../components/Footer/footer";
+import styles from "./Agniva.module.css";
 
 const Agniva = () => {
   return (
     <>
-       <Navbar />
+      <Navbar />
       <div className={styles.profileBg}>
         <div className={styles.profileContainer}>
-          <h1 className={styles.profileTitle}>Suvansh Choudhary</h1>
+          <h1 className={styles.profileTitle}>Agniva Maiti</h1>
           <div className={styles.profileCard}>
             <div className={styles.profileImageWrapper}>
               <img
-                src="https://i.ibb.co/PzCw2K7S/1000158921-01.jpg"
-                alt="Suvansh Choudhary"
+                src="https://i.postimg.cc/hgzHNdVc/agniva-pic.jpg"
+                alt="Agniva Maiti"
                 className={styles.profileImage}
               />
               <div className={styles.profileDetails}>
@@ -28,23 +28,28 @@ const Agniva = () => {
                 </div> */}
                 <div className={styles.detailRow}>
                   <span className={styles.detailLabel}>Role</span>
-                  <span className={styles.detailValue}>Website Developer</span>
+                  <span className={styles.detailValue}>Developer</span>
                 </div>
               </div>
             </div>
             <div className={styles.profileDesc}>
               <p>
-                I am Suvansh Choudhary, a dedicated developer and team member at AgroVigya. My passion for technology and problem-solving drives my work in building robust and scalable digital solutions for the agricultural sector. I take pride in delivering clean, efficient code and collaborating with cross-functional teams to turn ideas into impactful products.
+                Nomoskar! I'm a developer from Dimapur, Nagaland, currently an
+                undergrad at KIIT-DU. I work with Flutter, React Native, and
+                Kotlin for app development, alongside web development. My
+                interests extend to AI-ML, particularly LLMs, NLP, and computer
+                vision. I love exploring new tech, refining my skills, and
+                turning ideas into functional, well-designed applications.
               </p>
               <p>
-                With a strong foundation in full-stack development and a commitment to continuous learning, I strive to contribute meaningfully to both academic and professional settings.
+                When I’m not coding, you’ll probably find me with a cup of
+                coffee, brainstorming my next project.
               </p>
             </div>
           </div>
         </div>
       </div>
       <Footer />
-
     </>
   );
 };

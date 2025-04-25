@@ -86,18 +86,37 @@
 
 .infoCard {
   flex: 1 1 50%;
-  background: #e5e5e5;
-  border-radius:2.5rem 0rem 2.5rem 0rem;
-  padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+  background: #1B3738;
+  border-radius: 3rem 0rem 3rem 0rem;
+  padding: 2.5rem 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
   min-width: 260px;
-  min-height: 160px;
+  min-height: 180px;
   color: #fff;
-  background: linear-gradient(120deg, #C8CACA 60%, #1B3738 100%);
-  box-shadow: 0 4px 24px 0 rgba(27, 55, 56, 0.10);
+  background: linear-gradient(135deg, #1B3738 0%, #2A5456 100%);
+  box-shadow: 0 8px 32px rgba(27, 55, 56, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(27, 55, 56, 0.2);
+}
+
+.infoCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .infoTitle {
