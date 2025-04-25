@@ -69,7 +69,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className={styles.logo}>
             <img
-              src="https://i.postimg.cc/9fPv4RGn/logo-1-h-removebg-preview.png"
+              src="https://i.postimg.cc/0QwcFG1R/agrovigya-logos-04.png"
               alt="AgroVigya Logo"
               className={styles.logoImage}
             />

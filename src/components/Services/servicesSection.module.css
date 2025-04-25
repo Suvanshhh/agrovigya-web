@@ -32,7 +32,7 @@
   .serviceCard {
     background: #fff;
     border-radius: 0px 68px 0px 58px; /* Large top corners, small bottom corners */
-    box-shadow: 0 8px 28px 0 rgba(27, 55, 56, 0.18);
+    background: rgba(255, 248, 240, 0.9);
     padding: 1.5rem 2.2rem 1.5rem 2.2rem ;
     text-align: center;
     cursor: pointer;
@@ -42,20 +42,20 @@
     flex-direction: column;
     align-items: center;
     min-height: 320px;
+    box-shadow: 0 4px 16px rgba(27, 55, 56, 0.15);
   }
-  
   .serviceCard:hover {
     transform: translateY(-7px) scale(1.03);
     box-shadow: 0 12px 36px 0 rgba(27, 55, 56, 0.22);
+    background: rgba(255, 255, 255, 0.18);
   }
-  
   .icon {
     margin-bottom: 1.1rem;
     /* Add icon color if needed */
   }
   
   .serviceCard h3 {
-    font-size: 1.18rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 0.7rem;
     color: #1B3738;
@@ -65,7 +65,7 @@
   .serviceCard p {
     font-size: 1rem;
     color: #1B3738;
-    opacity: 0.88;
+    opacity: 1;
     margin-bottom: 0;
   }
   

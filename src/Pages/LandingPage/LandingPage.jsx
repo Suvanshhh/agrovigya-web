@@ -8,7 +8,7 @@ const LandingPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/");
-    }, 3000); // 3 seconds animation duration
+    }, 4000); // Let the animation finish before routing
 
     return () => clearTimeout(timer);
   }, [navigate]);
@@ -16,10 +16,12 @@ const LandingPage = () => {
   return (
     <div className={styles.landingContainer}>
       <img
-        src="https://i.postimg.cc/9fPv4RGn/logo-1-h-removebg-preview.png"
+        src="https://i.postimg.cc/HnGcvXdN/agrovigya-logos-03.png"
         alt="Logo"
         className={styles.animatedLogo}
       />
+      <div className={styles.shutterTop}></div>
+      <div className={styles.shutterBottom}></div>
     </div>
   );
 };
