@@ -1,129 +1,134 @@
-body {
-    font-family: 'Poppins', 'Arial', sans-serif;
-    background: #1B3738;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Page Wrapper */
-  .pageWrapper {
-    min-height: 100vh;
-    background: #1B3738;
-    color: #147b2c;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-.imageSection {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    width: 60%;
-    padding: 200px;
-    position: absolute;
-    left: 560px;
-    top: 78%;
-    transform: translateY(-50%);
+/* Page Wrapper */
+.pageWrapper {
+  min-height: 100vh;
+  background: #1B3738;
+  color: #147b2c;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.imageSection img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+/* Main Content */
+.mainContent {
+  flex: 1;
+  padding: 32px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1B3738;
 }
 
-@media (max-width: 768px) {
-    .imageSection {
-        position: static;
-        width: 100%;
-        padding: 0 20px;
-        margin-top: 20px;
-        transform: none;
-    }
-    
-    .imageSection img {
-        max-width: 100%;
-        margin-top: 20px;
-    }
-}
-  .mainContent {
-    flex: 1;
-    padding: 32px 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #1B3738; /* Changed from #fff to #1B3738 */
+/* Page Title */
+.pageTitle {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 62px;
+  margin-bottom: 8px;
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
-  
-  .pageTitle {
-    font-size: 2.1rem;
-    font-weight: 700;
-    color: white;
-    margin-top: 62px;
-    margin-bottom: 8px;
-    text-align: center;
-    letter-spacing: 0.5px;
-  }
-  
-  .pageSubtitle {
-    font-size: 1.1rem;
-    color: white;
-    margin-bottom: 12px;
-    text-align: center;
-    font-weight: 400;
-  }
+/* Page Subtitle */
+.pageSubtitle {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* Content Container (Form + Image side by side) */
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 0 20px;
+  margin-top: 5px;
+  gap: 40px;
+}
+
+/* Form Section */
 .formSection {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    margin-bottom: 40px;
-    padding: 0 20px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
 }
 
+/* Image Section */
+.imageSection {
+  flex: 1;
+  display: flex;
+  padding-top: 160px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideImage {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .formSection {
-        grid-template-columns: 1fr;
-        width: 90%;
-        gap: 20px;
-    }
-    
-    .formSection > * {
-        grid-column: 1;
-    }
+@media (max-width: 900px) {
+  .mainContent {
+    padding: 18px 0 0 0;
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+    margin-top: 24px;
+  }
 }
-  @media (max-width: 900px) {
-    .mainContent {
-      padding: 18px 0 0 0;
-    }
-    .pageTitle {
-      font-size: 1.5rem;
-      margin-top: 24px;
-    }
-    .formSection {
-      margin-bottom: 24px;
-    }
+
+@media (max-width: 768px) {
+  .contentContainer {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  @media (max-width: 600px) {
-    .mainContent {
-      padding: 8px 0 0 0;
-    }
-    .pageTitle {
-      font-size: 1.1rem;
-      margin-top: 14px;
-    }
-    .pageSubtitle {
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
-    .formSection {
-      margin-bottom: 12px;
-    }
+
+  .formSection {
+    grid-template-columns: 1fr;
+    width: 90%;
+    gap: 20px;
   }
-  
+
+  .formSection > * {
+    grid-column: 1;
+  }
+
+  .imageSection {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .sideImage {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .mainContent {
+    padding: 8px 0 0 0;
+  }
+
+  .pageTitle {
+    font-size: 1.1rem;
+    margin-top: 14px;
+  }
+
+  .pageSubtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .formSection {
+    margin-bottom: 12px;
+  }
+}

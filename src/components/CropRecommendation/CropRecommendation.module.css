@@ -1,7 +1,7 @@
 .container {
   max-width: 1200px;
 margin: 1rem;
-padding: 2.5rem 2rem;
+padding: 2rem 1.8rem;
 background-color: #fff;
 border-radius: 0px 32px;
 box-shadow: 0 8px 32px rgba(20, 123, 44, 0.10);
@@ -14,7 +14,7 @@ animation: CropRecommendation_fadeInUp__tXc9Z 1s ease forwards;
 }
 
 .heading {
-  font-size: 2.3rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #111;
   margin-bottom: 2.5rem;
@@ -26,13 +26,13 @@ animation: CropRecommendation_fadeInUp__tXc9Z 1s ease forwards;
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem;
+  gap: 1.5rem;
   width: 100%; /* Added full width */
 }
 
@@ -51,13 +51,13 @@ animation: CropRecommendation_fadeInUp__tXc9Z 1s ease forwards;
 }
 
 .label {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   color: #19443a;
 }
 .input {
-  padding: 1.1rem;
+  padding: 1rem;
   font-size: 1rem;
   border: 2px solid #1ec37b;
   border-radius: 16px;
@@ -72,8 +72,8 @@ animation: CropRecommendation_fadeInUp__tXc9Z 1s ease forwards;
 }
 
 .button {
-  padding: 1.05rem;
-  font-size: 1.15rem;
+  padding: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   background-color: #147b2c;
   color: #fff;
@@ -81,7 +81,7 @@ animation: CropRecommendation_fadeInUp__tXc9Z 1s ease forwards;
   border-radius: 16px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
   animation: fadeIn 1s ease forwards;
 }
 
@@ -91,11 +91,11 @@ animation: CropRecommendation_fadeInUp__tXc9Z 1s ease forwards;
 }
 
 .result {
-  margin-top: 2.5rem;
-  padding: 1.2rem;
+  margin-top: 2.3rem;
+  padding: 1rem;
   background-color: #e6f7ee;
   border-left: 6px solid #147b2c;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #0f5c21;
   border-radius: 10px;
