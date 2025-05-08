@@ -13,7 +13,7 @@ import LabourEstimation from "./components/LabourEstimation/LabourEstimation";
 import AuthModal from "./components/Auth/AuthModal/AuthModal";
 import { useAuth } from "./context/AuthContext";
 import i18n from "./i18n"; // Importing i18n configuration
-import GovtSchemes from "./Pages/GovtSchemes/GovtSchemes";
+// import GovtSchemes from "./Pages/GovtSchemes/GovtSchemes";
 import Marketplace from "./Pages/Marketplace/Marketplace";
 
 // Import member components
@@ -111,7 +111,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/governmentschemes" element={<GovtSchemes />} />
+           
             <Route path="/marketplace" element={<Marketplace />} />
 
             {/* Member routes */}
