@@ -44,13 +44,32 @@ i18n
             focusedApproachDesc:
               "Our approach is always focused on delivering results...",
           },
-          // en.json
+
+          mentor: {
+            ashokpalande: {
+              name: "Adv. Ashok Palande",
+              role: "Vice Chairman, GB and Council, DES Chairman, CDC, DES SNFLC",
+            },
+            sunitaadhav: {
+              name: "Dr. Sunita Adhav",
+              role: "Principal, DES SNFLC",
+            },
+            anujasharma: {
+              name: "Anuja Sharma",
+              role: "Project Mentor",
+            },
+            aishwaryayadav: {
+              name: "Dr. Aishwarya Yadav",
+              role: "Project Mentor",
+            },
+          },
 
           team: {
             shubhraTripathi: {
               name: "Shubhra Tripathi",
               role: "Founder",
             },
+
             siyaNimkar: {
               name: "Siya Nimkar",
               role: "Researcher",
@@ -285,6 +304,24 @@ i18n
           ourMentors: "हमारे मार्गदर्शक",
           ourFounder: "हमारे संस्थापक",
           ourTeam: "हमारी टीम",
+          mentor: {
+            ashokpalande: {
+              name: "अधिवक्ता अशोक पालांडे",
+              role: "उपाध्यक्ष, जीबी और काउंसिल, डीईएस अध्यक्ष, सीडीसी, डीईएस एसएनएफएलसी",
+            },
+            sunitaadhav: {
+              name: "डॉ. सुनीता आदव",
+              role: "प्रधानाचार्य, डीईएस एसएनएफएलसी",
+            },
+            anujasharma: {
+              name: "अनुजा शर्मा",
+              role: "प्रोजेक्ट मेंटर",
+            },
+            aishwaryayadav: {
+              name: "डॉ. ऐश्वर्या यादव",
+              role: "प्रोजेक्ट मेंटर",
+            },
+          },
 
           team: {
             shubhraTripathi: {
@@ -522,6 +559,24 @@ i18n
           ourMentors: "आमचे मार्गदर्शक",
           ourFounder: "आमचे संस्थापक",
           ourTeam: "आमची टीम",
+          mentor: {
+            ashokpalande: {
+              name: "अ‍ॅड. अशोक पालांडे",
+              role: "उपाध्यक्ष, जीबी आणि काऊन्सिल, डीईएस अध्यक्ष, सीडीसी, डीईएस एसएनएफएलसी",
+            },
+            sunitaadhav: {
+              name: "डॉ. सुनीता आदव",
+              role: "प्राचार्य, डीईएस एसएनएफएलसी",
+            },
+            anujasharma: {
+              name: "अनुजा शर्मा",
+              role: "प्रोजेक्ट मेंटर",
+            },
+            aishwaryayadav: {
+              name: "डॉ. ऐश्वर्या यादव",
+              role: "प्रोजेक्ट मेंटर",
+            },
+          },
 
           team: {
             shubhraTripathi: {

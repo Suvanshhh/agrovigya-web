@@ -136,17 +136,19 @@ const About = () => {
           {mentors.map((mentor, idx) => (
             <Link
               key={idx}
-              to={`/profile/${encodeURIComponent(mentor.name)}`}
+              to={`/profile/${encodeURIComponent(t(`mentor.${mentor.name.replace(/ /g, "").toLowerCase()}.name`))}`}
               className={`${styles.teamCard} ${styles.fadeInUp}`}
               style={{ textDecoration: "none" }}
             >
               <img
                 src={mentor.img}
-                alt={mentor.name}
+                alt={t(`mentor.${mentor.name.replace(/ /g, "").toLowerCase()}.name`)}
                 className={styles.teamImage}
               />
-              <h3 className={styles.teamName}>{mentor.name}</h3>
-              {mentor.role && <p className={styles.teamRole}>{mentor.role}</p>}
+              <h3 className={styles.teamName}>
+                {t(`mentor.${mentor.name.replace(/ /g, "").toLowerCase()}.name`)}
+              </h3>
+              {mentor.role && <p className={styles.teamRole}>{t(`mentor.${mentor.name.replace(/ /g, "").toLowerCase()}.role`)}</p>}
             </Link>
           ))}
         </div>
