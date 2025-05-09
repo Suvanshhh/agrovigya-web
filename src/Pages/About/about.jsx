@@ -40,23 +40,19 @@ const projectDirector = {
 
 const mentors = [
   {
-    name: "Adv. Ashok Palande",
-    role: "Vice Chairman, GB and Council, DES Chairman, CDC, DES SNFLC",
+    key: "ashokpalande",
     img: "https://i.ibb.co/PvGB5gpM/Ashok-palande-pic.jpg",
   },
   {
-    name: "Dr. Sunita Adhav",
-    role: "Principal, DES SNFLC",
+    key: "sunitaadhav",
     img: "https://i.ibb.co/9kCD72CN/sunita-adhav-pic.jpg",
   },
   {
-    name: "Anuja Sharma",
-    role: "Project Mentor",
+    key: "anujasharma",
     img: "https://i.postimg.cc/MHWw8g36/anuja-pic.jpg",
   },
   {
-    name: "Dr. Aishwarya Yadav",
-    role: "Project Mentor",
+    key: "aishwaryayadav",
     img: "https://i.postimg.cc/Jn38vRqY/aishwarya-pic.jpg0",
   },
 ];
@@ -136,19 +132,21 @@ const About = () => {
           {mentors.map((mentor, idx) => (
             <Link
               key={idx}
-              to={`/profile/${encodeURIComponent(t(`mentor.${mentor.name.replace(/ /g, "").toLowerCase()}.name`))}`}
+              to={`/profile/${encodeURIComponent(t(`mentor.${mentor.key}.name`))}`}
               className={`${styles.teamCard} ${styles.fadeInUp}`}
               style={{ textDecoration: "none" }}
             >
               <img
                 src={mentor.img}
-                alt={t(`mentor.${mentor.name.replace(/ /g, "").toLowerCase()}.name`)}
+                alt={t(`mentor.${mentor.key}.name`)}
                 className={styles.teamImage}
               />
               <h3 className={styles.teamName}>
-                {t(`mentor.${mentor.name.replace(/ /g, "").toLowerCase()}.name`)}
+                {t(`mentor.${mentor.key}.name`)}
               </h3>
-              {mentor.role && <p className={styles.teamRole}>{t(`mentor.${mentor.name.replace(/ /g, "").toLowerCase()}.role`)}</p>}
+              <p className={styles.teamRole}>
+                {t(`mentor.${mentor.key}.role`)}
+              </p>
             </Link>
           ))}
         </div>

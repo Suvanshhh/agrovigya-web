@@ -5,7 +5,7 @@ import styles from "./Hero.module.css";
 const slides = [
   {
     image:
-      "https://plus.unsplash.com/premium_photo-1682092816831-69c7c3ff59a7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://i.postimg.cc/nFYN65zn/pexels-shvetsa-5230961.jpg",
     title: "home.title",
     subtitle: "home.subtitle",
     buttonText: "home.getStarted",
@@ -13,7 +13,7 @@ const slides = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://i.postimg.cc/4dS6DsH8/photo-1602867741746-6df80f40b3f6-jpeg.jpg",
     title: "home.whyChooseUs",
     subtitle: "whyChooseUs.smartFarmingDesc",
     buttonText: "whyChooseUs.learnMore",
@@ -21,7 +21,7 @@ const slides = [
   },
   {
     image:
-      "https://images.unsplash.com/photo-1602867741746-6df80f40b3f6?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://i.postimg.cc/NjmdR92Q/rice-7176354-1920.jpg",
     title: "services.marketplace",
     subtitle: "services.marketplaceDesc",
     buttonText: "services.exploreMarketplace",
