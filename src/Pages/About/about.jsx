@@ -7,39 +7,33 @@ import { useTranslation } from "react-i18next";
 
 const teamMembers = [
   {
-    name: "Siya Nimkar",
-    role: "Researcher",
+    key: "siyaNimkar",
     img: "https://i.postimg.cc/PJ2jfK0m/siya-pic.jpg",
   },
   {
-    name: "Shrut Kolhe",
-    role: "Researcher",
+    key: "shrutiKolhe",
     img: "https://i.postimg.cc/KjPjcWMq/shrut-pic2-removebg-preview.png",
   },
   {
-    name: "Suvansh Choudhary",
-    role: "Developer",
+    key: "suvanshChoudhary",
     img: "https://i.ibb.co/PzCw2K7S/1000158921-01.jpg",
   },
   {
-    name: "Agniva Maiti",
-    role: "Developer",
+    key: "agnivaMaiti",
     img: "https://i.postimg.cc/hgzHNdVc/agniva-pic.jpg",
   },
   {
-    name: "Shivam",
-    role: "Developer",
+    key: "shivam",
     img: "https://i.postimg.cc/fLkx8mPW/shivam-pic.jpg",
   },
   {
-    name: "Isha Deolakar",
-    role: "UI/UX & Graphic Designer",
+    key: "ishaDeolakar",
     img: "https://i.postimg.cc/NfMkPDmL/ISHa.jpg",
   },
 ];
 
 const projectDirector = {
-  name: "Shubhra Tripathi",
+  key: "shubhraTripathi",
   role: "Founder",
   img: "https://i.postimg.cc/65pKbJGz/shubhra-pic.jpg",
 };
@@ -135,14 +129,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Vision Section */}
-      <section className={styles.visionSection}>
-        <div className={styles.visionCard}>
-          <h2>{t("ourVision")}</h2>
-          <p>{t("visionContent")}</p>
-        </div>
-      </section>
-
       {/* Our Mentors */}
       <section className={styles.mentorsSection}>
         <h2 className={styles.sectionTitle}>{t("ourMentors")}</h2>
@@ -170,16 +156,21 @@ const About = () => {
       <section className={styles.founderSection}>
         <h2 className={styles.sectionTitle}>{t("ourFounder")}</h2>
         <Link
-          to={`/profile/${encodeURIComponent(projectDirector.name)}`}
+          to={`/profile/${encodeURIComponent(t(`team.${projectDirector.key}.name`))}`}
           className={`${styles.founderCard} ${styles.fadeInUp}`}
           style={{ textDecoration: "none" }}
         >
           <img
             src={projectDirector.img}
-            alt={projectDirector.name}
+            alt={t(`team.${projectDirector.key}.name`)}
             className={styles.founderImage}
           />
-          <h3 className={styles.founderName}>{projectDirector.name}</h3>
+          <h3 className={styles.founderName}>
+            {t(`team.${projectDirector.key}.name`)}
+          </h3>
+          <p className={styles.founderRole}>
+            {t(`team.${projectDirector.key}.role`)}
+          </p>
         </Link>
       </section>
 
@@ -189,18 +180,22 @@ const About = () => {
         <div className={styles.teamGrid}>
           {teamMembers.map((member, idx) => (
             <Link
-              to={`/profile/${encodeURIComponent(member.name)}`}
               key={idx}
+              to={`/profile/${encodeURIComponent(t(`team.${member.key}.name`))}`}
               className={`${styles.teamCard} ${styles.fadeInUp}`}
               style={{ textDecoration: "none" }}
             >
               <img
                 src={member.img}
-                alt={member.name}
+                alt={t(`team.${member.key}.name`)}
                 className={styles.teamImage}
               />
-              <h3 className={styles.teamName}>{member.name}</h3>
-              <p className={styles.teamRole}>{member.role}</p>
+              <h3 className={styles.teamName}>
+                {t(`team.${member.key}.name`)}
+              </h3>
+              <p className={styles.teamRole}>
+                {t(`team.${member.key}.role`)}
+              </p>
             </Link>
           ))}
         </div>

@@ -44,6 +44,38 @@ i18n
             focusedApproachDesc:
               "Our approach is always focused on delivering results...",
           },
+          // en.json
+
+          team: {
+            shubhraTripathi: {
+              name: "Shubhra Tripathi",
+              role: "Founder",
+            },
+            siyaNimkar: {
+              name: "Siya Nimkar",
+              role: "Researcher",
+            },
+            shrutiKolhe: {
+              name: "Shrut Kolhe",
+              role: "Researcher",
+            },
+            suvanshChoudhary: {
+              name: "Suvansh Choudhary",
+              role: "Developer",
+            },
+            agnivaMaiti: {
+              name: "Agniva Maiti",
+              role: "Developer",
+            },
+            shivam: {
+              name: "Shivam",
+              role: "Developer",
+            },
+            ishaDeolakar: {
+              name: "Isha Deolakar",
+              role: "UI/UX & Graphic Designer",
+            },
+          },
           ourVision: "Our Vision",
           visionContent: "Our vision is to transform the industry...",
           ourMentors: "Our Mentors",
@@ -127,6 +159,30 @@ i18n
               "Learn best practices for eco-friendly farming and organic methods.",
             learnMore: "Learn More",
             whyagrovigya: "Why Choose AgroVigya?",
+          },
+          blog: {
+            sectionTitle: "Read Our Blogs",
+            readMore: "read more",
+            blog1: {
+              title:
+                "The Future of Farming: How Technology is Revolutionizing Agriculture",
+              desc: "Agriculture has come a long way from traditional methods, evolving into a high-tech industry that blends science, innovation, and sustainability. As the global population...",
+            },
+            blog2: {
+              title:
+                "The Future of Farming: How Technology is Revolutionizing Agriculture",
+              desc: "Agriculture has come a long way from traditional methods, evolving into a high-tech industry that blends science, innovation, and sustainability. As the global population...",
+            },
+            blog3: {
+              title:
+                "The Future of Farming: How Technology is Revolutionizing Agriculture",
+              desc: "Agriculture has come a long way from traditional methods, evolving into a high-tech industry that blends science, innovation, and sustainability. As the global population...",
+            },
+            blog4: {
+              title:
+                "The Future of Farming: How Technology is Revolutionizing Agriculture",
+              desc: "Agriculture has come a long way from traditional methods, evolving into a high-tech industry that blends science, innovation, and sustainability. As the global population...",
+            },
           },
 
           signup: {
@@ -230,6 +286,37 @@ i18n
           ourFounder: "हमारे संस्थापक",
           ourTeam: "हमारी टीम",
 
+          team: {
+            shubhraTripathi: {
+              name: "शुभ्रा त्रिपाठी",
+              role: "संस्थापक",
+            },
+            siyaNimkar: {
+              name: "सिया निमकर",
+              role: "अनुसंधानकर्ता",
+            },
+            shrutiKolhe: {
+              name: "श्रुति कोल्हे",
+              role: "अनुसंधानकर्ता",
+            },
+            suvanshChoudhary: {
+              name: "सुवंश चौधरी",
+              role: "डेवलपर",
+            },
+            agnivaMaiti: {
+              name: "अग्निवा मइती",
+              role: "डेवलपर",
+            },
+            shivam: {
+              name: "शिवम",
+              role: "डेवलपर",
+            },
+            ishaDeolakar: {
+              name: "ईशा देओलकर",
+              role: "UI/UX और ग्राफिक डिज़ाइनर",
+            },
+          },
+
           services: {
             governmentSchemes: "सरकारी योजनाएँ",
             governmentSchemesDesc:
@@ -308,6 +395,32 @@ i18n
             learnMore: "और जानें",
             whyagrovigya: "AgroVigya को क्यों चुनें?",
           },
+
+          blog: {
+            sectionTitle: "हमारे ब्लॉग पढ़ें",
+            readMore: "अधिक पढ़ें",
+            blog1: {
+              title:
+                "कृषि का भविष्य: कैसे तकनीकी कृषि को क्रांतिकारी बना रही है",
+              desc: "कृषि पारंपरिक तरीकों से काफी आगे बढ़ चुकी है, यह अब एक उच्च-तकनीकी उद्योग बन चुका है जो विज्ञान, नवाचार और स्थिरता को मिलाता है। जैसा कि वैश्विक जनसंख्या...",
+            },
+            blog2: {
+              title:
+                "कृषि का भविष्य: कैसे तकनीकी कृषि को क्रांतिकारी बना रही है",
+              desc: "कृषि पारंपरिक तरीकों से काफी आगे बढ़ चुकी है, यह अब एक उच्च-तकनीकी उद्योग बन चुका है जो विज्ञान, नवाचार और स्थिरता को मिलाता है। जैसा कि वैश्विक जनसंख्या...",
+            },
+            blog3: {
+              title:
+                "कृषि का भविष्य: कैसे तकनीकी कृषि को क्रांतिकारी बना रही है",
+              desc: "कृषि पारंपरिक तरीकों से काफी आगे बढ़ चुकी है, यह अब एक उच्च-तकनीकी उद्योग बन चुका है जो विज्ञान, नवाचार और स्थिरता को मिलाता है। जैसा कि वैश्विक जनसंख्या...",
+            },
+            blog4: {
+              title:
+                "कृषि का भविष्य: कैसे तकनीकी कृषि को क्रांतिकारी बना रही है",
+              desc: "कृषि पारंपरिक तरीकों से काफी आगे बढ़ चुकी है, यह अब एक उच्च-तकनीकी उद्योग बन चुका है जो विज्ञान, नवाचार और स्थिरता को मिलाता है। जैसा कि वैश्विक जनसंख्या...",
+            },
+          },
+
           signup: {
             title: "साइन अप करें",
             fullName: "पूरा नाम",
@@ -410,6 +523,37 @@ i18n
           ourFounder: "आमचे संस्थापक",
           ourTeam: "आमची टीम",
 
+          team: {
+            shubhraTripathi: {
+              name: "शुभ्रा त्रिपाठी",
+              role: "संस्थापक",
+            },
+            siyaNimkar: {
+              name: "सिया निमकर",
+              role: "अनुसंधानकर्ता",
+            },
+            shrutiKolhe: {
+              name: "श्रुति कोल्हे",
+              role: "अनुसंधानकर्ता",
+            },
+            suvanshChoudhary: {
+              name: "सुवंश चौधरी",
+              role: "डेवलपर",
+            },
+            agnivaMaiti: {
+              name: "अग्निवा मइती",
+              role: "डेवलपर",
+            },
+            shivam: {
+              name: "शिवम",
+              role: "डेवलपर",
+            },
+            ishaDeolakar: {
+              name: "ईशा देओलकर",
+              role: "UI/UX और ग्राफिक डिज़ाइनर",
+            },
+          },
+
           services: {
             governmentSchemes: "सरकारी योजना",
             governmentSchemesDesc:
@@ -488,6 +632,28 @@ i18n
             learnMore: "अधिक जाणून घ्या",
             whyagrovigya: "AgroVigya का निवडावे?",
           },
+
+          blog: {
+            sectionTitle: "आमचे ब्लॉग वाचा",
+            readMore: "अधिक वाचा",
+            blog1: {
+              title: "कृषीचा भविष्य: कसा तंत्रज्ञान शेतीला क्रांतिकारी बनवतोय",
+              desc: "कृषी पारंपारिक पद्धतींना मागे टाकून एक उच्च-तंत्रज्ञान उद्योग बनली आहे, जी विज्ञान, नवकल्पना आणि शाश्वततेला एकत्र करते. जसे की जागतिक लोकसंख्या...",
+            },
+            blog2: {
+              title: "कृषीचा भविष्य: कसा तंत्रज्ञान शेतीला क्रांतिकारी बनवतोय",
+              desc: "कृषी पारंपारिक पद्धतींना मागे टाकून एक उच्च-तंत्रज्ञान उद्योग बनली आहे, जी विज्ञान, नवकल्पना आणि शाश्वततेला एकत्र करते. जसे की जागतिक लोकसंख्या...",
+            },
+            blog3: {
+              title: "कृषीचा भविष्य: कसा तंत्रज्ञान शेतीला क्रांतिकारी बनवतोय",
+              desc: "कृषी पारंपारिक पद्धतींना मागे टाकून एक उच्च-तंत्रज्ञान उद्योग बनली आहे, जी विज्ञान, नवकल्पना आणि शाश्वततेला एकत्र करते. जसे की जागतिक लोकसंख्या...",
+            },
+            blog4: {
+              title: "कृषीचा भविष्य: कसा तंत्रज्ञान शेतीला क्रांतिकारी बनवतोय",
+              desc: "कृषी पारंपारिक पद्धतींना मागे टाकून एक उच्च-तंत्रज्ञान उद्योग बनली आहे, जी विज्ञान, नवकल्पना आणि शाश्वततेला एकत्र करते. जसे की जागतिक लोकसंख्या...",
+            },
+          },
+
           signup: {
             title: "साइन अप करा",
             fullName: "पूर्ण नाव",
