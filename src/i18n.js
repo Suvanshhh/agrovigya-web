@@ -15,6 +15,8 @@ i18n
             services: "Services",
             dashboard: "Dashboard",
             profile: "Profile",
+            login_signup: "Login/Signup",
+            download_app: "Download App",
             contact: "Contact Us",
           },
           home: {
@@ -25,6 +27,14 @@ i18n
             whyChooseUs: "Why Choose AgroVigya?",
             contact: "Contact Us NOW!",
             getStarted: "Get Started"
+          },
+          aboutUs: {
+            title: "About AgroVigya",
+            description: "AgroVigya is committed to empowering farmers with advanced technology and sustainable practices, ensuring a brighter future for agriculture.",
+            mission: "Our Mission",
+            missionDescription: "To bring innovation and technology to the agricultural sector for increasing productivity and sustainability.",
+            vision: "Our Vision",
+            visionDescription: "To become the leading platform for smart farming solutions, empowering farmers worldwide."
           },
           services: {
             governmentSchemes: "Government Schemes",
@@ -71,14 +81,15 @@ i18n
             financialAssistanceDesc: "Get real-time updates on the latest government subsidies and schemes.",
             sustainableAgriculture: "Sustainable Agriculture",
             sustainableAgricultureDesc: "Learn best practices for eco-friendly farming and organic methods.",
-            learnMore: "Learn More"
+            learnMore: "Learn More",
+            whyagrovigya: "Why Choose AgroVigya?",
           },
           footer: {
             companyDesc: "Empowering farmers with technology-driven solutions for a sustainable future.",
             quickLinks: "Quick Links",
             ourServices: "Our Services",
             contactUs: "Contact Us",
-            address: "XYZ, Maharashtra, India",
+            address: "X, Maharashtra, India",
             newsletterTitle: "Subscribe to Our Newsletter",
             emailPlaceholder: "Enter your email",
             subscribe: "Subscribe",
@@ -93,6 +104,8 @@ i18n
             home: "होम",
             aboutUs: "हमारे बारे में",
             services: "सेवाएँ",
+            login_signup: "लॉगिन/साइनअप",
+            download_app: "ऐप डाउनलोड करें",
             dashboard: "डैशबोर्ड",
             profile: "प्रोफ़ाइल", 
             contact: "संपर्क करें",
@@ -106,6 +119,14 @@ i18n
             contact: "संपर्क करें",
             getStarted: "शुरू करें",
           },
+          aboutUs: {
+            title: "AgroVigya के बारे में",
+            description: "AgroVigya किसानों को उन्नत तकनीक और स्थायी प्रथाओं के साथ सशक्त बनाने के लिए प्रतिबद्ध है, ताकि कृषि के लिए एक उज्जवल भविष्य सुनिश्चित किया जा सके।",
+            mission: "हमारा मिशन",
+            missionDescription: "कृषि क्षेत्र में नवाचार और तकनीकी समाधान लाकर उत्पादकता और स्थिरता बढ़ाना।",
+            vision: "हमारा दृष्टिकोण",
+            visionDescription: "दुनिया भर के किसानों को सशक्त बनाने के लिए स्मार्ट खेती समाधान का प्रमुख मंच बनना।"
+          },
           services: {
             governmentSchemes: "सरकारी योजनाएँ",
             governmentSchemesDesc: "नवीनतम कृषि सब्सिडी और वित्तीय सहायता कार्यक्रमों तक पहुंच प्राप्त करें।",
@@ -116,6 +137,8 @@ i18n
             findJobs: "नौकरी खोजें",
             findJobsDesc: "किसानों के लिए उपयुक्त कृषि रोजगार के अवसर खोजें।",
             skillDevelopment: "कौशल विकास",
+            labourEstimation: "श्रम लागत अनुमान", // Added key
+            labourEstimationDesc: "आपकी कृषि आवश्यकताओं के लिए अनुमानित श्रम लागत की गणना करें।", // Added key
             skillDevelopmentDesc: "आधुनिक कृषि तकनीकों पर प्रशिक्षण कार्यक्रमों के साथ कौशल बढ़ाएँ।",
             exploreMarketplace: "बाजार का अन्वेषण करें",
           },
@@ -144,12 +167,13 @@ i18n
           },
           whyChooseUs: {
             smartFarming: "स्मार्ट खेती",
-            smartFarmingDesc: "उपज को अनुकूलित करने और उत्पादकता बढ़ाने के लिए एआई-संचालित उपकरणों का उपयोग करें।",
+            smartFarmingDesc: "उपज को अनुकूलित करने और उत्पादकता बढ़ाने के लिए एआई-संचालित उपकरणों का लाभ उठाएं।",
             financialAssistance: "वित्तीय सहायता",
-            financialAssistanceDesc: "नवीनतम सरकारी सब्सिडी और योजनाओं की वास्तविक समय में अपडेट प्राप्त करें।",
-            sustainableAgriculture: "सतत कृषि",
-            sustainableAgricultureDesc: "इको-फ्रेंडली खेती और जैविक तरीकों के सर्वोत्तम अभ्यास सीखें।",
-            learnMore: "अधिक जानें"
+            financialAssistanceDesc: "नवीनतम सरकारी सब्सिडी और योजनाओं पर वास्तविक समय में अपडेट प्राप्त करें।",
+            sustainableAgriculture: "स्थायी कृषि",
+            sustainableAgricultureDesc: "पारिस्थितिकीय रूप से अनुकूल खेती और जैविक तरीकों के लिए सर्वोत्तम प्रथाओं को जानें।",
+            learnMore: "और जानें",
+            whyagrovigya: "AgroVigya को क्यों चुनें?",
           },
           footer: {
             companyDesc: "किसानों को तकनीक-आधारित समाधान प्रदान कर एक स्थायी भविष्य की ओर अग्रसर करना।",
@@ -171,6 +195,8 @@ i18n
             home: "मुख्यपृष्ठ",
             aboutUs: "आमच्याबद्दल",
             services: "सेवा",
+            login_signup: "लॉगिन/साइनअप",
+            download_app: "अॅप डाउनलोड करा",
             dashboard: "डॅशबोर्ड",
             profile: "प्रोफाइल",
             contact: "संपर्क साधा",
@@ -184,6 +210,14 @@ i18n
             contact: "आमच्याशी संपर्क साधा!",
             getStarted: "सुरु करा",
           },
+          aboutUs: {
+            title: "AgroVigya बद्दल",
+            description: "AgroVigya शेतकऱ्यांना तंत्रज्ञान आणि शाश्वत पद्धतींसह सशक्त करण्यासाठी वचनबद्ध आहे, ज्यामुळे शेतीला उज्ज्वल भविष्य मिळवता येईल.",
+            mission: "आमचा ध्येय",
+            missionDescription: "कृषी क्षेत्रात नाविन्य आणि तंत्रज्ञान आणून उत्पादकता आणि शाश्वतता वाढवणे.",
+            vision: "आमचा दृष्टिकोन",
+            visionDescription: "स्मार्ट शेती उपायांसाठी जगभरातील शेतकऱ्यांना सशक्त करणारा प्रमुख मंच बनणे."
+          },
           services: {
             governmentSchemes: "सरकारी योजना",
             governmentSchemesDesc: "नवीनतम शेती अनुदाने आणि वित्तीय सहाय्य योजनांचा लाभ घ्या.",
@@ -192,19 +226,12 @@ i18n
             marketplace: "कृषी बाजारपेठ",
             marketplaceDesc: "शेती उत्पादन थेट ग्राहक आणि व्यवसायांना विक्री करा.",
             findJobs: "नोकरी शोधा",
+            labourEstimation: "कामगार खर्च अंदाज", // Added key
+            labourEstimationDesc: "तुमच्या कृषी गरजांसाठी अंदाजित कामगार खर्चाची गणना करा.", // Added key
             findJobsDesc: "शेतीशी संबंधित रोजगार संधी शोधा.",
             skillDevelopment: "कौशल्य विकास",
             skillDevelopmentDesc: "आधुनिक शेती तंत्रज्ञान शिकण्यासाठी प्रशिक्षण प्रोग्राम.",
             exploreMarketplace: "बाजारपेठ एक्सप्लोर करा",
-          },
-          whyChooseUs: {
-            smartFarming: "स्मार्ट शेती",
-            smartFarmingDesc: "उत्पन्न वाढवण्यासाठी आणि उत्पादकता सुधारण्यासाठी AI टूल्स वापरा.",
-            financialAssistance: "आर्थिक मदत",
-            financialAssistanceDesc: "सरकारी अनुदान आणि योजनांबद्दल वेळोवेळी अपडेट मिळवा.",
-            sustainableAgriculture: "शाश्वत शेती",
-            sustainableAgricultureDesc: "सेंद्रिय आणि पर्यावरणपूरक शेती पद्धती शिका.",
-            learnMore: "अधिक जाणून घ्या",
           },
           labourEstimation: {
             title: "कामगार खर्च अंदाज",
@@ -228,6 +255,16 @@ i18n
           errors: {
             fetchCrops: "पीक यादी लोड करण्यात अयशस्वी.",
             estimationFailed: "खर्चाचा अंदाज अयशस्वी."
+          },
+          whyChooseUs: {
+            smartFarming: "स्मार्ट शेती",
+            smartFarmingDesc: "उत्पादन वाढवण्यासाठी एआय-संचालित साधनांचा वापर करा.",
+            financialAssistance: "आर्थिक सहाय्य",
+            financialAssistanceDesc: "नवीनतम सरकारी अनुदान आणि योजनांवर रिअल-टाइम अपडेट मिळवा.",
+            sustainableAgriculture: "शाश्वत शेती",
+            sustainableAgricultureDesc: "पारिस्थितिकीय शेती आणि जैविक पद्धतींसाठी सर्वोत्तम पद्धती शिकणे.",
+            learnMore: "अधिक जाणून घ्या",
+            whyagrovigya: "AgroVigya का निवडावे?",
           },
           footer: {
             companyDesc: "शेतकऱ्यांना तंत्रज्ञानावर आधारित उपायांसह सशक्त करणे.",

@@ -14,6 +14,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   background-color: #1B3738;
 }
+
 .navbar:before {
   content: "";
   position: absolute;
@@ -32,6 +33,7 @@
   padding: 0 1rem;
 }
 
+/* Updated Navigation Content */
 .navContent {
   display: flex;
   justify-content: space-between;
@@ -75,8 +77,10 @@
     align-items: center;
   }
 }
-
 /* Language Switcher Container */
+.dropdownTrigger {
+  background-color: #1B3738;
+}
 .languageSwitcherContainer {
   margin-left: 1rem;
   display: flex;
@@ -90,6 +94,7 @@
   }
 }
 
+/* Nav Links */
 .navLink {
   padding: 0.5rem 1rem;
   color: white;
@@ -107,7 +112,6 @@
   position: relative;
 }
 
-/* Desktop Dropdown Menu modifications */
 .dropdownMenu {
   opacity: 0;
   visibility: hidden;
@@ -202,7 +206,8 @@
   border-color: #fbbf24;
 }
 
-/* Mobile Menu */
+
+/* Mobile Menu Button */
 .mobileMenuButton {
   display: flex;
   align-items: center;
@@ -228,11 +233,28 @@
   color: #fbbf24;
 }
 
+/* Mobile Menu */
 .mobileMenu {
   display: block;
-  padding: 1rem;
-  background-color: #147b2c;
-  border-top: 1px solid rgba(251, 191, 36, 0.2);
+  padding: 2rem;
+  background: rgba(27, 55, 56, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform-origin: top;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 768px) {
@@ -261,7 +283,6 @@
   margin: 0.5rem 0;
 }
 
-/* UPDATED MOBILE DROPDOWN CONTENT AND ITEM */
 .mobileDropdownContent {
   margin: 12px auto 0 auto;
   padding: 12px 0;
@@ -297,6 +318,7 @@
   transition: background 0.18s, color 0.18s;
   text-align: left;
 }
+
 .mobileDropdownItem:hover,
 .mobileDropdownItem:focus {
   color: #147b2c;
@@ -304,7 +326,6 @@
   font-weight: 600;
 }
 
-/* Ensure mobile dropdown floats above content and is centered */
 @media (max-width: 767px) {
   .mobileDropdownContent {
     left: 50% !important;
@@ -318,13 +339,13 @@
 /* Mobile Contact Button */
 .mobileContactButton {
   display: block;
-  margin: 1rem 0;
+  margin: 1.25rem 1rem;
   padding: 0.75rem 1rem;
   color: white;
   text-align: center;
   text-decoration: none;
   border: 2px solid white;
-  border-radius: 0.375rem;
+  border-radius: 1rem;
   transition: all 0.2s ease;
   font-size: 1rem;
 }
@@ -335,7 +356,7 @@
   border-color: #fbbf24;
 }
 
-/* Desktop Login & Signup Buttons */
+/* Login & Signup Buttons */
 .navButton {
   text-decoration: none;
   width: 40px;
@@ -357,7 +378,6 @@
   background-color: #388E3C;
 }
 
-/* Mobile Login & Signup Buttons */
 .mobileNavButton {
   text-decoration: none;
   color: white;
@@ -375,9 +395,7 @@
   background-color: #388E3C;
 }
 
-/* ---------------------- RESPONSIVE ENHANCEMENTS ---------------------- */
-
-/* Shrink padding and font sizes for smaller screens */
+/* Responsive Adjustments */
 @media (max-width: 991px) {
   .navContent {
     height: 64px;
@@ -408,8 +426,8 @@
     padding-right: 16px !important;
   }
   .mobileMenu {
-    padding-top: 16px !important;
-    padding-bottom: 16px !important;
+    padding-top: 26px !important;
+    padding-bottom: 26px !important;
   }
   .navContent {
     flex-direction: row;

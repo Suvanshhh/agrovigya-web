@@ -20,7 +20,7 @@ const WhyChooseUs = () => {
           </div>
         </div>
         <div className={styles.topText}>
-          <h2>Why choose Agrovigya?</h2>
+          <h2>{t("whyChooseUs.whyagrovigya")}</h2>
         </div>
       </div>
       <div className={styles.bottomRow}>

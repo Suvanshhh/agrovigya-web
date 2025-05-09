@@ -107,7 +107,7 @@ const Navbar = () => {
             
            
 
-            <Link to="/download-app" className={styles.navLink}>Download App</Link>
+            <Link to="/download-app" className={styles.navLink}>{t("navbar.download_app")}</Link>
 
             {/* <Link to="/contact" className={styles.contactButton}>{t("navbar.contact")}</Link> */}
 
@@ -126,7 +126,7 @@ const Navbar = () => {
             ) : (
               <>
                 {/* <Link to="/login" className={styles.navLink}>Login</Link> */}
-                <Link to="/signup" className={styles.navLink}>Login/Signup</Link>
+                <Link to="/signup" className={styles.navLink}>{t("navbar.login_signup")}</Link>
               </>
             )}
 
