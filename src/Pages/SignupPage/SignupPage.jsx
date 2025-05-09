@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { signInWithGoogle, signUpWithEmail } from "../../firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
 import styles from "./SignupPage.module.css";
 
 const Signup = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -23,7 +25,7 @@ const Signup = () => {
       const user = await signInWithGoogle();
       if (user) navigate("/dashboard");
     } catch (error) {
-      setError("Google signup failed.");
+      setError(t("signup.googleSignupFailed"));
     } finally {
       setLoading(false);
     }
@@ -32,15 +34,15 @@ const Signup = () => {
   const handleEmailSignup = async (e) => {
     e.preventDefault();
     if (!name || !phone || !email || !password || !confirmPassword) {
-      setError("Please fill in all fields");
+      setError(t("signup.fillAllFields"));
       return;
     }
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError(t("signup.passwordMismatch"));
       return;
     }
     if (!agree) {
-      setError("You must agree to the Terms of Use and Privacy Policy");
+      setError(t("signup.mustAgree"));
       return;
     }
     setLoading(true);
@@ -49,7 +51,7 @@ const Signup = () => {
       const user = await signUpWithEmail(email, password);
       if (user) navigate("/dashboard");
     } catch (error) {
-      setError("Signup failed: " + error.message);
+      setError(t("signup.signupFailed") + ": " + error.message);
     } finally {
       setLoading(false);
     }
@@ -61,31 +63,31 @@ const Signup = () => {
       <div className={styles.signupWrapper}>
         <div className={styles.signupSplit}>
           <form className={styles.signupCard} onSubmit={handleEmailSignup}>
-            <h2 className={styles.signupTitle}>Sign up</h2>
+            <h2 className={styles.signupTitle}>{t("signup.title")}</h2>
             <div className={styles.inputRow}>
               <div className={styles.inputCol}>
-                <label>Full Name</label>
+                <label>{t("signup.fullName")}</label>
                 <input
                   type="text"
-                  placeholder="Ex: Suvansh Choudhary"
+                  placeholder={t("signup.namePlaceholder")}
                   value={name}
                   onChange={e => setName(e.target.value)}
                   className={styles.input}
                   disabled={loading}
                 />
-                <label>Phone Number</label>
+                <label>{t("signup.phoneNumber")}</label>
                 <input
                   type="tel"
-                  placeholder="Ex: 1234567890"
+                  placeholder={t("signup.phonePlaceholder")}
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
                   className={styles.input}
                   disabled={loading}
                 />
-                <label>Email</label>
+                <label>{t("signup.email")}</label>
                 <input
                   type="email"
-                  placeholder="Ex: abcd@gmail.com"
+                  placeholder={t("signup.emailPlaceholder")}
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   className={styles.input}
@@ -93,19 +95,19 @@ const Signup = () => {
                 />
               </div>
               <div className={styles.inputCol}>
-                <label>Password</label>
+                <label>{t("signup.password")}</label>
                 <input
                   type="password"
-                  placeholder="Ex: 12345678"
+                  placeholder={t("signup.passwordPlaceholder")}
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   className={styles.input}
                   disabled={loading}
                 />
-                <label>Confirm Password</label>
+                <label>{t("signup.confirmPassword")}</label>
                 <input
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder={t("signup.confirmPasswordPlaceholder")}
                   value={confirmPassword}
                   onChange={e => setConfirmPassword(e.target.value)}
                   className={styles.input}
@@ -120,18 +122,21 @@ const Signup = () => {
                     disabled={loading}
                   />
                   <label htmlFor="terms">
-                    I agree to all <span className={styles.termsLink}>Terms of Use</span> and <span className={styles.termsLink}>Privacy Policy</span>
+                    {t("signup.agreePrefix")}{" "}
+                    <span className={styles.termsLink}>{t("signup.termsOfUse")}</span>{" "}
+                    {t("signup.and")}{" "}
+                    <span className={styles.termsLink}>{t("signup.privacyPolicy")}</span>
                   </label>
                 </div>
               </div>
             </div>
             {error && <div className={styles.errorMsg}>{error}</div>}
             <button className={styles.signupBtn} type="submit" disabled={loading}>
-              Sign in
+              {t("signup.signUp")}
             </button>
             <div className={styles.dividerRow}>
               <span className={styles.dividerLine}></span>
-              <span className={styles.dividerText}>or</span>
+              <span className={styles.dividerText}>{t("signup.or")}</span>
               <span className={styles.dividerLine}></span>
             </div>
             <button
@@ -145,19 +150,19 @@ const Signup = () => {
                 alt="Google"
                 className={styles.googleIcon}
               />
-              Sign up with google
+              {t("signup.signUpWithGoogle")}
             </button>
             <div className={styles.loginPrompt}>
-              Already have an account?{" "}
+              {t("signup.alreadyAccount")}{" "}
               <Link to="/login" className={styles.loginLink}>
-                Log in here
+                {t("signup.loginHere")}
               </Link>
             </div>
           </form>
           <div className={styles.rightPane}>
             <img
               src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
-              alt="Farmers Illustration"
+              alt={t("signup.illustrationAlt")}
               className={styles.illustration}
             />
           </div>

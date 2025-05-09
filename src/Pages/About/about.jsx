@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
 import styles from "./about.module.css";
-import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const teamMembers = [
   {
@@ -67,176 +67,148 @@ const mentors = [
   },
 ];
 
-const About = () => (
-  <div>
-    <Navbar />
+const About = () => {
+  const { t } = useTranslation();
 
-    {/* Who We Are */}
-    <section className={styles.whoWeAreSection}>
-      <h2 className={styles.sectionTitle}>Who We Are</h2>
-      <div className={styles.whoWeAreContent}>
-        <div className={styles.aboutText}>
-          AgroVigya is a pioneering digital platform committed to transforming
-          India’s agricultural landscape by addressing disguised unemployment
-          and fostering sustainable livelihoods. Our mission is to empower
-          farmers, job seekers, and rural workers by integrating
-          technology-driven solutions that bridge the gap between agriculture,
-          employment, and skill development.
-          <br />
-          <br />
-          Through data-driven crop recommendations, labor estimation tools, and
-          job-matching services, we optimize agricultural productivity while
-          connecting job seekers with relevant employment opportunities.
-          AgroVigya also facilitates upskilling programs to enhance
-          employability and provides seamless access to government schemes,
-          subsidies, and financial aid. By leveraging AI-driven insights and a
-          user-friendly interface, we ensure accessibility and efficiency in
-          rural workforce development. Our platform is more than just an
-          app—it’s a movement toward economic self-sufficiency, enabling farmers
-          to increase their earnings, reducing unemployment, and creating a
-          sustainable, technology-driven agricultural ecosystem.
-        </div>
-        <div className={styles.featureGrid}>
-          <div className={`${styles.featureCard} ${styles.fadeInLeft}`}>
-            <div
-              className={styles.featureBg}
-              style={{
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')",
-              }}
-            />
-            <div className={styles.featureContent}>
-              <h3>Global Impact</h3>
-              <p>
-                Revolutionizing agriculture through cutting-edge technology.
-              </p>
-            </div>
+  return (
+    <div>
+      <Navbar />
+
+      {/* Who We Are */}
+      <section className={styles.whoWeAreSection}>
+        <h2 className={styles.sectionTitle}>{t("aboutUs.whoWeAre")}</h2>
+        <div className={styles.whoWeAreContent}>
+          <div className={styles.aboutText}>
+            {t("aboutUs.whoWeAreContent")}
           </div>
-          <div className={`${styles.featureCard} ${styles.fadeInRight}`}>
-            <div
-              className={styles.featureBg}
-              style={{
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')",
-              }}
-            />
-            <div className={styles.featureContent}>
-              <h3>Expert Team</h3>
-              <p>
-                Dedicated professionals with expertise in agriculture and AI.
-              </p>
+          <div className={styles.featureGrid}>
+            <div className={`${styles.featureCard} ${styles.fadeInLeft}`}>
+              <div
+                className={styles.featureBg}
+                style={{
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')",
+                }}
+              />
+              <div className={styles.featureContent}>
+                <h3>{t("aboutUs.globalImpact")}</h3>
+                <p>{t("aboutUs.globalImpactDesc")}</p>
+              </div>
             </div>
-          </div>
-          <div className={`${styles.featureCard} ${styles.fadeInLeft}`}>
-            <div
-              className={styles.featureBg}
-              style={{
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80')",
-              }}
-            />
-            <div className={styles.featureContent}>
-              <h3>Innovation</h3>
-              <p>Harnessing AI and data-driven insights for better farming.</p>
+            <div className={`${styles.featureCard} ${styles.fadeInRight}`}>
+              <div
+                className={styles.featureBg}
+                style={{
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')",
+                }}
+              />
+              <div className={styles.featureContent}>
+                <h3>{t("aboutUs.expertTeam")}</h3>
+                <p>{t("aboutUs.expertTeamDesc")}</p>
+              </div>
             </div>
-          </div>
-          <div className={`${styles.featureCard} ${styles.fadeInRight}`}>
-            <div
-              className={styles.featureBg}
-              style={{ background: "#0d7c20" }}
-            />
-            <div className={styles.featureContent}>
-              <h3>Focused Approach</h3>
-              <p>Providing tailored solutions to support farmers worldwide.</p>
+            <div className={`${styles.featureCard} ${styles.fadeInLeft}`}>
+              <div
+                className={styles.featureBg}
+                style={{
+                  backgroundImage:
+                    "url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80')",
+                }}
+              />
+              <div className={styles.featureContent}>
+                <h3>{t("aboutUs.innovation")}</h3>
+                <p>{t("aboutUs.innovationDesc")}</p>
+              </div>
+            </div>
+            <div className={`${styles.featureCard} ${styles.fadeInRight}`}>
+              <div
+                className={styles.featureBg}
+                style={{ background: "#0d7c20" }}
+              />
+              <div className={styles.featureContent}>
+                <h3>{t("aboutUs.focusedApproach")}</h3>
+                <p>{t("aboutUs.focusedApproachDesc")}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Vision Section */}
-    <section className={styles.visionSection}>
-      <div className={styles.visionCard}>
-        <h2>Our Vision</h2>
-        <p>
-          At AgroVigya, our vision is a future where agriculture empowers,
-          sustains, and uplifts every rural community. We are committed to
-          bridging the gap between agricultural potential and rural prosperity
-          by providing innovative solutions, fostering skill development, and
-          ensuring equitable access to resources. Our goal is to create a
-          resilient ecosystem that not only enhances productivity but also
-          improves the quality of life for farmers and rural workers across
-          India.
-        </p>
-      </div>
-    </section>
+      {/* Vision Section */}
+      <section className={styles.visionSection}>
+        <div className={styles.visionCard}>
+          <h2>{t("ourVision")}</h2>
+          <p>{t("visionContent")}</p>
+        </div>
+      </section>
 
-    {/* Our Mentors */}
-    <section className={styles.mentorsSection}>
-      <h2 className={styles.sectionTitle}>Our Mentors</h2>
-      <div className={styles.teamGrid}>
-        {mentors.map((mentor, idx) => (
-          <Link
-            key={idx}
-            to={`/profile/${encodeURIComponent(mentor.name)}`}
-            className={`${styles.teamCard} ${styles.fadeInUp}`}
-            style={{ textDecoration: "none" }}
-          >
-            <img
-              src={mentor.img}
-              alt={mentor.name}
-              className={styles.teamImage}
-            />
-            <h3 className={styles.teamName}>{mentor.name}</h3>
-            {mentor.role && <p className={styles.teamRole}>{mentor.role}</p>}
-          </Link>
-        ))}
-      </div>
-    </section>
+      {/* Our Mentors */}
+      <section className={styles.mentorsSection}>
+        <h2 className={styles.sectionTitle}>{t("ourMentors")}</h2>
+        <div className={styles.teamGrid}>
+          {mentors.map((mentor, idx) => (
+            <Link
+              key={idx}
+              to={`/profile/${encodeURIComponent(mentor.name)}`}
+              className={`${styles.teamCard} ${styles.fadeInUp}`}
+              style={{ textDecoration: "none" }}
+            >
+              <img
+                src={mentor.img}
+                alt={mentor.name}
+                className={styles.teamImage}
+              />
+              <h3 className={styles.teamName}>{mentor.name}</h3>
+              {mentor.role && <p className={styles.teamRole}>{mentor.role}</p>}
+            </Link>
+          ))}
+        </div>
+      </section>
 
-    {/* Our Founder */}
-    <section className={styles.founderSection}>
-      <h2 className={styles.sectionTitle}>Our Founder</h2>
-      <Link
-        to={`/profile/${encodeURIComponent(projectDirector.name)}`}
-        className={`${styles.founderCard} ${styles.fadeInUp}`}
-        style={{ textDecoration: "none" }}
-      >
-        <img
-          src={projectDirector.img}
-          alt={projectDirector.name}
-          className={styles.founderImage}
-        />
-        <h3 className={styles.founderName}>{projectDirector.name}</h3>
-        {/* <p className={styles.teamRole}>{projectDirector.role}</p> */}
-      </Link>
-    </section>
+      {/* Our Founder */}
+      <section className={styles.founderSection}>
+        <h2 className={styles.sectionTitle}>{t("ourFounder")}</h2>
+        <Link
+          to={`/profile/${encodeURIComponent(projectDirector.name)}`}
+          className={`${styles.founderCard} ${styles.fadeInUp}`}
+          style={{ textDecoration: "none" }}
+        >
+          <img
+            src={projectDirector.img}
+            alt={projectDirector.name}
+            className={styles.founderImage}
+          />
+          <h3 className={styles.founderName}>{projectDirector.name}</h3>
+        </Link>
+      </section>
 
-    {/* Our Team */}
-    <section className={styles.teamSection}>
-      <h2 className={styles.sectionTitle}>Our Team</h2>
-      <div className={styles.teamGrid}>
-        {teamMembers.map((member, idx) => (
-          <Link
-            to={`/profile/${encodeURIComponent(member.name)}`}
-            key={idx}
-            className={`${styles.teamCard} ${styles.fadeInUp}`}
-            style={{ textDecoration: "none" }}
-          >
-            <img
-              src={member.img}
-              alt={member.name}
-              className={styles.teamImage}
-            />
-            <h3 className={styles.teamName}>{member.name}</h3>
-            <p className={styles.teamRole}>{member.role}</p>
-          </Link>
-        ))}
-      </div>
-    </section>
+      {/* Our Team */}
+      <section className={styles.teamSection}>
+        <h2 className={styles.sectionTitle}>{t("ourTeam")}</h2>
+        <div className={styles.teamGrid}>
+          {teamMembers.map((member, idx) => (
+            <Link
+              to={`/profile/${encodeURIComponent(member.name)}`}
+              key={idx}
+              className={`${styles.teamCard} ${styles.fadeInUp}`}
+              style={{ textDecoration: "none" }}
+            >
+              <img
+                src={member.img}
+                alt={member.name}
+                className={styles.teamImage}
+              />
+              <h3 className={styles.teamName}>{member.name}</h3>
+              <p className={styles.teamRole}>{member.role}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-    <Footer />
-  </div>
-);
+      <Footer />
+    </div>
+  );
+};
 
 export default About;

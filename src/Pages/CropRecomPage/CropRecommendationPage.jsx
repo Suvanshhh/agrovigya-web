@@ -3,15 +3,18 @@ import CropRecommendation from "../../components/CropRecommendation/CropRecommen
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
 import styles from "./CropRecommendationPage.module.css";
+import { useTranslation } from "react-i18next";
 
 const CropRecommendationPage = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.pageWrapper}>
       <Navbar />
       <main className={styles.mainContent}>
-        <h1 className={styles.pageTitle}>Crop Recommendation System</h1>
+        <h1 className={styles.pageTitle}>{t("crop.title")}</h1>
         <p className={styles.pageSubtitle}>
-          Get the best crop suggestions based on soil and weather conditions.
+          {t("crop.subtitle")}
         </p>
         <div className={styles.contentContainer}>
           <div className={styles.formSection}>
@@ -20,7 +23,7 @@ const CropRecommendationPage = () => {
           <div className={styles.imageSection}>
             <img 
               src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png" 
-              alt="Crop recommendation illustration"
+              alt={t("crop.imageAlt")}
               className={styles.sideImage}
             />
           </div>

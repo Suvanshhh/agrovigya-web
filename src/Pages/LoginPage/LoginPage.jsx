@@ -1,54 +1,47 @@
 import React, { useState } from "react";
-import { signInWithGoogle, signInWithPhone, loginWithEmail } from "../../firebase/auth";
+import { signInWithGoogle, loginWithEmail } from "../../firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
-import { Mail, Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
-    const [phone, setPhone] = useState("");
-    const [confirmation, setConfirmation] = useState(null);
-    const [otp, setOtp] = useState("");
+    const { t } = useTranslation();
+    // const [phone, setPhone] = useState("");
+    // const [confirmation, setConfirmation] = useState(null);
+    // const [otp, setOtp] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [activeTab, setActiveTab] = useState("email");
+    const [setLoading] = useState(false);
+    const [activeTab] = useState("email");
     const navigate = useNavigate();
-
-    // ...handlers unchanged...
-
-    // (Handlers omitted for brevity; keep your originals)
 
     return (
         <div className={styles.pageWrapper}>
             <Navbar />
             <div className={styles.loginSplit}>
                 <div className={styles.leftPane}>
-                    {/* <div className={styles.brandLogoRow}>
-                        <img src="/logo.svg" alt="AgroVigya" className={styles.brandLogo} />
-                        <span className={styles.brandText}>agrovigya</span>
-                    </div> */}
                     <div className={styles.loginCard}>
-                        <h2 className={styles.loginTitle}>Login</h2>
+                        <h2 className={styles.loginTitle}>{t("login.title")}</h2>
                         {error && <div className={styles.errorMessage}>{error}</div>}
-<form onSubmit={activeTab === "email" ? async (e) => {
-    e.preventDefault();
-    try {
-        setLoading(true);
-        await loginWithEmail(email, password);
-        setLoading(false);
-        navigate("/");
-    } catch (error) {
-        setLoading(false);
-        console.error("Login error:", error);
-        setError(`Failed to log in: ${error.message || error}`);
-    }
-} : undefined}>
+                        <form onSubmit={activeTab === "email" ? async (e) => {
+                            e.preventDefault();
+                            try {
+                                setLoading(true);
+                                await loginWithEmail(email, password);
+                                setLoading(false);
+                                navigate("/");
+                            } catch (error) {
+                                setLoading(false);
+                                console.error("Login error:", error);
+                                setError(`${t("login.error")} ${error.message || error}`);
+                            }
+                        } : undefined}>
                             <input
                                 type="email"
-                                placeholder="Email"
+                                placeholder={t("login.emailPlaceholder")}
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
                                 className={styles.input}
@@ -57,7 +50,7 @@ const LoginPage = () => {
                             />
                             <input
                                 type="password"
-                                placeholder="Password"
+                                placeholder={t("login.passwordPlaceholder")}
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
                                 className={styles.input}
@@ -69,7 +62,7 @@ const LoginPage = () => {
                                 className={styles.loginButton}
                                 style={{ display: activeTab === "email" ? "block" : "none" }}
                             >
-                                Log in
+                                {t("login.loginButton")}
                             </button>
                         </form>
                         <button
@@ -82,7 +75,7 @@ const LoginPage = () => {
                                     navigate("/");
                                 } catch (error) {
                                     setLoading(false);
-                                    setError("Failed to sign in with Google");
+                                    setError(t("login.googleError"));
                                 }
                             }}
                         >
@@ -91,20 +84,20 @@ const LoginPage = () => {
                                 alt="Google"
                                 className={styles.googleIcon}
                             />
-                            Sign in with Google
+                            {t("login.googleLogin")}
                         </button>
                         <div className={styles.forgotRow}>
-                            <Link to="/forgot-password">Forgot password?</Link>
+                            <Link to="/forgot-password">{t("login.forgotPassword")}</Link>
                         </div>
                         <div className={styles.signupPrompt}>
-                            Not registered yet? <Link to="/signup">Sign Up here</Link>
+                            {t("login.signupPrompt")} <Link to="/signup">{t("login.signupLink")}</Link>
                         </div>
                     </div>
                 </div>
                 <div className={styles.rightPane}>
                     <img
                         src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
-                        alt="Farmers Illustration"
+                        alt={t("login.illustrationAlt")}
                         className={styles.illustration}
                     />
                 </div>

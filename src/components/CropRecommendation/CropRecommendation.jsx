@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styles from "./CropRecommendation.module.css";
+import { useTranslation } from "react-i18next";
 
 const CropRecommendation = () => {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     Nitrogen: "",
     Phosphorus: "",
@@ -20,8 +23,6 @@ const CropRecommendation = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Sending data:", formData);
-
     try {
       const response = await fetch("http://127.0.0.1:5000/predict", {
         method: "POST",
@@ -29,28 +30,25 @@ const CropRecommendation = () => {
         body: JSON.stringify(formData)
       });
 
-      console.log("Response status:", response.status);
       const data = await response.json();
-      console.log("Received data:", data);
 
       if (data.error) {
-        setResult("Prediction failed: " + data.error);
+        setResult(t("crop_recom.resultError", { error: data.error }));
       } else {
-        setResult("Predicted Crop: " + data.crop);
+        setResult(t("crop_recom.resultSuccess", { crop: data.crop }));
       }
     } catch (error) {
       console.error("Error:", error);
-      setResult("Prediction failed.");
+      setResult(t("crop_recom.resultFail"));
     }
   };
 
   return (
     <div className={styles.container}>
-      {/* <h1 className={styles.heading}>Crop Recommendation System</h1> */}
       <form className={styles.form} onSubmit={handleSubmit}>
         {Object.keys(formData).map((key) => (
           <div className={styles.inputGroup} key={key}>
-            <label className={styles.label}>{key}:</label>
+            <label className={styles.label}>{t(`crop_recom.form.${key}`)}:</label>
             <input
               type="number"
               name={key}
@@ -62,7 +60,7 @@ const CropRecommendation = () => {
           </div>
         ))}
         <button className={styles.button} type="submit">
-          Predict Crop
+          {t("crop_recom.predictButton")}
         </button>
       </form>
       {result && <h2 className={styles.result}>{result}</h2>}
