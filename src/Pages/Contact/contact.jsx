@@ -3,52 +3,55 @@ import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
 import styles from "./contact.module.css";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.pageBg}>
       <Navbar />
 
       <div className={styles.contactWrapper}>
         <div className={styles.contactCard}>
-          <h2 className={styles.contactTitle}>Contact us</h2>
+          <h2 className={styles.contactTitle}>{t("contact.title")}</h2>
           <form className={styles.contactForm}>
             <input
               type="text"
               className={styles.input}
-              placeholder="Your Name"
+              placeholder={t("contact.namePlaceholder")}
               required
             />
             <input
               type="email"
               className={styles.input}
-              placeholder="Your Email"
+              placeholder={t("contact.emailPlaceholder")}
               required
             />
             <textarea
               className={styles.textarea}
-              placeholder="Your Message"
+              placeholder={t("contact.messagePlaceholder")}
               required
             />
             <button type="submit" className={styles.submitButton}>
-              Send Message
+              {t("contact.sendButton")}
             </button>
           </form>
           <div className={styles.infoRow}>
             <div className={styles.infoCol}>
               <Mail className={styles.infoIcon} />
-              <h3>Email</h3>
+              <h3>{t("contact.emailTitle")}</h3>
               <p>info@agrovigya.com</p>
             </div>
             <div className={styles.infoCol}>
               <Phone className={styles.infoIcon} />
-              <h3>Phone</h3>
+              <h3>{t("contact.phoneTitle")}</h3>
               <p>+91 8129619914</p>
             </div>
             <div className={styles.infoCol}>
               <MapPin className={styles.infoIcon} />
-              <h3>Location</h3>
-              <p>XYZ, Maharashtra, India</p>
+              <h3>{t("contact.locationTitle")}</h3>
+              <p>{t("contact.locationText")}</p>
             </div>
           </div>
         </div>
