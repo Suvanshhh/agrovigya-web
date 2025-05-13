@@ -34,7 +34,7 @@ const teamMembers = [
 
 const projectDirector = {
   key: "shubhraTripathi",
-  role: "Founder",
+  role: "Founder and Director",
   img: "https://i.postimg.cc/65pKbJGz/shubhra-pic.jpg",
 };
 

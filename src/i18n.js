@@ -56,18 +56,18 @@ i18n
             },
             anujasharma: {
               name: "Anuja Sharma",
-              role: "Project Mentor",
+              role: "Chair Advisory Council",
             },
             aishwaryayadav: {
               name: "Dr. Aishwarya Yadav",
-              role: "Project Mentor",
+              role: "Chair Executive Council",
             },
           },
 
           team: {
             shubhraTripathi: {
               name: "Shubhra Tripathi",
-              role: "Founder",
+              role: "Founder and Director",
             },
 
             siyaNimkar: {
@@ -326,18 +326,18 @@ i18n
             },
             anujasharma: {
               name: "अनुजा शर्मा",
-              role: "प्रोजेक्ट मेंटर",
+              role: "अध्यक्ष सलाहकार परिषद",
             },
             aishwaryayadav: {
               name: "डॉ. ऐश्वर्या यादव",
-              role: "प्रोजेक्ट मेंटर",
+              role: "अध्यक्ष कार्यकारी परिषद",
             },
           },
 
           team: {
             shubhraTripathi: {
               name: "शुभ्रा त्रिपाठी",
-              role: "संस्थापक",
+              role: "संस्थापक और निदेशक",
             },
             siyaNimkar: {
               name: "सिया निमकर",
@@ -592,18 +592,18 @@ i18n
             },
             anujasharma: {
               name: "अनुजा शर्मा",
-              role: "प्रोजेक्ट मेंटर",
+              role: "अध्यक्ष सल्लागार परिषद",
             },
             aishwaryayadav: {
               name: "डॉ. ऐश्वर्या यादव",
-              role: "प्रोजेक्ट मेंटर",
+              role: "अध्यक्ष कार्यकारी परिषद",
             },
           },
 
           team: {
             shubhraTripathi: {
               name: "शुभ्रा त्रिपाठी",
-              role: "संस्थापक",
+              role: "संस्थापक आणि संचालक",
             },
             siyaNimkar: {
               name: "सिया निमकर",

@@ -34,39 +34,31 @@ const Anuja = () => {
             </div>
             <div className={styles.profileDesc}>
               <p>
-                Anuja Sharma is an accomplished legal academic and Assistant
-                Professor at DES’ Shri Navalmal Firodia Law College, Pune, with
-                over two and a half years of teaching experience. Specializing
-                in Constitutional Law, Administrative Law, Labour Law, Law of
-                Crimes, and Professional Ethics, she has made significant
-                contributions both in the classroom and through academic
-                leadership. Ms. Sharma is a NET-qualified educator (2019) and
-                serves as the Faculty Coordinator for the Legal Research Cell,
-                Placement and Internship Cell, and ISO Audit at her institution.
-                A prolific author and editor, Ms. Sharma has contributed
-                chapters and research papers to peer-reviewed journals and
-                edited volumes, including the book 'Law and Morality' (ISBN:
-                978-81-969024-7-6) and the journal Fiat Justitia (ISSN
-                2320-2696). Her research interests span majoritarian morality,
-                age of consent, and judicial trends in Indian sedition law. She
-                has also designed a certificate course in AI and Law and is
-                currently developing a book titled "AI in the Courtroom:
-                Navigating the Legal Landscape." Ms. Sharma is frequently
-                invited as a guest lecturer, delivering talks on topics such as
-                Human Rights and Duties and the Indian Constitution at leading
-                institutions. She has earned special appreciation from the State
-                Climate Action Cell, Government of Maharashtra, for her
-                contributions to Themisia 2.0 (Environment Law), as well as for
-                her consultancy work with NAAC. Her commitment to professional
-                development is reflected in her completion of induction and
-                refresher programs with top grades from Jamia Millia Islamia and
-                UGC-HRDC Ranchi University, respectively. Through her teaching,
-                research, editorial work, and academic leadership, Anuja Sharma
-                continues to make a meaningful impact on legal education and
-                scholarship in India. This biography is concise, highlights her
-                qualifications, teaching and research experience, publications,
-                leadership roles, recognitions, and ongoing
-                contributions—mirroring the style and structure of your example.
+                Agriculture has always been the soul of our nation, providing
+                livelihoods to millions and sustaining economies for
+                generations. However, the sector continues to face challenges
+                such as employment gaps, lack of market accessibility, and
+                limited technological integration. Agrovigya is a promising step
+                toward bridging these challenges by merging technology with
+                traditional agricultural wisdom to create a more efficient,
+                self-reliant, and sustainable ecosystem. Mentoring this
+                initiative has been a truly rewarding experience. The dedication
+                and vision behind Agrovigya reflect a deep understanding of
+                rural challenges and a strong commitment to empowering farmers
+                and job seekers. This platform is not just about enhancing
+                employment opportunities; it is about fostering financial
+                independence, market transparency, and knowledge-driven
+                decision-making. What makes Agrovigya remarkable is its
+                inclusive and scalable approach—leveraging AI, data analytics,
+                and digital accessibility to ensure that even the most remote
+                farmers and rural laborers can benefit from modern advancements.
+                By eliminating middlemen, streamlining access to government
+                schemes, and promoting sustainable agricultural practices,
+                Agrovigya is set to revolutionize the agricultural landscape. I
+                commend the entire team for their relentless efforts, strategic
+                vision, and passion for social impact. I am confident that
+                Agrovigya will not only enhance rural livelihoods but also
+                contribute significantly to the nation’s progress.{" "}
               </p>
             </div>
           </div>
