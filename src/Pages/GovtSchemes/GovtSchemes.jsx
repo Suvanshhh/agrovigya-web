@@ -3,6 +3,8 @@ import "./GovtSchemes.css";
 import SchemeCard from "./SchemeCard";
 import SearchBar from "./SearchBar";
 import Papa from "papaparse";
+import Navbar from "../../components/Navbar/navbar";
+import Footer from "../../components/Footer/footer";
 
 function GovtSchemes() {
   const [schemes, setSchemes] = useState([]);
@@ -103,7 +105,8 @@ function GovtSchemes() {
   };
 
   return (
-    <div className="govt-schemes-container">
+    <div className="govt-schemes-container with-navbar-spacing">
+      <Navbar />
       <div className="schemes-header">
         <h1>Government Schemes</h1>
         <p>
@@ -150,6 +153,7 @@ function GovtSchemes() {
           )}
         </div>
       )}
+      <Footer />
     </div>
   );
 }

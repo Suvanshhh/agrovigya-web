@@ -17,30 +17,25 @@ function SchemeCard({ scheme }) {
       
       <div className="scheme-description">
         <p>
-          {scheme["Job Type"]
-            ? scheme["Job Type"].substring(0, 150)
-            : scheme["Scheme Status"]
-            ? scheme["Scheme Status"].substring(0, 150)
-            : "No Description"}
+          {scheme["Job Type"]?.substring(0, 150) || 
+           scheme["Scheme Status"]?.substring(0, 150) || 
+           "No description available"}
         </p>
       </div>
       
+      {/* SIMPLIFIED DETAILS SECTION FOR TESTING */}
       <div className="scheme-details">
         <div className="scheme-detail-item">
-          <strong>Ministry:</strong> {scheme["Ministry"] ? scheme["Ministry"] : "N/A"}
+          <strong>Ministry:</strong> {scheme["Ministry"]?.trim() || "N/A"}
         </div>
         <div className="scheme-detail-item">
-          <strong>States Eligible:</strong> {scheme["States Eligible"] ? scheme["States Eligible"] : "N/A"}
+          <strong>States Eligible:</strong> {scheme["States Eligible"]?.trim() || "N/A"}
         </div>
         <div className="scheme-detail-item">
-          <strong>Eligibility:</strong> {scheme["Eligibility"] ? scheme["Eligibility"] : "N/A"}
-         </div>
-        {/* Optionally show more info  */}
-         <div className="scheme-detail-item">
-          <strong>Income Level:</strong> {scheme["Income Level"] ? scheme["Income Level"] : "N/A"}
+          <strong>Income Level:</strong> {scheme["Income Level"]?.trim() || "N/A"}
         </div>
         <div className="scheme-detail-item">
-          <strong>Location:</strong> {scheme["Location"] ? scheme["Location"] : "N/A"}
+          <strong>Location:</strong> {scheme["Location"]?.trim() || "N/A"}
         </div>
       </div>
       
