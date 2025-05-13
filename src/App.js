@@ -13,7 +13,7 @@ import LabourEstimation from "./components/LabourEstimation/LabourEstimation";
 import AuthModal from "./components/Auth/AuthModal/AuthModal";
 import { useAuth } from "./context/AuthContext";
 import i18n from "./i18n"; // Importing i18n configuration
-// import GovtSchemes from "./Pages/GovtSchemes/GovtSchemes";
+import GovtSchemes from "./Pages/GovtSchemes/GovtSchemes";
 import Marketplace from "./Pages/Marketplace/Marketplace";
 
 // Import member components
@@ -113,6 +113,8 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
            
             <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/govt-schemes" element={<GovtSchemes />} />
+
 
             {/* Member routes */}
             <Route path="/abouteveryone/agniva" element={<Agniva />} />
