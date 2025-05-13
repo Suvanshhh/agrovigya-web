@@ -36,7 +36,7 @@ const Navbar = () => {
 
   const services = [
     { name: t("services.cropSuggestion"), path: "/crop-recommendation" },
-    { name: t("services.labourEstimation"), path: "/labour-estimation" },
+    { name: t("services.labourEstimation"), path: "https://labourestimation-agrovigya-production.up.railway.app/" },
     { name: t("services.governmentSchemes"), path: "/govt-schemes" },
     { name: t("services.marketplace"), path: "/marketplace" }
   ];
