@@ -17,7 +17,7 @@ const slides = [
     title: "home.whyChooseUs",
     subtitle: "whyChooseUs.smartFarmingDesc",
     buttonText: "whyChooseUs.learnMore",
-    buttonLink: "/why-choose-us",
+    buttonLink: "/about",
   },
   {
     image:

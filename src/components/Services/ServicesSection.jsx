@@ -23,7 +23,7 @@ const serviceData = [
     img: "https://i.postimg.cc/k5LR5N0x/Firefly-farmer-holding-a-document-in-hand-white-background-1407-removebg-preview.png",
     title: "services.governmentSchemes",
     desc: "services.governmentSchemesDesc",
-    route: "/governmentschemes",
+    route: "/govt-schemes",
   },
   // Add more services as needed...
 ];
