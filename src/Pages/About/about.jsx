@@ -48,13 +48,14 @@ const mentors = [
     img: "https://i.ibb.co/9kCD72CN/sunita-adhav-pic.jpg",
   },
   {
-    key: "anujasharma",
-    img: "https://i.postimg.cc/MHWw8g36/anuja-pic.jpg",
-  },
-  {
     key: "aishwaryayadav",
     img: "https://i.postimg.cc/Jn38vRqY/aishwarya-pic.jpg0",
   },
+  {
+    key: "anujasharma",
+    img: "https://i.postimg.cc/MHWw8g36/anuja-pic.jpg",
+  },
+  
 ];
 
 const About = () => {

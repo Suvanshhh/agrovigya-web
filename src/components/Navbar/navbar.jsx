@@ -36,9 +36,12 @@ const Navbar = () => {
 
   const services = [
     { name: t("services.cropSuggestion"), path: "/crop-recommendation" },
-    { name: t("services.labourEstimation"), path: "https://labourestimation-agrovigya-production.up.railway.app/" },
+    {
+      name: t("services.labourEstimation"),
+      path: "https://labourestimation-agrovigya-production.up.railway.app/",
+    },
     { name: t("services.governmentSchemes"), path: "/govt-schemes" },
-    { name: t("services.marketplace"), path: "/marketplace" }
+    { name: t("services.marketplace"), path: "/marketplace" },
   ];
 
   useEffect(() => {
@@ -77,56 +80,70 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className={styles.desktopMenu}>
-            <Link to="/" className={styles.navLink}>{t("navbar.home")}</Link>
-            <Link to="/about" className={styles.navLink}>{t("navbar.aboutUs")}</Link>
+            <Link to="/" className={styles.navLink}>
+              {t("navbar.home")}
+            </Link>
+            <Link to="/about" className={styles.navLink}>
+              {t("navbar.aboutUs")}
+            </Link>
 
             {/* Services Dropdown for Desktop */}
-            <div
-              className={styles.dropdownContainer}
-              ref={dropdownRef}
-            >
+            <div className={styles.dropdownContainer} ref={dropdownRef}>
               <button
                 className={styles.dropdownTrigger}
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 aria-expanded={isServicesOpen}
                 aria-haspopup="true"
               >
-                {t("navbar.services")} <ChevronDown className={styles.dropdownIcon} />
+                {t("navbar.services")}{" "}
+                <ChevronDown className={styles.dropdownIcon} />
               </button>
               {isServicesOpen && (
                 <div className={styles.dropdownMenu}>
-                  {services.map((service, index) => (
-                    <Link key={index} to={service.path} className={styles.dropdownItem}>
-                      {service.name}
-                    </Link>
-                  ))}
+                  {services.map((service, index) =>
+                    service.path.startsWith("http") ? (
+                      <a
+                        key={index}
+                        href={service.path}
+                        className={styles.mobileDropdownItem}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {service.name}
+                      </a>
+                    ) : (
+                      <Link
+                        key={index}
+                        to={service.path}
+                        className={styles.mobileDropdownItem}
+                      >
+                        {service.name}
+                      </Link>
+                    )
+                  )}
                 </div>
               )}
             </div>
 
-            
-           
-
-            <Link to="/download-app" className={styles.navLink}>{t("navbar.download_app")}</Link>
-
-            {/* <Link to="/contact" className={styles.contactButton}>{t("navbar.contact")}</Link> */}
-
-            
+            <Link to="/download-app" className={styles.navLink}>
+              {t("navbar.download_app")}
+            </Link>
 
             {/* Language Switcher for Desktop */}
             <div className={styles.languageSwitcherContainer}>
               <LanguageSwitcher />
             </div>
 
-             {/* Conditional Login/Logout Buttons */}
-             {user ? (
+            {/* Conditional Login/Logout Buttons */}
+            {user ? (
               <button onClick={handleLogout} className={styles.navButton}>
                 Logout <LogOut size={16} />
               </button>
             ) : (
               <>
-                {/* <Link to="/login" className={styles.navLink}>Login</Link> */}
-                <Link to="/signup" className={styles.navLink}>{t("navbar.login_signup")}</Link>
+                <Link to="/signup" className={styles.navLink}>
+                  {t("navbar.login_signup")}
+                </Link>
               </>
             )}
 
@@ -140,12 +157,14 @@ const Navbar = () => {
                 {/* {t("navbar.profile")} */}
               </button>
             )}
-
           </div>
 
           {/* Mobile Menu Button */}
           <div className={styles.mobileMenuButton}>
-            <button onClick={() => setIsOpen(!isOpen)} className={styles.hamburger}>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={styles.hamburger}
+            >
               {isOpen ? <X /> : <Menu />}
             </button>
           </div>
@@ -155,8 +174,12 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className={styles.mobileMenu}>
-          <Link to="/" className={styles.mobileNavLink}>{t("navbar.home")}</Link>
-          <Link to="/about" className={styles.mobileNavLink}>{t("navbar.aboutUs")}</Link>
+          <Link to="/" className={styles.mobileNavLink}>
+            {t("navbar.home")}
+          </Link>
+          <Link to="/about" className={styles.mobileNavLink}>
+            {t("navbar.aboutUs")}
+          </Link>
 
           {/* Services Dropdown for Mobile */}
           <div className={styles.mobileDropdown}>
@@ -165,15 +188,35 @@ const Navbar = () => {
               className={styles.mobileDropdownTrigger}
             >
               {t("navbar.services")}
-              <ChevronDown className={`${styles.mobileDropdownIcon} ${isServicesOpen ? styles.rotate : ""}`} />
+              <ChevronDown
+                className={`${styles.mobileDropdownIcon} ${
+                  isServicesOpen ? styles.rotate : ""
+                }`}
+              />
             </button>
             {isServicesOpen && (
               <div className={styles.mobileDropdownContent}>
-                {services.map((service, index) => (
-                  <Link key={index} to={service.path} className={styles.mobileDropdownItem}>
-                    {service.name}
-                  </Link>
-                ))}
+                {services.map((services, index) =>
+                  services.path.startsWith("http") ? (
+                    <a
+                      key={index}
+                      href={services.path}
+                      className={styles.mobileDropdownItem}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {services.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={index}
+                      to={services.path}
+                      className={styles.mobileDropdownItem}
+                    >
+                      {services.name}
+                    </Link>
+                  )
+                )}
               </div>
             )}
           </div>
@@ -196,12 +239,18 @@ const Navbar = () => {
             </button>
           ) : (
             <>
-              <Link to="/login" className={styles.mobileNavButton}>Login</Link>
-              <Link to="/signup" className={styles.mobileNavButton}>Signup</Link>
+              <Link to="/login" className={styles.mobileNavButton}>
+                Login
+              </Link>
+              <Link to="/signup" className={styles.mobileNavButton}>
+                Signup
+              </Link>
             </>
           )}
 
-          <Link to="/contact" className={styles.mobileContactButton}>{t("navbar.contact")}</Link>
+          <Link to="/contact" className={styles.mobileContactButton}>
+            {t("navbar.contact")}
+          </Link>
 
           {/* Language Switcher for Mobile */}
           <div className={styles.languageSwitcherContainer}>
