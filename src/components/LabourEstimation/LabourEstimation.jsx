@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./LabourEstimation.module.css";
+import styles from "./labourEstimation.module.css";
 import { useTranslation } from "react-i18next";
 
 const cropOptions = [
