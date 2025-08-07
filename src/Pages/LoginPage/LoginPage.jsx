@@ -80,7 +80,7 @@ const LoginPage = () => {
                             }}
                         >
                             <img
-                                src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
+                                src="https://postimg.cc/PvrkXxjV"
                                 alt="Google"
                                 className={styles.googleIcon}
                             />

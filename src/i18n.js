@@ -137,11 +137,111 @@ i18n
               pH: "pH Level",
               Rainfall: "Rainfall (mm)",
             },
+            
             predictButton: "Predict Crop",
             resultSuccess: "Predicted Crop: {{crop}}",
             resultFail: "Prediction failed.",
             resultError: "Prediction failed: {{error}}",
+            
           },
+   
+  "labour": {
+    "title": "Labour Cost Estimation",
+    "subtitle": "Estimate the labour cost for your crop and area easily.",
+    "imageAlt": "Labour estimation illustration",
+    "helpButton": "Confused about how to estimate your labour cost?",
+    "cropName": "Crop Name",
+    "selectCrop": "Select Crop",
+    "crops": {
+      "tomato": "Tomato",
+      "potato": "Potato",
+      "onion": "Onion"
+    },
+    "area": "Area",
+    "selectArea": "Select Area",
+    "season": "Season",
+    "selectSeason": "Select Season",
+    "seasons": {
+      "spring": "Spring",
+      "summer": "Summer",
+      "fall": "Fall",
+      "winter": "Winter"
+    },
+    "wageType": "Wage Type",
+    "selectWageType": "Select Wage Type",
+    "wageTypes": {
+      "govt": "Govt",
+      "expected": "Expected"
+    },
+    "calculate": "Calculate",
+    "calculating": "Calculating...",
+    "resultTitle": "Estimation Results",
+    "crop": "Crop",
+    "hectares": "hectares",
+    "totalLabour": "Total Labor Required",
+    "personDays": "person-days",
+    "costPerHectare": "Cost per Hectare",
+    "totalCost": "Total Cost",
+    "na": "N/A",
+    "errorFetch": "Failed to get estimation. Please try again.",
+    "errorGeneric": "Something went wrong."
+  },
+  
+  "labourGuide": {
+    "title": "How to Use the Labour Cost Estimator",
+    "steps": [
+      "Select the crop you want to grow. Different crops may need different amounts of labour.",
+      "Enter your farm’s size. 1 hectare = 10,000 sq. meters. Use your land papers or ask your local officer if unsure.",
+      "Choose the season for your crop (Spring, Summer, Fall, Winter). Labour needs and costs can change by season.",
+      "Select \"Govt\" for government-set wages or \"Expected\" for local market rates. Ask locally for the most accurate rates."
+    ],
+    "tips": [
+      "Include all tasks: planting, weeding, harvesting, etc.",
+      "Consider both hired and family labour. Family labour also has value (opportunity cost).",
+      "Check local wage rates, as they can vary by area and season.",
+      "For more help, see: <1>Farmstand: Labour Cost Guide</1>"
+    ],
+    "tipLabel": "Tip:",
+    "tipText": "This tool helps you estimate the total labour cost for your farm, so you can plan your budget and decide if you need to hire help or do work yourself.",
+    "close": "Close"
+  },
+  "farmerGuide": {
+    "title": "How to Test Your Soil and Use the App",
+    "steps": [
+      "Take soil from 10–15 spots in your field (6–8 inches deep), mix them, dry, and put in a clean bag.",
+      "Use a home test kit or send the sample to a lab for Nitrogen, Phosphorus, Potassium, and pH.",
+      "Compare your values to these ranges:",
+      "Add fertilizers or lime as needed.",
+      "Enter values in the form to get crop recommendations!"
+    ],
+    "ranges": {
+      "nitrogen": "Nitrogen: 20–40 ppm (medium)",
+      "phosphorus": "Phosphorus: 15–30 ppm",
+      "potassium": "Potassium: 120–200 ppm",
+      "ph": "pH: 6.0–7.5 (most crops)"
+    },
+    "guidesLabel": "For detailed guides:",
+    "guides": [
+      {
+        "label": "Modern Farmer: How to Test Your Soil",
+        "url": "https://modernfarmer.com/2016/03/soil-testing/"
+      },
+      {
+        "label": "Dr Green: Soil pH and Crops",
+        "url": "https://dr-green.eu/soil-ph-what-should-every-farmer-know-about-soil-ph/"
+      }
+    ],
+    "close": "Close"
+  },
+  "formPlaceholders": {
+    "Nitrogen": "e.g. 35",
+    "Phosphorus": "e.g. 20",
+    "Potassium": "e.g. 40",
+    "Temperature": "e.g. 25",
+    "Humidity": "e.g. 80",
+    "pH": "e.g. 6.5",
+    "Rainfall": "e.g. 200"
+  },
 
           labourEstimation: {
             title: "Labour Cost Estimation",
@@ -154,6 +254,41 @@ i18n
             expectedRates: "Market Rates",
             labourDays: "Total Labour Days",
             cropType: "Crop Type",
+          },
+          schemes: {
+            title: "Government Schemes",
+            explore:
+              "Explore various government schemes available for farmers and rural development",
+            search_placeholder: "Search for schemes...",
+            type: "Scheme Type",
+            all_types: "All Types",
+            skill_development: "Skill Development",
+            agri_market: "Agricultural Market",
+            watershed: "Watershed Management",
+            fisheries: "Fisheries Development",
+            state: "State",
+            all_states: "All States",
+            maharashtra: "Maharashtra",
+            karnataka: "Karnataka",
+            tamil_nadu: "Tamil Nadu",
+            gujarat: "Gujarat",
+            punjab: "Punjab",
+            income_level: "Income Level",
+            all_levels: "All Levels",
+            low_income: "Low Income",
+            medium_income: "Medium Income",
+            high_income: "High Income",
+            loading: "Loading schemes...",
+            no_results: "No schemes found matching your criteria.",
+            clear_filters: "Clear Filters",
+            retry: "Retry",
+            ministry: "Ministry",
+            states_eligible: "States Eligible",
+            location: "Location",
+            income_level_card: "Income Level",
+            click_learn_more: "Click to learn more",
+            show_filters: "Show Filters",
+            hide_filters: "Hide Filters",
           },
           contact: {
             title: "Contact us",
@@ -401,12 +536,112 @@ i18n
               pH: "pH स्तर",
               Rainfall: "वर्षा (मिमी)",
             },
+
             predictButton: "फसल की भविष्यवाणी करें",
             resultSuccess: "अनुमानित फसल: {{crop}}",
             resultFail: "भविष्यवाणी असफल रही।",
             resultError: "भविष्यवाणी असफल रही: {{error}}",
+             
           },
-
+          
+  "labour": {
+    "title": "श्रम लागत अनुमान",
+    "subtitle": "अपने फसल और क्षेत्र के लिए श्रम लागत आसानी से अनुमानित करें।",
+    "imageAlt": "श्रम लागत अनुमान चित्रण",
+    "helpButton": "श्रम लागत का अनुमान कैसे लगाएं? उलझन में हैं?",
+    "cropName": "फसल का नाम",
+    "selectCrop": "फसल चुनें",
+    "crops": {
+      "tomato": "टमाटर",
+      "potato": "आलू",
+      "onion": "प्याज"
+    },
+    "area": "क्षेत्र",
+    "selectArea": "क्षेत्र चुनें",
+    "season": "मौसम",
+    "selectSeason": "मौसम चुनें",
+    "seasons": {
+      "spring": "बसंत",
+      "summer": "गर्मी",
+      "fall": "पतझड़",
+      "winter": "सर्दी"
+    },
+    "wageType": "मजदूरी प्रकार",
+    "selectWageType": "मजदूरी प्रकार चुनें",
+    "wageTypes": {
+      "govt": "सरकारी",
+      "expected": "अपेक्षित"
+    },
+    "calculate": "गणना करें",
+    "calculating": "गणना हो रही है...",
+    "resultTitle": "अनुमान परिणाम",
+    "crop": "फसल",
+    "hectares": "हेक्टेयर",
+    "totalLabour": "कुल श्रम आवश्यक",
+    "personDays": "व्यक्ति-दिन",
+    "costPerHectare": "प्रति हेक्टेयर लागत",
+    "totalCost": "कुल लागत",
+    "na": "उपलब्ध नहीं",
+    "errorFetch": "अनुमान प्राप्त करने में विफल। कृपया पुनः प्रयास करें।",
+    "errorGeneric": "कुछ गलत हो गया।"
+  },
+  
+  
+  "labourGuide": {
+    "title": "श्रम लागत अनुमानक का उपयोग कैसे करें",
+    "steps": [
+      "वह फसल चुनें जिसे आप उगाना चाहते हैं। अलग-अलग फसलों के लिए श्रम की आवश्यकता अलग हो सकती है।",
+      "अपने खेत का आकार दर्ज करें। 1 हेक्टेयर = 10,000 वर्ग मीटर। यदि संदेह हो तो अपने भूमि कागजात देखें या स्थानीय अधिकारी से पूछें।",
+      "अपने फसल के लिए मौसम चुनें (बसंत, गर्मी, पतझड़, सर्दी)। मौसम के अनुसार श्रम की आवश्यकता और लागत बदल सकती है।",
+      "\"सरकारी\" मजदूरी या \"अपेक्षित\" स्थानीय मजदूरी चुनें। सटीक दर के लिए स्थानीय रूप से पूछें।"
+    ],
+    "tips": [
+      "सभी कार्य शामिल करें: बुवाई, निराई, कटाई आदि।",
+      "किराए के साथ-साथ पारिवारिक श्रम भी विचार करें। पारिवारिक श्रम का भी मूल्य है (अवसर लागत)।",
+      "स्थानीय मजदूरी दर जांचें, क्योंकि वे क्षेत्र और मौसम के अनुसार बदल सकती हैं।",
+      "अधिक सहायता के लिए देखें: <1>Farmstand: Labour Cost Guide</1>"
+    ],
+    "tipLabel": "टिप:",
+    "tipText": "यह टूल आपको अपने खेत के लिए कुल श्रम लागत का अनुमान लगाने में मदद करता है, ताकि आप बजट बना सकें और तय कर सकें कि आपको मजदूर रखने हैं या खुद काम करना है।",
+    "close": "बंद करें"
+  },
+  "farmerGuide": {
+    "title": "अपनी मिट्टी कैसे जांचें और ऐप का उपयोग करें",
+    "steps": [
+      "अपने खेत के 10–15 स्थानों से मिट्टी लें (6–8 इंच गहराई तक), मिलाएं, सुखाएं और साफ बैग में रखें।",
+      "घर पर किट से या लैब में सैंपल भेजकर नाइट्रोजन, फॉस्फोरस, पोटाशियम और pH जांचें।",
+      "अपने परिणाम इन रेंज से मिलाएं:",
+      "आवश्यकतानुसार उर्वरक या चुना डालें।",
+      "फॉर्म में मान दर्ज करें और फसल की सिफारिश पाएं!"
+    ],
+    "ranges": {
+      "nitrogen": "नाइट्रोजन: 20–40 पीपीएम (मध्यम)",
+      "phosphorus": "फॉस्फोरस: 15–30 पीपीएम",
+      "potassium": "पोटाशियम: 120–200 पीपीएम",
+      "ph": "pH: 6.0–7.5 (अधिकांश फसलें)"
+    },
+    "guidesLabel": "विस्तृत गाइड के लिए:",
+    "guides": [
+      {
+        "label": "मॉडर्न फार्मर: अपनी मिट्टी कैसे जांचें",
+        "url": "https://modernfarmer.com/2016/03/soil-testing/"
+      },
+      {
+        "label": "डॉ ग्रीन: मिट्टी का pH और फसलें",
+        "url": "https://dr-green.eu/soil-ph-what-should-every-farmer-know-about-soil-ph/"
+      }
+    ],
+    "close": "बंद करें"
+  },
+ "formPlaceholders": {
+    "Nitrogen": "जैसे 35",
+    "Phosphorus": "जैसे 20",
+    "Potassium": "जैसे 40",
+    "Temperature": "जैसे 25",
+    "Humidity": "जैसे 80",
+    "pH": "जैसे 6.5",
+    "Rainfall": "जैसे 200"
+  },
           labourEstimation: {
             title: "श्रम लागत अनुमान",
             selectCrop: "फसल चुनें",
@@ -418,6 +653,41 @@ i18n
             expectedRates: "बाजार दरें",
             labourDays: "कुल श्रम दिवस",
             cropType: "फसल का प्रकार",
+          },
+          schemes: {
+            title: "सरकारी योजनाएँ",
+            explore:
+              "किसानों और ग्रामीण विकास के लिए विभिन्न सरकारी योजनाएँ देखें",
+            search_placeholder: "योजनाओं के लिए खोजें...",
+            type: "योजना प्रकार",
+            all_types: "सभी प्रकार",
+            skill_development: "कौशल विकास",
+            agri_market: "कृषि बाजार",
+            watershed: "जलग्रहण प्रबंधन",
+            fisheries: "मत्स्य पालन विकास",
+            state: "राज्य",
+            all_states: "सभी राज्य",
+            maharashtra: "महाराष्ट्र",
+            karnataka: "कर्नाटक",
+            tamil_nadu: "तमिलनाडु",
+            gujarat: "गुजरात",
+            punjab: "पंजाब",
+            income_level: "आय स्तर",
+            all_levels: "सभी स्तर",
+            low_income: "निम्न आय",
+            medium_income: "मध्यम आय",
+            high_income: "उच्च आय",
+            loading: "योजनाएँ लोड हो रही हैं...",
+            no_results: "आपके मापदंडों से मेल खाने वाली कोई योजना नहीं मिली।",
+            clear_filters: "फ़िल्टर साफ़ करें",
+            retry: "पुनः प्रयास करें",
+            ministry: "मंत्रालय",
+            states_eligible: "योग्य राज्य",
+            location: "स्थान",
+            income_level_card: "आय स्तर",
+            click_learn_more: "और जानने के लिए क्लिक करें",
+            show_filters: "फ़िल्टर दिखाएँ",
+            hide_filters: "फ़िल्टर छुपाएँ",
           },
           contact: {
             title: "संपर्क करें",
@@ -672,6 +942,106 @@ i18n
             resultFail: "पिकाचा अंदाज लावण्यात अयशस्वी.",
             resultError: "पिकाचा अंदाज अयशस्वी: {{error}}",
           },
+          
+
+  "labour": {
+    "title": "श्रम खर्च अंदाज",
+    "subtitle": "तुमच्या पिकासाठी आणि क्षेत्रासाठी श्रम खर्च सहजपणे मोजा.",
+    "imageAlt": "श्रम खर्च अंदाज चित्रण",
+    "helpButton": "श्रम खर्च कसा मोजायचा याबद्दल गोंधळले आहात?",
+    "cropName": "पिकाचे नाव",
+    "selectCrop": "पिक निवडा",
+    "crops": {
+      "tomato": "टोमॅटो",
+      "potato": "बटाटा",
+      "onion": "कांदा"
+    },
+    "area": "क्षेत्र",
+    "selectArea": "क्षेत्र निवडा",
+    "season": "हंगाम",
+    "selectSeason": "हंगाम निवडा",
+    "seasons": {
+      "spring": "वसंत",
+      "summer": "उन्हाळा",
+      "fall": "शरद",
+      "winter": "हिवाळा"
+    },
+    "wageType": "मजुरी प्रकार",
+    "selectWageType": "मजुरी प्रकार निवडा",
+    "wageTypes": {
+      "govt": "शासकीय",
+      "expected": "अपेक्षित"
+    },
+    "calculate": "गणना करा",
+    "calculating": "गणना चालू आहे...",
+    "resultTitle": "अंदाजित निकाल",
+    "crop": "पिक",
+    "hectares": "हेक्टेअर",
+    "totalLabour": "एकूण श्रम आवश्यक",
+    "personDays": "व्यक्ती-दिवस",
+    "costPerHectare": "प्रति हेक्टेअर खर्च",
+    "totalCost": "एकूण खर्च",
+    "na": "उपलब्ध नाही",
+    "errorFetch": "अंदाज मिळवण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा.",
+    "errorGeneric": "काहीतरी चूक झाली."
+  },
+  
+  "labourGuide": {
+    "title": "श्रम खर्च गणकाचा वापर कसा करावा",
+    "steps": [
+      "तुम्ही कोणते पीक लावणार आहात ते निवडा. वेगवेगळ्या पिकांसाठी श्रमाची गरज वेगळी असू शकते.",
+      "तुमच्या शेताचा आकार भरा. १ हेक्टेअर = १०,००० चौ. मीटर. खात्री नसल्यास जमीन कागदपत्रे पाहा किंवा स्थानिक अधिकाऱ्यांना विचारा.",
+      "तुमच्या पिकासाठी हंगाम निवडा (वसंत, उन्हाळा, शरद, हिवाळा). हंगामानुसार श्रमाची गरज आणि खर्च बदलू शकतो.",
+      "\"शासकीय\" किंवा \"अपेक्षित\" मजुरी निवडा. अचूक दरासाठी स्थानिक पातळीवर विचारा."
+    ],
+    "tips": [
+      "सर्व कामे समाविष्ट करा: पेरणी, खुरपणी, कापणी इ.",
+      "भाड्याने घेतलेले तसेच कुटुंबातील श्रम विचारात घ्या. कुटुंबातील श्रमाचेही मूल्य आहे (संधी खर्च).",
+      "स्थानिक मजुरी दर तपासा, कारण ते क्षेत्र व हंगामानुसार बदलतात.",
+      "अधिक माहितीसाठी पहा: <1>Farmstand: Labour Cost Guide</1>"
+    ],
+    "tipLabel": "टीप:",
+    "tipText": "हे टूल तुमच्या शेतासाठी एकूण श्रम खर्चाचा अंदाज लावण्यास मदत करते, जेणेकरून तुम्ही बजेट आखू शकता आणि कामासाठी मजूर ठेवायचे की स्वतः करायचे हे ठरवू शकता.",
+    "close": "बंद करा"
+  },
+  "farmerGuide": {
+    "title": "आपली माती कशी तपासावी आणि ॲप वापरावे",
+    "steps": [
+      "शेतातील १०–१५ ठिकाणांहून माती घ्या (६–८ इंच खोलीवरून), मिसळा, वाळवा आणि स्वच्छ पिशवीत ठेवा.",
+      "घरच्या किटने किंवा प्रयोगशाळेत नमुना पाठवून नायट्रोजन, फॉस्फरस, पोटॅशियम आणि pH तपासा.",
+      "तुमचे परिणाम या मर्यादांशी जुळवा:",
+      "गरजेनुसार खत किंवा चुना घाला.",
+      "फॉर्ममध्ये मूल्ये भरा आणि पीक शिफारस मिळवा!"
+    ],
+    "ranges": {
+      "nitrogen": "नायट्रोजन: २०–४० पीपीएम (मध्यम)",
+      "phosphorus": "फॉस्फरस: १५–३० पीपीएम",
+      "potassium": "पोटॅशियम: १२०–२०० पीपीएम",
+      "ph": "pH: ६.०–७.५ (बहुतेक पिके)"
+    },
+    "guidesLabel": "सविस्तर मार्गदर्शकांसाठी:",
+    "guides": [
+      {
+        "label": "मॉडर्न फार्मर: आपली माती कशी तपासावी",
+        "url": "https://modernfarmer.com/2016/03/soil-testing/"
+      },
+      {
+        "label": "डॉ ग्रीन: मातीचा pH आणि पिके",
+        "url": "https://dr-green.eu/soil-ph-what-should-every-farmer-know-about-soil-ph/"
+      }
+    ],
+    "close": "बंद करा"
+  },
+  
+  "formPlaceholders": {
+    "Nitrogen": "उदा. 35",
+    "Phosphorus": "उदा. 20",
+    "Potassium": "उदा. 40",
+    "Temperature": "उदा. 25",
+    "Humidity": "उदा. 80",
+    "pH": "उदा. 6.5",
+    "Rainfall": "उदा. 200"
+  },
 
           labourEstimation: {
             title: "कामगार खर्च अंदाज",
@@ -684,6 +1054,40 @@ i18n
             expectedRates: "बाजार दर",
             labourDays: "एकूण कामगार दिवस",
             cropType: "पिकाचा प्रकार",
+          },
+          schemes: {
+            title: "शासकीय योजना",
+            explore: "शेतकरी आणि ग्रामीण विकासासाठी विविध शासकीय योजना शोधा",
+            search_placeholder: "योजनांसाठी शोधा...",
+            type: "योजना प्रकार",
+            all_types: "सर्व प्रकार",
+            skill_development: "कौशल्य विकास",
+            agri_market: "कृषी बाजार",
+            watershed: "जलसंधारण व्यवस्थापन",
+            fisheries: "मच्छीमारी विकास",
+            state: "राज्य",
+            all_states: "सर्व राज्ये",
+            maharashtra: "महाराष्ट्र",
+            karnataka: "कर्नाटक",
+            tamil_nadu: "तामिळनाडू",
+            gujarat: "गुजरात",
+            punjab: "पंजाब",
+            income_level: "उत्पन्न स्तर",
+            all_levels: "सर्व स्तर",
+            low_income: "कमी उत्पन्न",
+            medium_income: "मध्यम उत्पन्न",
+            high_income: "जास्त उत्पन्न",
+            loading: "योजना लोड होत आहेत...",
+            no_results: "आपल्या निकषांशी जुळणारी कोणतीही योजना सापडली नाही.",
+            clear_filters: "फिल्टर साफ करा",
+            retry: "पुन्हा प्रयत्न करा",
+            ministry: "मंत्रालय",
+            states_eligible: "पात्र राज्ये",
+            location: "स्थान",
+            income_level_card: "उत्पन्न स्तर",
+            click_learn_more: "अधिक जाणून घेण्यासाठी क्लिक करा",
+            show_filters: "फिल्टर दाखवा",
+            hide_filters: "फिल्टर लपवा",
           },
           contact: {
             title: "आमच्याशी संपर्क साधा",

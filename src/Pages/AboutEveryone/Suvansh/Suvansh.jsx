@@ -27,8 +27,8 @@ const Suvansh = () => {
                   <span className={styles.detailValue}>-</span>
                 </div> */}
                 <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>Role</span>
-                  <span className={styles.detailValue}>Website Developer</span>
+                  <span className={styles.detailLabel}>Website Developer</span>
+                  
                 </div>
               </div>
             </div>

@@ -7,6 +7,7 @@ import styles from "./navbar.module.css";
 import { useAuth } from "../../context/AuthContext";
 import { logout } from "../../firebase/auth";
 
+
 const Navbar = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +18,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
 
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -24,6 +26,7 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
 
   const handleLogout = async () => {
     try {
@@ -34,15 +37,19 @@ const Navbar = () => {
     }
   };
 
+
   const services = [
     { name: t("services.cropSuggestion"), path: "/crop-recommendation" },
     {
       name: t("services.labourEstimation"),
-      path: "https://labourestimation-agrovigya-production.up.railway.app/",
+      path: "/labour-estimation",  // Changed to frontend route instead of API URL
     },
+
+
     { name: t("services.governmentSchemes"), path: "/govt-schemes" },
     { name: t("services.marketplace"), path: "/marketplace" },
   ];
+
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -56,6 +63,7 @@ const Navbar = () => {
     };
   }, [dropdownRef]);
 
+
   // --- Profile Button Handler ---
   const handleProfileClick = () => {
     if (user) {
@@ -64,6 +72,7 @@ const Navbar = () => {
       navigate("/login");
     }
   };
+
 
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
@@ -78,6 +87,7 @@ const Navbar = () => {
             />
           </Link>
 
+
           {/* Desktop Menu */}
           <div className={styles.desktopMenu}>
             <Link to="/" className={styles.navLink}>
@@ -86,6 +96,7 @@ const Navbar = () => {
             <Link to="/about" className={styles.navLink}>
               {t("navbar.aboutUs")}
             </Link>
+
 
             {/* Services Dropdown for Desktop */}
             <div className={styles.dropdownContainer} ref={dropdownRef}>
@@ -125,14 +136,17 @@ const Navbar = () => {
               )}
             </div>
 
+
             <Link to="/download-app" className={styles.navLink}>
               {t("navbar.download_app")}
             </Link>
+
 
             {/* Language Switcher for Desktop */}
             <div className={styles.languageSwitcherContainer}>
               <LanguageSwitcher />
             </div>
+
 
             {/* Conditional Login/Logout Buttons */}
             {user ? (
@@ -147,6 +161,7 @@ const Navbar = () => {
               </>
             )}
 
+
             {/* Updated Profile Button */}
             {user && (
               <button
@@ -158,6 +173,7 @@ const Navbar = () => {
               </button>
             )}
           </div>
+
 
           {/* Mobile Menu Button */}
           <div className={styles.mobileMenuButton}>
@@ -171,6 +187,7 @@ const Navbar = () => {
         </div>
       </div>
 
+
       {/* Mobile Menu */}
       {isOpen && (
         <div className={styles.mobileMenu}>
@@ -180,6 +197,7 @@ const Navbar = () => {
           <Link to="/about" className={styles.mobileNavLink}>
             {t("navbar.aboutUs")}
           </Link>
+
 
           {/* Services Dropdown for Mobile */}
           <div className={styles.mobileDropdown}>
@@ -221,6 +239,7 @@ const Navbar = () => {
             )}
           </div>
 
+
           {/* Updated Profile Button for Mobile */}
           {user && (
             <button
@@ -231,6 +250,7 @@ const Navbar = () => {
               {t("navbar.profile")}
             </button>
           )}
+
 
           {/* Conditional Login/Logout Buttons for Mobile */}
           {user ? (
@@ -248,9 +268,11 @@ const Navbar = () => {
             </>
           )}
 
+
           <Link to="/contact" className={styles.mobileContactButton}>
             {t("navbar.contact")}
           </Link>
+
 
           {/* Language Switcher for Mobile */}
           <div className={styles.languageSwitcherContainer}>
@@ -261,5 +283,6 @@ const Navbar = () => {
     </nav>
   );
 };
+
 
 export default Navbar;

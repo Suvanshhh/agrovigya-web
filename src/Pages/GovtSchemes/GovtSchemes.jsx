@@ -5,8 +5,10 @@ import SearchBar from "./SearchBar";
 import Papa from "papaparse";
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
+import { useTranslation } from "react-i18next";
 
 function GovtSchemes() {
+  const { t } = useTranslation();
   const [schemes, setSchemes] = useState([]);
   const [filteredSchemes, setFilteredSchemes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,11 +35,9 @@ function GovtSchemes() {
         delimiter: "\t",
         skipEmptyLines: true,
         complete: (results) => {
-          console.log("Parsed TSV data:", results.data); // <-- Add this line
           const validSchemes = results.data.filter(
             (scheme) => scheme["Scheme Name"]
           );
-
           setSchemes(validSchemes);
           setFilteredSchemes(validSchemes);
           setIsLoading(false);
@@ -108,11 +108,8 @@ function GovtSchemes() {
     <div className="govt-schemes-container with-navbar-spacing">
       <Navbar />
       <div className="schemes-header">
-        <h1>Government Schemes</h1>
-        <p>
-          Explore various government schemes available for farmers and rural
-          development
-        </p>
+        <h1>{t("schemes.title")}</h1>
+        <p>{t("schemes.explore")}</p>
       </div>
 
       <SearchBar
@@ -124,12 +121,12 @@ function GovtSchemes() {
       {isLoading ? (
         <div className="loading-container">
           <div className="loader"></div>
-          <p>Loading schemes...</p>
+          <p>{t("schemes.loading")}</p>
         </div>
       ) : error ? (
         <div className="error-container">
           <p>{error}</p>
-          <button onClick={fetchSchemes}>Retry</button>
+          <button onClick={fetchSchemes}>{t("schemes.retry")}</button>
         </div>
       ) : (
         <div className="schemes-grid">
@@ -139,7 +136,7 @@ function GovtSchemes() {
             ))
           ) : (
             <div className="no-results">
-              <p>No schemes found matching your criteria.</p>
+              <p>{t("schemes.no_results")}</p>
               <button
                 onClick={() => {
                   setSearchQuery("");
@@ -147,7 +144,7 @@ function GovtSchemes() {
                   setFilteredSchemes(schemes);
                 }}
               >
-                Clear Filters
+                {t("schemes.clear_filters")}
               </button>
             </div>
           )}

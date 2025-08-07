@@ -9,13 +9,13 @@ import CropRecommendationPage from "./Pages/CropRecomPage/CropRecommendationPage
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignupPage from "./Pages/SignupPage/SignupPage";
 import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
-import LabourEstimation from "./components/LabourEstimation/LabourEstimation";
+// import LabourEstimationPage from "./Pages/LaborEs/LaboursEstimationPagePage";
 import AuthModal from "./components/Auth/AuthModal/AuthModal";
 import { useAuth } from "./context/AuthContext";
 import i18n from "./i18n"; // Importing i18n configuration
 import GovtSchemes from "./Pages/GovtSchemes/GovtSchemes";
 import Marketplace from "./Pages/Marketplace/Marketplace";
-
+import ScrollToTop from "./components/utils/ScrollToTop";
 // Import member components
 import Agniva from "./Pages/AboutEveryone/Agniva/Agniva";
 import Aishwarya from "./Pages/AboutEveryone/Aishwarya/Aishwarya";
@@ -30,6 +30,7 @@ import Sunita from "./Pages/AboutEveryone/Sunita/Sunita";
 import Suvansh from "./Pages/AboutEveryone/Suvansh/Suvansh";
 
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import LabourEstimationPage from "./Pages/LaborEs/LaboursEstimationPagePage";
 
 function App() {
   const [showLanding, setShowLanding] = useState(true);
@@ -97,9 +98,10 @@ function App() {
               onLogin={handleLogin}
             />
           )}
+           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/labour-estimation" element={<LabourEstimation />} />
+            <Route path="/labour-estimation" element={<LabourEstimationPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/profile" element={<ProfilePage />} />
