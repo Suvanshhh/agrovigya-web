@@ -18,6 +18,7 @@ i18n
             login_signup: "Login/Signup",
             download_app: "Download App",
             contact: "Contact Us",
+            logout: "Logout",
           },
           home: {
             title: "Empowering Farmers with Technology",
@@ -282,6 +283,7 @@ i18n
             dashboard: "डैशबोर्ड",
             profile: "प्रोफ़ाइल",
             contact: "संपर्क करें",
+            logout: "लॉग आउट",
           },
           home: {
             title: "तकनीक के साथ किसानों को सशक्त बनाना",
@@ -548,6 +550,7 @@ i18n
             dashboard: "डॅशबोर्ड",
             profile: "प्रोफाइल",
             contact: "संपर्क साधा",
+            logout: "लॉग आउट",
           },
           home: {
             title: "तंत्रज्ञानाच्या मदतीने शेतकऱ्यांचे सशक्तीकरण",

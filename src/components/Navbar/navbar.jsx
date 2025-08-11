@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronDown, LogOut } from "lucide-react";
+import { Menu, X, ChevronDown, LogOut, User } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import styles from "./navbar.module.css";
@@ -134,28 +134,31 @@ const Navbar = () => {
               <LanguageSwitcher />
             </div>
 
-            {/* Conditional Login/Logout Buttons */}
+            {/* Profile and Logout Dropdown */}
             {user ? (
-              <button onClick={handleLogout} className={styles.navButton}>
-                Logout <LogOut size={16} />
-              </button>
+              <div className={styles.profileDropdownContainer}>
+                <button className={styles.profileButton} onClick={handleProfileClick}>
+                  {user.photoURL ? (
+                    <img src={user.photoURL} alt="Profile" className={styles.profileImage} />
+                  ) : (
+                    <User size={24} />
+                  )}
+                </button>
+                <div className={styles.profileDropdownMenu}>
+                  <Link to="/profile" className={styles.profileDropdownItem}>
+                    {t("navbar.profile")}
+                  </Link>
+                  <button onClick={handleLogout} className={styles.profileDropdownItem}>
+                    {t("navbar.logout")}
+                  </button>
+                </div>
+              </div>
             ) : (
               <>
                 <Link to="/signup" className={styles.navLink}>
                   {t("navbar.login_signup")}
                 </Link>
               </>
-            )}
-
-            {/* Updated Profile Button */}
-            {user && (
-              <button
-                className={styles.navButton}
-                onClick={handleProfileClick}
-                type="button"
-              >
-                {/* {t("navbar.profile")} */}
-              </button>
             )}
           </div>
 
@@ -221,22 +224,25 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Updated Profile Button for Mobile */}
-          {user && (
-            <button
-              className={styles.mobileNavLink}
-              onClick={handleProfileClick}
-              type="button"
-            >
-              {t("navbar.profile")}
-            </button>
-          )}
-
-          {/* Conditional Login/Logout Buttons for Mobile */}
+          {/* Profile and Logout Dropdown for Mobile */}
           {user ? (
-            <button onClick={handleLogout} className={styles.mobileNavButton}>
-              Logout
-            </button>
+            <div className={styles.mobileProfileDropdownContainer}>
+              <button className={styles.mobileProfileButton} onClick={handleProfileClick}>
+                {user.photoURL ? (
+                  <img src={user.photoURL} alt="Profile" className={styles.mobileProfileImage} />
+                ) : (
+                  <User size={24} />
+                )}
+              </button>
+              <div className={styles.mobileProfileDropdownMenu}>
+                <Link to="/profile" className={styles.mobileProfileDropdownItem}>
+                  {t("navbar.profile")}
+                </Link>
+                <button onClick={handleLogout} className={styles.mobileProfileDropdownItem}>
+                  {t("navbar.logout")}
+                </button>
+              </div>
+            </div>
           ) : (
             <>
               <Link to="/login" className={styles.mobileNavButton}>
