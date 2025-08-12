@@ -11,11 +11,14 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [isMobileProfileDropdownOpen, setIsMobileProfileDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const auth = useAuth();
   const user = auth?.user;
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
+  const profileDropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +32,8 @@ const Navbar = () => {
     try {
       await logout();
       navigate("/");
+      setIsProfileDropdownOpen(false);
+      setIsMobileProfileDropdownOpen(false);
     } catch (error) {
       console.error("Logout Error:", error);
     }
@@ -49,20 +54,42 @@ const Navbar = () => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsServicesOpen(false);
       }
+      if (profileDropdownRef.current && !profileDropdownRef.current.contains(event.target)) {
+        setIsProfileDropdownOpen(false);
+      }
     }
+    
+    // Close dropdown when clicking anywhere outside
     document.addEventListener("mousedown", handleClickOutside);
+    
+    // Close dropdown when scrolling
+    const handleScroll = () => {
+      setIsProfileDropdownOpen(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [dropdownRef]);
+  }, [dropdownRef, profileDropdownRef]);
 
-  // --- Profile Button Handler ---
   const handleProfileClick = () => {
     if (user) {
       navigate("/profile");
+      setIsProfileDropdownOpen(false);
+      setIsMobileProfileDropdownOpen(false);
     } else {
       navigate("/login");
     }
+  };
+
+  const toggleProfileDropdown = () => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
+  const toggleMobileProfileDropdown = () => {
+    setIsMobileProfileDropdownOpen(!isMobileProfileDropdownOpen);
   };
 
   return (
@@ -105,7 +132,7 @@ const Navbar = () => {
                       <a
                         key={index}
                         href={service.path}
-                        className={styles.mobileDropdownItem}
+                        className={styles.dropdownItem}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -115,7 +142,7 @@ const Navbar = () => {
                       <Link
                         key={index}
                         to={service.path}
-                        className={styles.mobileDropdownItem}
+                        className={styles.dropdownItem}
                       >
                         {service.name}
                       </Link>
@@ -136,22 +163,68 @@ const Navbar = () => {
 
             {/* Profile and Logout Dropdown */}
             {user ? (
-              <div className={styles.profileDropdownContainer}>
-                <button className={styles.profileButton} onClick={handleProfileClick}>
+              <div className={styles.profileDropdownContainer} ref={profileDropdownRef}>
+                <button 
+                  className={styles.profileButton} 
+                  onClick={toggleProfileDropdown}
+                  aria-expanded={isProfileDropdownOpen}
+                  aria-haspopup="true"
+                >
                   {user.photoURL ? (
-                    <img src={user.photoURL} alt="Profile" className={styles.profileImage} />
-                  ) : (
-                    <User size={24} />
-                  )}
+                    <img 
+                      src={user.photoURL} 
+                      alt="Profile" 
+                      className={styles.profileImage}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div 
+                    className={styles.profileIconFallback}
+                    style={{ display: user.photoURL ? 'none' : 'flex' }}
+                  >
+                    <User size={20} />
+                  </div>
+                  <ChevronDown className={`${styles.profileChevron} ${isProfileDropdownOpen ? styles.rotate : ''}`} />
                 </button>
-                <div className={styles.profileDropdownMenu}>
-                  <Link to="/profile" className={styles.profileDropdownItem}>
-                    {t("navbar.profile")}
-                  </Link>
-                  <button onClick={handleLogout} className={styles.profileDropdownItem}>
-                    {t("navbar.logout")}
-                  </button>
-                </div>
+                {isProfileDropdownOpen && (
+                  <div className={styles.profileDropdownMenu}>
+                    <div className={styles.profileDropdownHeader}>
+                      <div className={styles.profileInfo}>
+                        {user.photoURL && (
+                          <img 
+                            src={user.photoURL} 
+                            alt="Profile" 
+                            className={styles.profileDropdownImage}
+                          />
+                        )}
+                        <div className={styles.profileText}>
+                          <p className={styles.profileName}>
+                            {user.displayName || user.email?.split('@')[0] || 'User'}
+                          </p>
+                          <p className={styles.profileEmail}>{user.email}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={styles.profileDropdownDivider}></div>
+                    <button 
+                      onClick={handleProfileClick} 
+                      className={styles.profileDropdownItem}
+                    >
+                      <User size={16} />
+                      <span>{t("navbar.profile")}</span>
+                    </button>
+                    <button 
+                      onClick={handleLogout} 
+                      className={styles.profileDropdownItem}
+                    >
+                      <LogOut size={16} />
+                      <span>{t("navbar.logout")}</span>
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               <>
@@ -199,24 +272,24 @@ const Navbar = () => {
             </button>
             {isServicesOpen && (
               <div className={styles.mobileDropdownContent}>
-                {services.map((services, index) =>
-                  services.path.startsWith("http") ? (
+                {services.map((service, index) =>
+                  service.path.startsWith("http") ? (
                     <a
                       key={index}
-                      href={services.path}
+                      href={service.path}
                       className={styles.mobileDropdownItem}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {services.name}
+                      {service.name}
                     </a>
                   ) : (
                     <Link
                       key={index}
-                      to={services.path}
+                      to={service.path}
                       className={styles.mobileDropdownItem}
                     >
-                      {services.name}
+                      {service.name}
                     </Link>
                   )
                 )}
@@ -224,24 +297,61 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Profile and Logout Dropdown for Mobile */}
+          {/* Profile and Logout Section for Mobile */}
           {user ? (
-            <div className={styles.mobileProfileDropdownContainer}>
-              <button className={styles.mobileProfileButton} onClick={handleProfileClick}>
-                {user.photoURL ? (
-                  <img src={user.photoURL} alt="Profile" className={styles.mobileProfileImage} />
-                ) : (
-                  <User size={24} />
-                )}
+            <div className={styles.mobileProfileSection}>
+              <button 
+                className={styles.mobileProfileButton} 
+                onClick={toggleMobileProfileDropdown}
+              >
+                <div className={styles.mobileProfileButtonContent}>
+                  {user.photoURL ? (
+                    <img 
+                      src={user.photoURL} 
+                      alt="Profile" 
+                      className={styles.mobileProfileImage}
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div 
+                    className={styles.mobileProfileIconFallback}
+                    style={{ display: user.photoURL ? 'none' : 'flex' }}
+                  >
+                    <User size={20} />
+                  </div>
+                  <div className={styles.mobileProfileText}>
+                    <span className={styles.mobileProfileName}>
+                      {user.displayName || user.email?.split('@')[0] || 'User'}
+                    </span>
+                    <span className={styles.mobileProfileEmail}>{user.email}</span>
+                  </div>
+                </div>
+                <ChevronDown 
+                  className={`${styles.mobileProfileChevron} ${isMobileProfileDropdownOpen ? styles.rotate : ''}`} 
+                />
               </button>
-              <div className={styles.mobileProfileDropdownMenu}>
-                <Link to="/profile" className={styles.mobileProfileDropdownItem}>
-                  {t("navbar.profile")}
-                </Link>
-                <button onClick={handleLogout} className={styles.mobileProfileDropdownItem}>
-                  {t("navbar.logout")}
-                </button>
-              </div>
+              
+              {isMobileProfileDropdownOpen && (
+                <div className={styles.mobileProfileDropdownMenu}>
+                  <button 
+                    onClick={handleProfileClick} 
+                    className={styles.mobileProfileDropdownItem}
+                  >
+                    <User size={16} />
+                    <span>{t("navbar.profile")}</span>
+                  </button>
+                  <button 
+                    onClick={handleLogout} 
+                    className={styles.mobileProfileDropdownItem}
+                  >
+                    <LogOut size={16} />
+                    <span>{t("navbar.logout")}</span>
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <>
