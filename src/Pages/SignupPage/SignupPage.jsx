@@ -78,7 +78,7 @@ const Signup = () => {
                   type="text"
                   placeholder={t("signup.namePlaceholder")}
                   value={name}
-                  onChange={e => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                   className={styles.input}
                   disabled={loading}
                 />
@@ -87,7 +87,7 @@ const Signup = () => {
                   type="tel"
                   placeholder={t("signup.phonePlaceholder")}
                   value={phone}
-                  onChange={e => setPhone(e.target.value)}
+                  onChange={(e) => setPhone(e.target.value)}
                   className={styles.input}
                   disabled={loading}
                 />
@@ -96,7 +96,7 @@ const Signup = () => {
                   type="email"
                   placeholder={t("signup.emailPlaceholder")}
                   value={email}
-                  onChange={e => setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   className={styles.input}
                   disabled={loading}
                 />
@@ -107,7 +107,7 @@ const Signup = () => {
                   type="password"
                   placeholder={t("signup.passwordPlaceholder")}
                   value={password}
-                  onChange={e => setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                   className={styles.input}
                   disabled={loading}
                 />
@@ -116,7 +116,7 @@ const Signup = () => {
                   type="password"
                   placeholder={t("signup.confirmPasswordPlaceholder")}
                   value={confirmPassword}
-                  onChange={e => setConfirmPassword(e.target.value)}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   className={styles.input}
                   disabled={loading}
                 />
@@ -124,21 +124,29 @@ const Signup = () => {
                   <input
                     type="checkbox"
                     checked={agree}
-                    onChange={e => setAgree(e.target.checked)}
+                    onChange={(e) => setAgree(e.target.checked)}
                     id="terms"
                     disabled={loading}
                   />
                   <label htmlFor="terms">
                     {t("signup.agreePrefix")}{" "}
-                    <span className={styles.termsLink}>{t("signup.termsOfUse")}</span>{" "}
+                    <span className={styles.termsLink}>
+                      {t("signup.termsOfUse")}
+                    </span>{" "}
                     {t("signup.and")}{" "}
-                    <span className={styles.termsLink}>{t("signup.privacyPolicy")}</span>
+                    <span className={styles.termsLink}>
+                      {t("signup.privacyPolicy")}
+                    </span>
                   </label>
                 </div>
               </div>
             </div>
             {error && <div className={styles.errorMsg}>{error}</div>}
-            <button className={styles.signupBtn} type="submit" disabled={loading}>
+            <button
+              className={styles.signupBtn}
+              type="submit"
+              disabled={loading}
+            >
               {t("signup.signUp")}
             </button>
             <div className={styles.dividerRow}>
@@ -153,7 +161,10 @@ const Signup = () => {
               disabled={loading}
             >
               <img
+
                 src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+
+
                 alt="Google"
                 className={styles.googleIcon}
               />

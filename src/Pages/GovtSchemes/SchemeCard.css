@@ -8,7 +8,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  max-width: 380px;   /* Add this line */
+  min-width: 300px;
+  margin: 0 auto;     /* Center card in grid cell if narrower */
 }
+
 
 .scheme-card:hover {
   transform: translateY(-5px);
@@ -71,4 +75,11 @@
   color: #27ae60;
   font-weight: 600;
   font-size: 14px;
+}
+
+.schemes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* e.g., 340px */
+  gap: 20px;
+  margin-top: 30px;
 }

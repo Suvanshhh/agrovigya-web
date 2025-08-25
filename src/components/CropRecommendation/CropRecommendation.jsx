@@ -24,7 +24,7 @@ const CropRecommendation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://croprecommendationagrovigya-production.up.railway.app//predict", {
+      const response = await fetch("https://croprecommendationagrovigya-production.up.railway.app/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
@@ -55,6 +55,7 @@ const CropRecommendation = () => {
               className={styles.input}
               value={formData[key]}
               onChange={handleChange}
+              placeholder={t(`formPlaceholders.${key}`)}
               required
             />
           </div>

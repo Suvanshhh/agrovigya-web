@@ -87,7 +87,8 @@ const LoginPage = () => {
                             }}
                         >
                             <img
-                                src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+              src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+
                                 alt="Google"
                                 className={styles.googleIcon}
                             />

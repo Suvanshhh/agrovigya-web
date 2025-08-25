@@ -118,16 +118,23 @@ body {
 }
 
 .signupBtn {
-    width: 100%;
-    padding: 12px 0;
-    background: #27d964;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-top: 16px;
-    cursor: pointer;
+  width: 100%;
+  padding: 12px 0;
+  background: #1ec37b;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 7px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.signupBtn:hover {
+  background: #1ec37b;
+
 }
 
 .dividerRow {

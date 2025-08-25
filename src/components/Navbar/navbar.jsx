@@ -7,6 +7,7 @@ import styles from "./navbar.module.css";
 import { useAuth } from "../../context/AuthContext";
 import { logout } from "../../firebase/auth";
 
+
 const Navbar = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const profileDropdownRef = useRef(null);
 
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -27,6 +29,7 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
 
   const handleLogout = async () => {
     try {
@@ -39,15 +42,19 @@ const Navbar = () => {
     }
   };
 
+
   const services = [
     { name: t("services.cropSuggestion"), path: "/crop-recommendation" },
     {
       name: t("services.labourEstimation"),
-      path: "https://labourestimation-agrovigya-production.up.railway.app/",
+      path: "/labour-estimation",  // Changed to frontend route instead of API URL
     },
+
+
     { name: t("services.governmentSchemes"), path: "/govt-schemes" },
     { name: t("services.marketplace"), path: "/marketplace" },
   ];
+
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -74,6 +81,9 @@ const Navbar = () => {
     };
   }, [dropdownRef, profileDropdownRef]);
 
+
+  // --- Profile Button Handler ---
+
   const handleProfileClick = () => {
     if (user) {
       navigate("/profile");
@@ -82,10 +92,6 @@ const Navbar = () => {
     } else {
       navigate("/login");
     }
-  };
-
-  const toggleProfileDropdown = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
   };
 
   const toggleMobileProfileDropdown = () => {
@@ -105,6 +111,7 @@ const Navbar = () => {
             />
           </Link>
 
+
           {/* Desktop Menu */}
           <div className={styles.desktopMenu}>
             <Link to="/" className={styles.navLink}>
@@ -113,6 +120,7 @@ const Navbar = () => {
             <Link to="/about" className={styles.navLink}>
               {t("navbar.aboutUs")}
             </Link>
+
 
             {/* Services Dropdown for Desktop */}
             <div className={styles.dropdownContainer} ref={dropdownRef}>
@@ -152,16 +160,18 @@ const Navbar = () => {
               )}
             </div>
 
+
             <Link to="/download-app" className={styles.navLink}>
               {t("navbar.download_app")}
             </Link>
+
 
             {/* Language Switcher for Desktop */}
             <div className={styles.languageSwitcherContainer}>
               <LanguageSwitcher />
             </div>
 
-            {/* Profile and Logout Dropdown */}
+
             {user ? (
               <div className={styles.profileDropdownContainer} ref={profileDropdownRef}>
                 <button 
@@ -233,7 +243,20 @@ const Navbar = () => {
                 </Link>
               </>
             )}
+
+            {/* Updated Profile Button */}
+            {user && (
+              <button
+                className={styles.navButton}
+                onClick={handleProfileClick}
+                type="button"
+              >
+                {/* {t("navbar.profile")} */}
+              </button>
+            )}
+
           </div>
+
 
           {/* Mobile Menu Button */}
           <div className={styles.mobileMenuButton}>
@@ -247,6 +270,7 @@ const Navbar = () => {
         </div>
       </div>
 
+
       {/* Mobile Menu */}
       {isOpen && (
         <div className={styles.mobileMenu}>
@@ -256,6 +280,7 @@ const Navbar = () => {
           <Link to="/about" className={styles.mobileNavLink}>
             {t("navbar.aboutUs")}
           </Link>
+
 
           {/* Services Dropdown for Mobile */}
           <div className={styles.mobileDropdown}>
@@ -297,7 +322,21 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Profile and Logout Section for Mobile */}
+
+
+          {/* Updated Profile Button for Mobile */}
+          {user && (
+            <button
+              className={styles.mobileNavLink}
+              onClick={handleProfileClick}
+              type="button"
+            >
+              {t("navbar.profile")}
+            </button>
+          )}
+
+
+
           {user ? (
             <div className={styles.mobileProfileSection}>
               <button 
@@ -364,9 +403,11 @@ const Navbar = () => {
             </>
           )}
 
+
           <Link to="/contact" className={styles.mobileContactButton}>
             {t("navbar.contact")}
           </Link>
+
 
           {/* Language Switcher for Mobile */}
           <div className={styles.languageSwitcherContainer}>
@@ -379,3 +420,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

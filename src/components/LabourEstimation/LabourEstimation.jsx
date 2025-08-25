@@ -1,132 +1,196 @@
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import styles from './labourEstimation.module.css';
-import Navbar from "../../components/Navbar/navbar";
+import React, { useState } from "react";
+import styles from "./labourEstimation.module.css";
+import { useTranslation } from "react-i18next";
+
+const cropOptions = [
+  "Tomato",
+  "Potato",
+  "Onion",
+  // Add more crops as needed
+];
+
+const areaOptions = [
+  "0.5",
+  "1",
+  "1.5",
+  "2",
+  "2.5",
+  "3",
+  "3.5",
+  "4",
+  "4.5",
+  "5",
+  "5.5",
+  "6",
+  "6.5",
+  "7",
+  "7.5",
+  "8",
+  "8.5",
+  "9",
+  "9.5",
+  "10",
+];
+
+const seasonOptions = ["Spring", "Summer", "Fall", "Winter"];
+const wageTypeOptions = ["Govt", "Expected"];
 
 const LabourEstimation = () => {
   const { t } = useTranslation();
-  const [crops, setCrops] = useState([]);
-  const [formData, setFormData] = useState({ crop: '', area: '' });
-  const [result, setResult] = useState(null);
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchCrops = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:5000/api/crops');
-        if (!response.ok) throw new Error(t('errors.fetchCrops'));
-        const data = await response.json();
-        setCrops(data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-    fetchCrops();
-  }, [t]);
+  const [form, setForm] = useState({
+    crop_name: "",
+    area: "",
+    season: "",
+    wage_type: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
+    setResult(null);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/estimate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "";
+      const response = await fetch(`${BACKEND_URL}/api/labour-estimate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
-
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error);
+        throw new Error(t("labour.errorFetch"));
       }
-
       const data = await response.json();
-      setResult(data);
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setResult(data);
+      }
     } catch (err) {
-      setError(err.message);
+      setError(err.message || t("labour.errorGeneric"));
     } finally {
       setLoading(false);
     }
   };
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
-
-    <div className={styles.container}>
-      <Navbar />
-      <h1 className={styles.heading}>{t('labourEstimation.title')}</h1>
-      
+    <div className={styles.wrapper}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
-          <label className={styles.label}>{t('labourEstimation.selectCrop')}</label>
+          <label htmlFor="crop_name">{t("labour.cropName")}</label>
           <select
-            name="crop"
-            className={styles.select}
-            value={formData.crop}
+            name="crop_name"
+            id="crop_name"
+            value={form.crop_name}
             onChange={handleChange}
             required
           >
-            <option value="">{t('labourEstimation.chooseCrop')}</option>
-            {crops.map(crop => (
-              <option key={crop['Crop Name']} value={crop['Crop Name']}>
-                {crop['Crop Name']}
+            <option value="">{t("labour.selectCrop")}</option>
+            {cropOptions.map((crop) => (
+              <option key={crop} value={crop}>
+                {t(`labour.crops.${crop.toLowerCase()}`, crop)}
               </option>
             ))}
           </select>
         </div>
 
         <div className={styles.formGroup}>
-          <label className={styles.label}>{t('labourEstimation.landArea')} (ha)</label>
-          <input
-            type="number"
+          <label htmlFor="area">{t("labour.area")}</label>
+          <select
             name="area"
-            className={styles.input}
-            value={formData.area}
+            id="area"
+            value={form.area}
             onChange={handleChange}
-            min="0.1"
-            step="0.1"
             required
-          />
+          >
+            <option value="">{t("labour.selectArea")}</option>
+            {areaOptions.map((area) => (
+              <option key={area} value={area}>
+                {area}
+              </option>
+            ))}
+          </select>
         </div>
 
-        <button className={styles.button} type="submit" disabled={loading}>
-          {loading ? t('common.calculating') : t('common.estimateNow')}
+        <div className={styles.formGroup}>
+          <label htmlFor="season">{t("labour.season")}</label>
+          <select
+            name="season"
+            id="season"
+            value={form.season}
+            onChange={handleChange}
+            required
+          >
+            <option value="">{t("labour.selectSeason")}</option>
+            {seasonOptions.map((season) => (
+              <option key={season} value={season}>
+                {t(`labour.seasons.${season.toLowerCase()}`, season)}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.formGroup}>
+          <label htmlFor="wage_type">{t("labour.wageType")}</label>
+          <select
+            name="wage_type"
+            id="wage_type"
+            value={form.wage_type}
+            onChange={handleChange}
+            required
+          >
+            <option value="">{t("labour.selectWageType")}</option>
+            {wageTypeOptions.map((wage) => (
+              <option key={wage} value={wage}>
+                {t(`labour.wageTypes.${wage.toLowerCase()}`, wage)}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <button type="submit" className={styles.submitBtn} disabled={loading}>
+          {loading ? t("labour.calculating") : t("labour.calculate")}
         </button>
       </form>
 
+      {/* Result or Error */}
       {error && <div className={styles.error}>{error}</div>}
-
       {result && (
-        <div className={styles.results}>
-          <h2 className={styles.subHeading}>{t('labourEstimation.resultsTitle')}</h2>
-          
-          {/* Labour Requirements */}
-          <div className={styles.labourSection}>
-            <h3>{t('labourEstimation.labourRequirements')}</h3>
-            <div className={styles.statsGrid}>
-              <div className={styles.statCard}>
-                <h4>{t('labourEstimation.totalLabour')}</h4>
-                <p>{result.metadata.labour_days} {t('common.days')}</p>
-              </div>
-              <div className={styles.statCard}>
-                <h4>{t('labourEstimation.sowingLabour')}</h4>
-                <p>{result.metadata.sowing_labour} {t('common.days')}</p>
-              </div>
-              <div className={styles.statCard}>
-                <h4>{t('labourEstimation.harvestingLabour')}</h4>
-                <p>{result.metadata.harvesting_labour} {t('common.days')}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Rate Cards */}
-          {/* Govt Rates */}
-          {/* Expected Rates */}
+        <div className={styles.result}>
+          <h3>{t("labour.resultTitle")}</h3>
+          <p>
+            <strong>{t("labour.crop")}:</strong> {result.crop}
+          </p>
+          <p>
+            <strong>{t("labour.area")}:</strong> {result.area}{" "}
+            {t("labour.hectares")}
+          </p>
+          <p>
+            <strong>{t("labour.season")}:</strong>{" "}
+            {result.season ? result.season : t("labour.na")}
+          </p>
+          <p>
+            <strong>{t("labour.wageType")}:</strong> {result.wage_type}
+          </p>
+          <p>
+            <strong>{t("labour.totalLabour")}:</strong>{" "}
+            {result.total_labour_per_ha} {t("labour.personDays")}
+          </p>
+          <p>
+            <strong>{t("labour.costPerHectare")}:</strong> ₹
+            {result.cost_per_hectare}
+          </p>
+          <p>
+            <strong>{t("labour.totalCost")}:</strong> ₹{result.total_cost}
+          </p>
         </div>
       )}
     </div>

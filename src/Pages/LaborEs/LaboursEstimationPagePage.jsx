@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import CropRecommendation from "../../components/CropRecommendation/CropRecommendation";
+import LabourEstimation from "../../components/LabourEstimation/LabourEstimation";
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
-import styles from "./CropRecommendationPage.module.css";
+import styles from "./LabourEstimationPage.module.css";
 import { useTranslation } from "react-i18next";
-import FarmerGuidePopup from "../../components/FarmerGuidePopup/FarmerGuidePopup";
+import LabourGuidePopup from "../../components/LabourGuidePopup/LabourGuidePopup";
 import confusedCharacter from "../CropRecomPage/confused-character.gif"; // Adjust the path as necessary
 
-const CropRecommendationPage = () => {
+const LabourEstimationPage = () => {
   const { t } = useTranslation();
   const [showGuide, setShowGuide] = useState(false);
 
@@ -15,29 +15,29 @@ const CropRecommendationPage = () => {
     <div className={styles.pageWrapper}>
       <Navbar />
       <main className={styles.mainContent}>
-        <h1 className={styles.pageTitle}>{t("crop.title")}</h1>
-        <p className={styles.pageSubtitle}>{t("crop.subtitle")}</p>
+        <h1 className={styles.pageTitle}>{t("labour.title")}</h1>
+        <p className={styles.pageSubtitle}>{t("labour.subtitle")}</p>
         <button
           className={styles.helpButton}
           onClick={() => setShowGuide(true)}
-          aria-label="How to test your soil?"
+          aria-label="How to estimate your labour cost?"
         >
           <img
             src={confusedCharacter}
             alt="Confused character"
             className={styles.animatedIcon}
           />
-         {t("labour.helpButton")}
+          {t("labour.helpButton")}
         </button>
-        <FarmerGuidePopup show={showGuide} onClose={() => setShowGuide(false)} />
+        <LabourGuidePopup show={showGuide} onClose={() => setShowGuide(false)} />
         <div className={styles.contentContainer}>
           <div className={styles.formSection}>
-            <CropRecommendation />
+            <LabourEstimation />
           </div>
           <div className={styles.imageSection}>
             <img
               src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
-              alt={t("crop.imageAlt")}
+              alt={t("labour.imageAlt")}
               className={styles.sideImage}
             />
           </div>
@@ -48,4 +48,4 @@ const CropRecommendationPage = () => {
   );
 };
 
-export default CropRecommendationPage;
+export default LabourEstimationPage;

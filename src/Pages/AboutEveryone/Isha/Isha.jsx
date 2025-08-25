@@ -27,7 +27,7 @@ const Isha = () => {
                   <span className={styles.detailValue}>-</span>
                 </div> */}
                 <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>Graphics Designer & GD</span>
+                  <span className={styles.detailLabel}>UI/UX & Graphics Designer</span>
                   {/* <span className={styles.detailValue}>a</span> */}
                 </div>
               </div>

@@ -27,8 +27,8 @@ const Agniva = () => {
                   <span className={styles.detailValue}>-</span>
                 </div> */}
                 <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>Role</span>
-                  <span className={styles.detailValue}>Developer</span>
+                  <span className={styles.detailLabel}>App Developer</span>
+
                 </div>
               </div>
             </div>

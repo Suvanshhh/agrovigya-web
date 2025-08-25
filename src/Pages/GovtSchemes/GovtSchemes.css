@@ -1,8 +1,11 @@
 .govt-schemes-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0;
+  background: #1B3738;
 }
+
 
 .schemes-header {
   text-align: center;
