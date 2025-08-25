@@ -64,11 +64,12 @@
   display: block;
 }
 
-/* Desktop Menu */
+/* Desktop Menu - FIXED ALIGNMENT */
 .desktopMenu {
   display: none;
   align-items: center;
   gap: 0.25rem;
+  height: 100%; /* Ensure full height */
 }
 
 @media (min-width: 768px) {
@@ -77,29 +78,34 @@
     align-items: center;
   }
 }
-/* Language Switcher Container */
-.dropdownTrigger {
-  background-color: #1B3738;
-}
+
+/* Language Switcher Container - FIXED ALIGNMENT */
 .languageSwitcherContainer {
   margin-left: 1rem;
   display: flex;
   align-items: center;
+  height: 40px; /* Fixed height for consistent alignment */
 }
 
 @media (max-width: 767px) {
   .languageSwitcherContainer {
     padding: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    height: auto;
   }
 }
 
-/* Nav Links */
+/* Nav Links - FIXED ALIGNMENT */
 .navLink {
   padding: 0.5rem 1rem;
   color: white;
   text-decoration: none;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  height: 40px; /* Fixed height for alignment */
+  vertical-align: middle;
+  line-height: 1;
 }
 
 .navLink:hover {
@@ -107,9 +113,12 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu - FIXED ALIGNMENT */
 .dropdownContainer {
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px; /* Fixed height for alignment */
 }
 
 .dropdownMenu {
@@ -167,9 +176,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  border-radius: 0.375rem;
   transition: all 1s ease;
   font-size: 1rem;
+  height: 40px; /* Fixed height for alignment */
+  vertical-align: middle;
+  line-height: 1;
+  margin: 0; /* Reset button margins */
+  box-sizing: border-box; /* Ensure consistent box model */
+  font-family: inherit; /* Use same font as navLinks */
 }
 
 .dropdownTrigger:hover {
@@ -188,6 +202,295 @@
   transform: none;
 }
 
+/* Enhanced Profile Dropdown - Desktop */
+.profileDropdownContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  margin-left: 0.5rem;
+}
+
+.profileButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  transition: all 0.3s ease;
+  height: 40px;
+  min-width: 50px;
+}
+
+.profileButton:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profileImage {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.profileIconFallback {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileChevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.profileChevron.rotate {
+  transform: rotate(180deg);
+}
+
+.profileDropdownMenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  min-width: 280px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* Remove hover-based dropdown visibility - now fully controlled by React state */
+
+.profileDropdownHeader {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profileDropdownImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(59, 130, 246, 0.2);
+}
+
+.profileText {
+  flex: 1;
+}
+
+.profileName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+
+.profileEmail {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.profileDropdownDivider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.profileDropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  color: #374151;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: inherit;
+}
+
+.profileDropdownItem:hover {
+  background: rgba(59, 130, 246, 0.08);
+  color: #1e40af;
+  transform: translateX(4px);
+}
+
+.profileDropdownItem:last-child {
+  border-radius: 0 0 16px 16px;
+}
+
+.profileDropdownItem svg {
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+
+.profileDropdownItem:hover svg {
+  color: #1e40af;
+}
+
+/* Mobile Profile Section */
+.mobileProfileSection {
+  margin: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0;
+}
+
+.mobileProfileButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.mobileProfileButton:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mobileProfileButtonContent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.mobileProfileImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.mobileProfileIconFallback {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileProfileText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+}
+
+.mobileProfileName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  line-height: 1.2;
+}
+
+.mobileProfileEmail {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.2;
+}
+
+.mobileProfileChevron {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mobileProfileChevron.rotate {
+  transform: rotate(180deg);
+}
+
+.mobileProfileDropdownMenu {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.mobileProfileDropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem;
+  color: #374151;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobileProfileDropdownItem:last-child {
+  border-bottom: none;
+}
+
+.mobileProfileDropdownItem:hover {
+  background: rgba(59, 130, 246, 0.08);
+  color: #1e40af;
+}
+
+.mobileProfileDropdownItem svg {
+  color: #9ca3af;
+  transition: color 0.2s ease;
+}
+
+.mobileProfileDropdownItem:hover svg {
+  color: #1e40af;
+}
+
 /* Contact Button */
 .contactButton {
   margin-left: 0.5rem;
@@ -198,6 +501,9 @@
   text-decoration: none;
   transition: all 0.2s ease;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  height: 40px; /* Fixed height for alignment */
 }
 
 .contactButton:hover {
@@ -205,7 +511,6 @@
   background-color: #fbbf24;
   border-color: #fbbf24;
 }
-
 
 /* Mobile Menu Button */
 .mobileMenuButton {
@@ -231,6 +536,11 @@
 
 .hamburger:hover {
   color: #fbbf24;
+}
+
+/* Rotation Animation */
+.rotate {
+  transform: rotate(180deg);
 }
 
 /* Mobile Menu */
@@ -281,6 +591,37 @@
 /* Mobile Dropdown */
 .mobileDropdown {
   margin: 0.5rem 0;
+}
+
+.mobileDropdownTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.mobileDropdownTrigger:hover {
+  color: #fbbf24;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobileDropdownIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.mobileDropdownIcon.rotate {
+  transform: rotate(180deg);
 }
 
 .mobileDropdownContent {
@@ -361,7 +702,6 @@
   text-decoration: none;
   width: 40px;
   height: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 24px;
@@ -409,6 +749,12 @@
   .dropdownItem {
     font-size: 0.95rem;
     padding: 0.4rem 0.7rem;
+    height: 36px; /* Adjusted for smaller screens */
+  }
+  .profileButton,
+  .languageSwitcherContainer,
+  .dropdownContainer {
+    height: 36px;
   }
   .navButton {
     font-size: 15px;
@@ -527,5 +873,14 @@
   }
   .mobileMenu {
     padding: 0.5rem;
+  }
+  .profileDropdownMenu {
+    min-width: 260px;
+  }
+  .profileName {
+    font-size: 0.9rem;
+  }
+  .profileEmail {
+    font-size: 0.8rem;
   }
 }

@@ -12,7 +12,7 @@ import ForgotPassword from "./components/Auth/ForgotPassword/ForgotPassword";
 // import LabourEstimationPage from "./Pages/LaborEs/LaboursEstimationPagePage";
 import AuthModal from "./components/Auth/AuthModal/AuthModal";
 import { useAuth } from "./context/AuthContext";
-import i18n from "./i18n"; // Importing i18n configuration
+
 import GovtSchemes from "./Pages/GovtSchemes/GovtSchemes";
 import Marketplace from "./Pages/Marketplace/Marketplace";
 import ScrollToTop from "./components/utils/ScrollToTop";
@@ -34,48 +34,31 @@ import LabourEstimationPage from "./Pages/LaborEs/LaboursEstimationPagePage";
 
 function App() {
   const [showLanding, setShowLanding] = useState(true);
-  // For testing, temporarily force modal to show
-  const [showAuthModal, setShowAuthModal] = useState(true);
-
-  const auth = useAuth();
-  console.log("Auth context:", auth);
-  const user = auth?.user;
+  const { user, loading } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   useEffect(() => {
-    // Show landing page for 3 seconds then hide
     const landingTimer = setTimeout(() => {
       setShowLanding(false);
     }, 3000);
 
-    // Check if user is not logged in and hasn't chosen to hide the modal
-    const hideAuthModal = localStorage.getItem("hideAuthModal");
-    console.log("Current user:", user);
-    console.log("hideAuthModal value in localStorage:", hideAuthModal);
-
-    if (!user && hideAuthModal !== "true") {
-      console.log("Conditions met to show the AuthModal.");
-      // Show modal after a short delay for better UX
-      const timer = setTimeout(() => {
-        setShowAuthModal(true);
-        console.log("Just set showAuthModal to true");
-        // Verify in next render cycle
-        setTimeout(() => {
-          console.log("After state update, showAuthModal should be:", true);
-        }, 0);
-      }, 1000);
-
-      return () => {
-        clearTimeout(timer);
-        clearTimeout(landingTimer);
-      };
+    // Only show AuthModal if user is not logged in, hasn't explicitly hidden it, and authentication state is loaded
+    if (!loading && !user && localStorage.getItem("hideAuthModal") !== "true") {
+      setShowAuthModal(true);
     } else {
-      console.log("Conditions NOT met to show the AuthModal.");
-      console.log(
-        "Reason:",
-        user ? "User is logged in" : "hideAuthModal is true"
-      );
+      setShowAuthModal(false);
     }
-  }, [user]);
+
+    return () => {
+      clearTimeout(landingTimer);
+    };
+  }, [user, loading]);
+  // For testing, temporarily force modal to show
+  
+
+  
+
+  
 
   const handleLogin = (user) => {
     console.log("User logged in:", user);
@@ -88,11 +71,11 @@ function App() {
         <LandingPage />
       ) : (
         <>
-          {console.log("Before rendering, showAuthModal is:", showAuthModal)}
           {showAuthModal && (
             <AuthModal
               onClose={() => {
                 console.log("Closing AuthModal");
+                localStorage.setItem("hideAuthModal", "true");
                 setShowAuthModal(false);
               }}
               onLogin={handleLogin}
