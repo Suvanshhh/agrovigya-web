@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { signInWithGoogle, signUpWithEmail } from "../../firebase/auth";
+import { createUserProfile } from "../../firebase/db";
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Navbar from "../../components/Navbar/navbar";
@@ -49,7 +50,17 @@ const Signup = () => {
     setError("");
     try {
       const user = await signUpWithEmail(email, password);
-      if (user) navigate("/dashboard");
+      
+      // Save user profile data to Firestore
+      if (user) {
+        await createUserProfile(user.uid, {
+          name: name.trim(),
+          phone: phone.trim(),
+          email: email.trim(),
+          authProvider: "email"
+        });
+        navigate("/dashboard");
+      }
     } catch (error) {
       setError(t("signup.signupFailed") + ": " + error.message);
     } finally {
@@ -154,7 +165,7 @@ const Signup = () => {
               disabled={loading}
             >
               <img
-                src="https://postimg.cc/PvrkXxjV"
+                src="https://i.ibb.co/bM1zHkzf/7123025-logo-google-g-icon.png"
                 alt="Google"
                 className={styles.googleIcon}
               />

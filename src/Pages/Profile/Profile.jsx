@@ -2,31 +2,47 @@ import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/footer";
 import styles from "./Profile.module.css";
-import { Bell, Settings, Pencil, Check, X, Camera } from "lucide-react";
+import { Bell, Settings, Pencil, Check, X, Camera, Trash2, Plus } from "lucide-react";
 import { getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend
+} from 'chart.js';
+import { supabase } from '../../services/supabaseClient';
 
-const notifications = [
-  { id: 1, type: "New job notification", caption: "notification caption" },
-  { id: 2, type: "New sale notification", caption: "notification caption" },
-  { id: 3, type: "Weather notification", caption: "notification caption" },
-  { id: 4, type: "New job notification", caption: "notification caption" },
-  { id: 5, type: "New job notification", caption: "notification caption" },
-  { id: 6, type: "New job notification", caption: "notification caption" },
-  { id: 7, type: "New job notification", caption: "notification caption" },
-  { id: 8, type: "New job notification", caption: "notification caption" },
-  { id: 9, type: "New job notification", caption: "notification caption" },
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+const notificationsInitial = [
+  { id: 1, type: "New job posted", caption: "Check the latest job openings." },
+  { id: 2, type: "Sale successful", caption: "Your produce has been sold." },
+  { id: 3, type: "Weather alert", caption: "Rain expected tomorrow." },
 ];
 
 const defaultProfile = {
-  name: "John Doe",
+  name: "Suvansh Choudhary",
   location: "Mulshi, Maharashtra",
-  job: "current job",
+  job: "Organic Farmer",
   image: "https://i.postimg.cc/3Nw6b2Kk/farmer-illustration.png",
 };
 
+const experiencesInitial = [
+  { id: 1, role: "Field Supervisor", company: "Green Farms", years: 2 },
+  { id: 2, role: "Market Liaison", company: "AgroMart", years: 1 },
+];
+
+const marketStatsMock = {
+  labels: ["Tomatoes", "Potatoes", "Onions", "Spinach"],
+  datasets: [
+    {
+      label: "Tons Sold",
+      backgroundColor: "#29c175",
+      data: [12, 19, 3, 5],
+    },
+  ],
+};
+
 const Profile = () => {
-  // Persistent login: always use onAuthStateChanged
   const [firebaseUser, setFirebaseUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
 
@@ -39,16 +55,23 @@ const Profile = () => {
     return unsubscribe;
   }, []);
 
-  // All hooks at top level
   const [profile, setProfile] = useState(defaultProfile);
   const [isEditing, setIsEditing] = useState(false);
   const [editProfile, setEditProfile] = useState(defaultProfile);
   const [imagePreview, setImagePreview] = useState(defaultProfile.image);
   const [imageFile, setImageFile] = useState(null);
+  const [avatarError, setAvatarError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [statusMsg, setStatusMsg] = useState("");
   const fileInputRef = useRef();
 
-  // When firebaseUser changes (e.g. after refresh), update profile state
+  const [experiences, setExperiences] = useState(experiencesInitial);
+  const [expForm, setExpForm] = useState({ role: "", company: "", years: "" });
+  const [expEditingId, setExpEditingId] = useState(null);
+
+  const [notifications, setNotifications] = useState(notificationsInitial);
+  const [showSettings, setShowSettings] = useState(false);
+
   useEffect(() => {
     if (firebaseUser) {
       setProfile({
@@ -67,11 +90,9 @@ const Profile = () => {
     }
   }, [firebaseUser]);
 
-  // Loading/auth states
   if (authLoading) return <div>Loading...</div>;
   if (!firebaseUser) return <div>Please log in.</div>;
 
-  // Handlers
   const handleEdit = () => {
     setEditProfile(profile);
     setImagePreview(profile.image);
@@ -97,67 +118,175 @@ const Profile = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
+    if (file && file.type.startsWith("image/")) {
       setImageFile(file);
       const reader = new FileReader();
       reader.onload = (evt) => {
         setImagePreview(evt.target.result);
+        setAvatarError(false);
       };
       reader.readAsDataURL(file);
+    } else {
+      setStatusMsg("Please select a valid image file.");
     }
   };
 
-  const handleSave = async () => {
-    setLoading(true);
-    let photoURL = profile.image;
+  const handleAvatarError = () => {
+    setAvatarError(true);
+  };
+
+const handleSave = async () => {
+  setLoading(true);
+
+  let photoURL = profile.image;
+
+  try {
     if (imageFile) {
-      try {
-        const storage = getStorage();
-        const storageRef = ref(
-          storage,
-          `profileImages/${firebaseUser.uid}/${imageFile.name}`
-        );
-        await uploadBytes(storageRef, imageFile);
-        photoURL = await getDownloadURL(storageRef);
-      } catch (err) {
-        alert("Failed to upload image. Try again.");
+      // Generate unique filename
+      const fileExt = imageFile.name.split('.').pop();
+      const fileName = `${firebaseUser.uid}_${Date.now()}.${fileExt}`;
+
+      // Upload to Supabase Storage
+      const { error: uploadError } = await supabase.storage
+        .from('profile-images')
+        .upload(fileName, imageFile, { cacheControl: '3600', upsert: true });
+
+      if (uploadError) {
+        setStatusMsg('Failed to upload image.');
         setLoading(false);
         return;
       }
+
+      // Get public URL for the uploaded image
+      const { data, error: urlError } = supabase.storage
+        .from('profile-images')
+        .getPublicUrl(fileName);
+
+      if (urlError) {
+        setStatusMsg('Failed to get image URL.');
+        setLoading(false);
+        return;
+      }
+
+      photoURL = data.publicUrl;
     }
-    try {
-      await updateProfile(firebaseUser, {
-        displayName: editProfile.name,
-        photoURL: photoURL,
-      });
-      setProfile({
-        ...editProfile,
-        image: photoURL,
-      });
-      setIsEditing(false);
-      setImageFile(null);
-    } catch (err) {
-      alert("Failed to update profile. Try again.");
-    }
+
+    // Update Firebase user profile with new photo URL and name
+    await updateProfile(firebaseUser, {
+      displayName: editProfile.name,
+      photoURL,
+    });
+
+    // Update local profile state
+    setProfile({ ...editProfile, image: photoURL });
+    setStatusMsg('Profile updated!');
+    setAvatarError(false);
+    setIsEditing(false);
+    setImageFile(null);
+  } catch (error) {
+    setStatusMsg('Failed to update profile.');
+    console.error('Profile update error:', error);
+  } finally {
     setLoading(false);
+  }
+};
+
+  const handleExpChange = (e) => {
+    setExpForm({ ...expForm, [e.target.name]: e.target.value });
   };
+
+  const handleExpSave = () => {
+    if (!expForm.role || !expForm.company || !expForm.years) {
+      setStatusMsg("All fields required!");
+      setTimeout(() => setStatusMsg(""), 2000);
+      return;
+    }
+    if (expEditingId !== null) {
+      setExperiences(
+        experiences.map((exp) =>
+          exp.id === expEditingId ? { ...exp, ...expForm } : exp
+        )
+      );
+      setExpEditingId(null);
+      setStatusMsg("Experience updated!");
+    } else {
+      setExperiences([
+        ...experiences,
+        {
+          id: Date.now(),
+          role: expForm.role,
+          company: expForm.company,
+          years: expForm.years,
+        },
+      ]);
+      setStatusMsg("Experience added!");
+    }
+    setExpForm({ role: "", company: "", years: "" });
+    setTimeout(() => setStatusMsg(""), 2300);
+  };
+
+  const handleExpEdit = (exp) => {
+    setExpEditingId(exp.id);
+    setExpForm({
+      role: exp.role,
+      company: exp.company,
+      years: exp.years,
+    });
+  };
+
+  const handleExpDelete = (id) => {
+    setExperiences(experiences.filter((exp) => exp.id !== id));
+    if (expEditingId === id) setExpEditingId(null);
+    setStatusMsg("Experience deleted.");
+    setTimeout(() => setStatusMsg(""), 1800);
+  };
+
+  const handleNotifClear = () => setNotifications([]);
+  const handleNotifDelete = (id) =>
+    setNotifications(notifications.filter((n) => n.id !== id));
+
+  const SettingsModal = ({ onClose }) => (
+    <div className={styles.settingsModal} role="dialog" aria-modal="true">
+      <div className={styles.settingsHeader}>
+        <Settings size={20} />
+        <span>Settings</span>
+        <button onClick={onClose}><X size={18} /></button>
+      </div>
+      <div className={styles.settingsBody}>
+        <ul>
+          <li>Password settings (Coming soon)</li>
+          <li>Account privacy</li>
+          <li>Notification preferences</li>
+        </ul>
+      </div>
+    </div>
+  );
 
   return (
     <div className={styles.pageBg}>
       <Navbar />
       <div className={styles.profileWrapper}>
         <div className={styles.gridContainer}>
-          {/* Left: Profile Card */}
+          {/* Profile Card */}
           <div className={styles.profileCard}>
             <div
-              className={`${styles.avatarWrapper} ${
-                isEditing ? styles.avatarEdit : ""
-              }`}
+              className={`${styles.avatarWrapper} ${isEditing ? styles.avatarEdit : ""}`}
               onClick={handleImageClick}
               title={isEditing ? "Click to change profile image" : ""}
               style={{ cursor: isEditing ? "pointer" : "default" }}
             >
-              <img src={imagePreview} alt="Profile" className={styles.avatar} />
+              {!avatarError ? (
+                <img
+                  src={imagePreview}
+                  alt="Profile"
+                  className={styles.avatar}
+                  onError={handleAvatarError}
+                />
+              ) : (
+                <span className={styles.avatarFallback}>
+                  {profile.name.split(" ").map((n) => n[0]).join("").toUpperCase()}
+                </span>
+              )}
               {isEditing && (
                 <>
                   <div className={styles.avatarOverlay}>
@@ -213,7 +342,8 @@ const Profile = () => {
                     onClick={handleSave}
                     disabled={loading}
                   >
-                    <Check size={18} /> {loading ? "Saving..." : "Save"}
+                    <Check size={18} />
+                    {loading ? "Saving..." : "Save"}
                   </button>
                   <button
                     className={styles.cancelBtn}
@@ -225,51 +355,156 @@ const Profile = () => {
                   </button>
                 </>
               ) : (
+                <>
+                  <button
+                    className={styles.editBtn}
+                    aria-label="Edit"
+                    onClick={handleEdit}
+                  >
+                    <Pencil size={18} /> Edit
+                  </button>
+                  <button
+                    className={styles.settingsBtn}
+                    aria-label="Settings"
+                    onClick={() => setShowSettings(true)}
+                  >
+                    <Settings size={18} />
+                  </button>
+                </>
+              )}
+            </div>
+            {statusMsg && <div className={styles.statusMessage}>{statusMsg}</div>}
+          </div>
+
+          {/* Experience */}
+          <div className={styles.expCard}>
+            <div className={styles.cardTitle}>Experience</div>
+            <ul className={styles.expList}>
+              {experiences.length === 0 ? (
+                <li style={{ color: "#d4ae56" }}>No experience added.</li>
+              ) : (
+                experiences.map((exp) => (
+                  <li key={exp.id} className={styles.expItem}>
+                    <span>
+                      <strong>{exp.role}</strong> @ {exp.company} — {exp.years} yrs
+                    </span>
+                    <button aria-label="Edit Experience" onClick={() => handleExpEdit(exp)}>
+                      <Pencil size={16} />
+                    </button>
+                    <button aria-label="Delete Experience" onClick={() => handleExpDelete(exp.id)}>
+                      <Trash2 size={16} />
+                    </button>
+                  </li>
+                ))
+              )}
+            </ul>
+            <div className={styles.expForm}>
+              <input
+                placeholder="Role"
+                name="role"
+                value={expForm.role}
+                onChange={handleExpChange}
+              />
+              <input
+                placeholder="Company"
+                name="company"
+                value={expForm.company}
+                onChange={handleExpChange}
+              />
+              <input
+                placeholder="Years"
+                type="number"
+                name="years"
+                value={expForm.years}
+                min="0"
+                onChange={handleExpChange}
+              />
+              <button
+                aria-label={expEditingId ? "Update Experience" : "Add Experience"}
+                onClick={handleExpSave}
+              >
+                {expEditingId ? <Check size={16} /> : <Plus size={16} />}
+              </button>
+              {expEditingId && (
                 <button
-                  className={styles.editBtn}
-                  aria-label="Edit"
-                  onClick={handleEdit}
+                  aria-label="Cancel Experience Edit"
+                  onClick={() => {
+                    setExpEditingId(null);
+                    setExpForm({ role: "", company: "", years: "" });
+                  }}
                 >
-                  <Pencil size={18} /> Edit
+                  <X size={16} />
                 </button>
               )}
             </div>
           </div>
-          {/* Top Middle Left: Empty Card */}
-          <div className={styles.emptyCard}></div>
-          {/* Experience */}
-          <div className={styles.expCard}>
-            <div className={styles.cardTitle}>Experience</div>
-          </div>
-          {/* Bottom Middle Left: Empty Card */}
-          <div className={styles.emptyCard}></div>
+
           {/* Market Statistics */}
           <div className={styles.marketCard}>
             <div className={styles.cardTitle}>Market Statistics</div>
+            <Bar
+              data={marketStatsMock}
+              options={{
+                responsive: true,
+                plugins: {
+                  legend: {
+                    display: true,
+                  },
+                  title: {
+                    display: true,
+                    text: 'Produce Sales (Tons)',
+                  },
+                },
+              }}
+              style={{ maxWidth: 300, background: "#fff" }}
+            />
           </div>
-          {/* Bottom Middle Right: Empty Card */}
-          <div className={styles.emptyCard}></div>
+
           {/* Notifications */}
           <div className={styles.notificationsPanel}>
             <div className={styles.notificationsHeader}>
               <Bell size={20} />
               <span>Notifications</span>
-              <Settings size={18} />
+              <button
+                className={styles.clearNotifBtn}
+                onClick={handleNotifClear}
+                disabled={notifications.length === 0}
+                aria-label="Clear Notifications"
+              >
+                Clear All
+              </button>
+              <Settings
+                size={18}
+                style={{ cursor: "pointer" }}
+                aria-label="Open Settings"
+                onClick={() => setShowSettings(true)}
+              />
             </div>
             <div className={styles.notificationsList}>
-              {notifications.map((notif, i) => (
-                <div className={styles.notificationItem} key={notif.id}>
-                  <div className={styles.notifDot}></div>
-                  <div>
-                    <div className={styles.notifType}>{notif.type}</div>
-                    <div className={styles.notifCaption}>{notif.caption}</div>
+              {notifications.length === 0 ? (
+                <div style={{ color: "#b7e7d1" }}>No notifications.</div>
+              ) : (
+                notifications.map((notif) => (
+                  <div className={styles.notificationItem} key={notif.id}>
+                    <div className={styles.notifDot}></div>
+                    <div>
+                      <div className={styles.notifType}>{notif.type}</div>
+                      <div className={styles.notifCaption}>{notif.caption}</div>
+                    </div>
+                    <button
+                      aria-label="Delete Notification"
+                      onClick={() => handleNotifDelete(notif.id)}
+                    >
+                      <Trash2 size={14} />
+                    </button>
                   </div>
-                </div>
-              ))}
+                ))
+              )}
             </div>
           </div>
         </div>
       </div>
+      {showSettings && <SettingsModal onClose={() => setShowSettings(false)} />}
       <Footer />
     </div>
   );

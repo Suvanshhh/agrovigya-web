@@ -80,7 +80,7 @@ const LoginPage = () => {
                             }}
                         >
                             <img
-                                src="https://postimg.cc/PvrkXxjV"
+                                src="https://i.ibb.co/bM1zHkzf/7123025-logo-google-g-icon.png"
                                 alt="Google"
                                 className={styles.googleIcon}
                             />

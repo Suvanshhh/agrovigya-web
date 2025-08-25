@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./CropRecommendation.module.css";
 import { useTranslation } from "react-i18next";
+import { getAuth } from "firebase/auth";
 
 const CropRecommendation = () => {
   const { t } = useTranslation();
@@ -12,26 +13,43 @@ const CropRecommendation = () => {
     Temperature: "",
     Humidity: "",
     pH: "",
-    Rainfall: ""
+    Rainfall: "",
   });
 
   const [result, setResult] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    setResult("");
+
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (!user) {
+      setResult("Please log in to use this feature.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch("https://croprecommendationagrovigya-production.up.railway.app/predict", {
+      const idToken = await user.getIdToken();
+
+      const response = await fetch(process.env.REACT_APP_PREDICT_API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${idToken}`,
+        },
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-
       if (data.error) {
         setResult(t("crop_recom.resultError", { error: data.error }));
       } else {
@@ -40,6 +58,8 @@ const CropRecommendation = () => {
     } catch (error) {
       console.error("Error:", error);
       setResult(t("crop_recom.resultFail"));
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -48,7 +68,9 @@ const CropRecommendation = () => {
       <form className={styles.form} onSubmit={handleSubmit}>
         {Object.keys(formData).map((key) => (
           <div className={styles.inputGroup} key={key}>
-            <label className={styles.label}>{t(`crop_recom.form.${key}`)}:</label>
+            <label className={styles.label}>
+              {t(`crop_recom.form.${key}`)}:
+            </label>
             <input
               type="number"
               name={key}
@@ -60,8 +82,8 @@ const CropRecommendation = () => {
             />
           </div>
         ))}
-        <button className={styles.button} type="submit">
-          {t("crop_recom.predictButton")}
+        <button className={styles.button} type="submit" disabled={isLoading}>
+          {isLoading ? "Predicting..." : t("crop_recom.predictButton")}
         </button>
       </form>
       {result && <h2 className={styles.result}>{result}</h2>}

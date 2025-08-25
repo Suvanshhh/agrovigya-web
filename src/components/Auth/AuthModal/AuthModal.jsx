@@ -246,7 +246,7 @@ const AuthModal = ({ onClose, onLogin }) => {
             disabled={loading}
           >
             <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" 
+              src="https://i.ibb.co/bM1zHkzf/7123025-logo-google-g-icon.png" 
               alt="Google logo" 
               className={styles["google-icon"]}
             />

@@ -1,5 +1,6 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, RecaptchaVerifier, signInWithPhoneNumber, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import app from "./firebaseConfig";
+import { createUserProfile, updateLastLogin } from "./db";
 
 const auth = getAuth(app);
 
@@ -7,7 +8,23 @@ export const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
         const result = await signInWithPopup(auth, provider);
-        return result.user;
+        const user = result.user;
+        
+        // Create user profile for Google sign-in if it doesn't exist
+        try {
+            await createUserProfile(user.uid, {
+                name: user.displayName || "",
+                email: user.email || "",
+                phone: "",
+                authProvider: "google",
+                photoURL: user.photoURL || ""
+            });
+        } catch (dbError) {
+            console.error("Error creating Google user profile:", dbError);
+            // Continue even if profile creation fails
+        }
+        
+        return user;
     } catch (error) {
         console.error("Google Login Error:", error);
         throw error;
