@@ -21,6 +21,10 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const profileDropdownRef = useRef(null);
 
+  const toggleProfileDropdown = () => {
+  setIsProfileDropdownOpen(prev => !prev);
+};
+
 
   useEffect(() => {
     const handleScroll = () => {

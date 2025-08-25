@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { signInWithGoogle, signUpWithEmail } from "../../firebase/auth";
-import { createUserProfile } from "../../firebase/db";
+// Firestore db import removed as per request
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Navbar from "../../components/Navbar/navbar";
@@ -50,15 +50,8 @@ const Signup = () => {
     setError("");
     try {
       const user = await signUpWithEmail(email, password);
-
-      // Save user profile data to Firestore
       if (user) {
-        await createUserProfile(user.uid, {
-          name: name.trim(),
-          phone: phone.trim(),
-          email: email.trim(),
-          authProvider: "email",
-        });
+        // Firestore profile creation removed (db)
         navigate("/dashboard");
       }
     } catch (error) {
