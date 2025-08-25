@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signInWithGoogle, loginWithEmail } from "../../firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/navbar";
-import Footer from "../../components/Footer/footer";
+
 import { useTranslation } from "react-i18next";
 import styles from "./LoginPage.module.css";
 
@@ -14,7 +14,7 @@ const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [activeTab] = useState("email");
     const navigate = useNavigate();
 
@@ -22,6 +22,13 @@ const LoginPage = () => {
         <div className={styles.pageWrapper}>
             <Navbar />
             <div className={styles.loginSplit}>
+                <div className={styles.rightPane}>
+                    <img
+                        src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
+                        alt={t("login.illustrationAlt")}
+                        className={styles.illustration}
+                    />
+                </div>
                 <div className={styles.leftPane}>
                     <div className={styles.loginCard}>
                         <h2 className={styles.loginTitle}>{t("login.title")}</h2>
@@ -80,7 +87,8 @@ const LoginPage = () => {
                             }}
                         >
                             <img
-                                src="https://i.ibb.co/bM1zHkzf/7123025-logo-google-g-icon.png"
+              src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+
                                 alt="Google"
                                 className={styles.googleIcon}
                             />
@@ -94,15 +102,8 @@ const LoginPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.rightPane}>
-                    <img
-                        src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
-                        alt={t("login.illustrationAlt")}
-                        className={styles.illustration}
-                    />
-                </div>
             </div>
-            <Footer />
+            
         </div>
     );
 };

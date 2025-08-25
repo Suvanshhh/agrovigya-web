@@ -4,7 +4,7 @@ import { createUserProfile } from "../../firebase/db";
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Navbar from "../../components/Navbar/navbar";
-import Footer from "../../components/Footer/footer";
+
 import styles from "./SignupPage.module.css";
 
 const Signup = () => {
@@ -50,14 +50,14 @@ const Signup = () => {
     setError("");
     try {
       const user = await signUpWithEmail(email, password);
-      
+
       // Save user profile data to Firestore
       if (user) {
         await createUserProfile(user.uid, {
           name: name.trim(),
           phone: phone.trim(),
           email: email.trim(),
-          authProvider: "email"
+          authProvider: "email",
         });
         navigate("/dashboard");
       }
@@ -73,6 +73,13 @@ const Signup = () => {
       <Navbar />
       <div className={styles.signupWrapper}>
         <div className={styles.signupSplit}>
+          <div className={styles.rightPane}>
+            <img
+              src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
+              alt={t("signup.illustrationAlt")}
+              className={styles.illustration}
+            />
+          </div>
           <form className={styles.signupCard} onSubmit={handleEmailSignup}>
             <h2 className={styles.signupTitle}>{t("signup.title")}</h2>
             <div className={styles.inputRow}>
@@ -165,7 +172,7 @@ const Signup = () => {
               disabled={loading}
             >
               <img
-                src="https://i.ibb.co/bM1zHkzf/7123025-logo-google-g-icon.png"
+                src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
                 alt="Google"
                 className={styles.googleIcon}
               />
@@ -178,16 +185,8 @@ const Signup = () => {
               </Link>
             </div>
           </form>
-          <div className={styles.rightPane}>
-            <img
-              src="https://i.postimg.cc/9MgBBgNs/log-in-signup.png"
-              alt={t("signup.illustrationAlt")}
-              className={styles.illustration}
-            />
-          </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

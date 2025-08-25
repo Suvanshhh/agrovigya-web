@@ -8,6 +8,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [userProfile, setUserProfile] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -37,6 +38,7 @@ export const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
 
+    return <AuthContext.Provider value={{ user, loading }}>{children}</AuthContext.Provider>;
     return (
         <AuthContext.Provider value={{ 
             user, 
